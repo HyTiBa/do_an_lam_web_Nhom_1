@@ -4,9 +4,9 @@ import { assets } from "../../assets/assets";
 const LoginPopup = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Sign Up");
   return (
-    <div className="login-popup">
-      <form action="" className="login-popup-container">
-        <div className="login-popup-title">
+    <div class="login-popup">
+      <form action="" class="login-popup-container">
+        <div class="login-popup-title">
           <h2>{currState}</h2>
           <img
             onClick={() => {
@@ -16,7 +16,7 @@ const LoginPopup = ({ setShowLogin }) => {
             alt=""
           />
         </div>
-        <div className="login-popup-input">
+        <div class="login-popup-input">
           {currState === "Login" ? (
             <></>
           ) : (
@@ -27,7 +27,7 @@ const LoginPopup = ({ setShowLogin }) => {
           <button>
             {currState === "Sign Up" ? "Create Account" : "Login"}
           </button>
-          <div className="login-popup-condition">
+          <div class="login-popup-condition">
             <input type="checkbox" required />
             <p>By Continuing, I agree to the terms of use & privacy policy</p>
           </div>

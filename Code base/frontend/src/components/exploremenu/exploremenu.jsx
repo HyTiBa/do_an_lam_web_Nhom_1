@@ -4,10 +4,10 @@ import { menu_list } from "../../assets/assets";
 const Exploremenu = ({ category, setCategory }) => {
     
   return (
-    <div className="explore-menu" id="explore-menu">
+    <div class="explore-menu" id="explore-menu">
       <h1>Explore our menu</h1>
-      <p className="explore-menu-text">Choose from our diverse menu</p>
-      <div className="explore-menu-list">
+      <p class="explore-menu-text">Choose from our diverse menu</p>
+      <div class="explore-menu-list">
         {menu_list.map((item, index) => {
           return (
             <div
@@ -17,10 +17,10 @@ const Exploremenu = ({ category, setCategory }) => {
                 );
               }}
               key={index}
-              className="explore-menu-list-item"
+              class="explore-menu-list-item"
             >
               <img
-                className={category === item.menu_name ? "active" : ""}
+                class={category === item.menu_name ? "active" : ""}
                 src={item.menu_image}
                 alt=""
               />
