@@ -8,61 +8,185 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <div class='navbar' id="navbar">
-      
-      <img src='./images/logo.png' class='logo' alt="" />
+
+
+    <div class="navbar" id="navbar">
+      <img src="./images/logo.png" class="logo" alt="" />
+
       <ul class="navbar-menu">
-        <a >Trang chủ</a>
-        <a href='#explore-menu'>Thực đơn</a>
-        <a href='#footer' >Liên hệ</a>
+        <a>Trang chủ</a>
+        <a href="#explore-menu">Thực đơn</a>
+        <a href="#footer">Liên hệ</a>
       </ul>
 
       <div class="navbar-right">
-        <img src='./images/search.png' class='icon' alt="" />
+        <img src="./images/search.png" class="icon" alt="" />
         <div class="cart-icon">
-            <img src='./images/shopping-cart.png' class='icon' alt="" />            
-            
-            <div class="dot"></div>
+          <img src="./images/shopping-cart.png" class="icon" alt="" />
+          <div class="dot"></div>
         </div>
-        <button>sign in</button>
+        <button>đăng ký</button>
       </div>
     </div>
-    <div class='header'>
+
+
+    <div class="header">
       <div class="header-contents">
         <h2>Order your favourite food here</h2>
         <p>choose from a diverse menu</p>
         <button>Xem thực đơn</button>
       </div>
     </div>
-    <div class="footer" id="footer">
-      <div class="footer-content">
-          <div class="footer-content-left">
-              <img src='./images/logo.png' alt="" />
-              <p>Enim culpa et sint irure eiusmod elit culpa elit id velit cupidatat. Nulla officia enim non precat velit. Ullamco commodo ea velit nostrud laboris minim magna enim sint anim aute.</p>
-              <div class="footer-social-icons">
-                  <img src='' alt="" /><img src="" alt="" /><img src="" alt="" />
-              </div>
-          </div>
-          <div class="footer-content-center">
-              <h2>Company</h2>
-              <ul>
-                  <li>Home</li>
-                  <li>About Us</li>
-                  <li>Menu</li>
-                  <li>Privacy Policy</li>
-              </ul>
-          </div>
-          <div class="footer-content-right">
-              <h2>Get in Touch</h2>
-              <ul>
-                  <li>+84-234-236-9457</li>
-                  <li>contact@tomato.com</li>
-              </ul>
-          </div>
+
+
+    <div class="explore-menu" id="explore-menu">
+      <h1>Explore our menu</h1>
+      <p class="explore-menu-text">Choose from our diverse menu</p>
+      <div class="explore-menu-list">
+        <div class="explore-menu-list-item">
+          <img src="./images/bun.jpg" class="active" />
+          <p>Bún</p>
+        </div>
+        <div class="explore-menu-list-item">
+          <img src="./images/lau.jpg" />
+          <p>Bún</p>
+        </div>
+        <div class="explore-menu-list-item">
+          <img src="./images/hai san.jpg" />
+          <p>Bún</p>
+        </div>
+        <div class="explore-menu-list-item">
+          <img src="./images/com chien.jpg" />
+          <p>Bún</p>
+        </div>
+        <div class="explore-menu-list-item">
+          <img src="./images/banh mi.jpg" />
+          <p>Bún</p>
+        </div>
+        <div class="explore-menu-list-item">
+          <img src="./images/trang mieng.jpg" />
+          <p>Bún</p>
+        </div>
       </div>
       <hr />
-      <p class="footer-copyright">Copyright 2024  Eatout.com - All Right Reserved.</p>
+    </div>
+
+
+    <div class='food-display' id='food-display'>
+      <h2>Top dishes near you</h2>
+      <div class="food-display-list">
+        
+        <div class="food-item">
+          <div class="food-item-img-container">
+            <img src='./images/com chien duong chau.jpg' class="food-item-img"/>
+              <div class="counter">
+                <img
+                  class="icon"
+                  src="./images/plus icon.png"
+                />
+              </div>
+          </div>
+          <div class="food-item-info">
+            <div class="food-item-name-rating">
+              <p>Cơm chiên dương châu</p>
+              <img src='./images/1-star.png' alt="" />
+            </div>
+            <p class="food-item-description">description</p>
+            <p class="food-item-price">35000đ</p>
+          </div>
         </div>
+    
+        <div class="food-item">
+          <div class="food-item-img-container">
+            <img src='./images/bun bo.jpg' class="food-item-img" />
+              <div class="counter">
+                <img
+                  class="icon"
+                  src="./images/plus icon.png"
+                />
+              </div>
+          </div>
+          <div class="food-item-info">
+            <div class="food-item-name-rating">
+              <p>Bún bò</p>
+              <img src='./images/2-5-star.png' alt="" />
+            </div>
+            <p class="food-item-description">description</p>
+            <p class="food-item-price">35000đ</p>
+          </div>
+        </div>
+    
+        <div class="food-item">
+          <div class="food-item-img-container">
+            <img src='./images/lau ga.webp' class="food-item-img" alt="" />
+
+              <div class="counter">
+                <img
+                  class="icon subtract"
+                  src="./images/red minus icon.png"
+                />
+                <p>4</p>
+                <img
+                  class="icon add"
+                  src="./images/green plus icon.png"
+                  alt=""
+                />
+              </div>
+            
+          </div>
+          <div class="food-item-info">
+            <div class="food-item-name-rating">
+              <p>lẩu gà</p>
+              <img src='./images/4-5-star.png' alt="" />
+            </div>
+            <p class="food-item-description">description</p>
+            <p class="food-item-price">35000đ</p>
+          </div>
+        </div>
+    
+
+      </div>
+    </div>
+
+
+    <div class="footer" id="footer">
+      <div class="footer-content">
+
+        <div class="footer-content-left">
+          <img src="./images/logo.png" alt="" />
+          <p>
+            Enim culpa et sint irure eiusmod elit culpa elit id velit cupidatat.
+            Nulla officia enim non precat velit. Ullamco commodo ea velit
+            nostrud laboris minim magna enim sint anim aute.
+          </p>
+          <div class="footer-social-icons">
+            <img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
+          </div>
+        </div>
+
+        <div class="footer-content-center">
+          <h2>Company</h2>
+          <ul>
+            <li>Trang chủ</li>
+            <li>Liên hệ</li>
+            <li>Thực đơn</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+
+        <div class="footer-content-right">
+          <h2>Get in Touch</h2>
+          <ul>
+            <li>+84-234-236-9457</li>
+            <li>contact@tomato.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <p class="footer-copyright">
+        Copyright 2024 Eatout.com - All Right Reserved.
+      </p>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
