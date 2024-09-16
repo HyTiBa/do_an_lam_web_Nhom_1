@@ -61,27 +61,21 @@ menu_links.forEach((link) =>
 );
 
 explore_menu_list_items.forEach((item) => {
-  const item_image = item.firstElementChild
-  const item_p = item.lastElementChild
-  item_image.addEventListener('click',()=>
-    {
-      explore_menu_list_items_image.forEach((image) =>
-        image.classList.remove("active")
-      );
-      item_image.classList.add("active");
-      
-    }
-  )
-  item_p.addEventListener('click',()=>
-    {
-      explore_menu_list_items_image.forEach((image) =>
-        image.classList.remove("active")
-      );
-      item_image.classList.add("active");
-    }
-  )
-  explore_menu_category = item_p.innerHTML
-  
+  const item_image = item.firstElementChild;
+  const item_p = item.lastElementChild;
+  item_image.addEventListener("click", () => {
+    explore_menu_list_items_image.forEach((image) =>
+      image.classList.remove("active")
+    );
+    item_image.classList.add("active");
+  });
+  item_p.addEventListener("click", () => {
+    explore_menu_list_items_image.forEach((image) =>
+      image.classList.remove("active")
+    );
+    item_image.classList.add("active");
+  });
+  explore_menu_category = item_p.innerHTML;
 });
 
-
+F;
