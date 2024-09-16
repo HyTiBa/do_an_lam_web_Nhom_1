@@ -1,7 +1,8 @@
 const menu_links = document.querySelectorAll(".navbar-menu a");
 const explore_menu_list = document.querySelector(".explore-menu-list");
 let explore_menu_category = "all";
-export const menu_list = [
+
+const menu_list = [
   {
     menu_name: "Cơm chiên",
     menu_image: "./images/com chien.jpg",
@@ -44,15 +45,6 @@ const explore_menu_list_items = document.querySelectorAll(
   ".explore-menu-list-item"
 );
 
-explore_menu_list_items_image.forEach((image) =>
-  image.addEventListener("click", () => {
-    explore_menu_list_items_image.forEach((image) =>
-      image.classList.remove("active")
-    );
-    image.classList.add("active");
-  })
-);
-
 menu_links.forEach((link) =>
   link.addEventListener("click", () => {
     menu_links.forEach((link) => link.classList.remove("active"));
@@ -61,21 +53,36 @@ menu_links.forEach((link) =>
 );
 
 explore_menu_list_items.forEach((item) => {
-  const item_image = item.firstElementChild;
-  const item_p = item.lastElementChild;
-  item_image.addEventListener("click", () => {
-    explore_menu_list_items_image.forEach((image) =>
-      image.classList.remove("active")
-    );
-    item_image.classList.add("active");
-  });
-  item_p.addEventListener("click", () => {
-    explore_menu_list_items_image.forEach((image) =>
-      image.classList.remove("active")
-    );
-    item_image.classList.add("active");
-  });
-  explore_menu_category = item_p.innerHTML;
-});
+  const item_image = item.querySelector("img");
+  const item_p = item.querySelector("p");
 
-F;
+  item_image.addEventListener("click", () => {
+    if (explore_menu_category != item_p.innerHTML) {
+      explore_menu_list_items_image.forEach((image) =>
+        image.classList.remove("active")
+      );
+      item_image.classList.add("active");
+      explore_menu_category = item_p.innerHTML;
+    } else {
+      explore_menu_list_items_image.forEach((image) =>
+        image.classList.remove("active")
+      );
+      explore_menu_category = "all";
+    }
+  });
+
+  item_p.addEventListener("click", () => {
+    if (explore_menu_category != item_p.innerHTML) {
+      explore_menu_list_items_image.forEach((image) =>
+        image.classList.remove("active")
+      );
+      item_image.classList.add("active");
+      explore_menu_category = item_p.innerHTML;
+    } else {
+      explore_menu_list_items_image.forEach((image) =>
+        image.classList.remove("active")
+      );
+      explore_menu_category = "all";
+    }
+  });
+});
