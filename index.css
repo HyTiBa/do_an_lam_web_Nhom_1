@@ -472,9 +472,9 @@ gap: 8px;
     align-items: center;
     height: 100%;
 }
-.admin-navbar-item:last-child {
+/* .admin-navbar-item:last-child {
     margin-top: auto;
-}
+} */
 .admin-navbar-link {
     display: flex;
     align-items: center;
