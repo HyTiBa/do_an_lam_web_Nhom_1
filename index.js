@@ -192,3 +192,29 @@ function remove_from_cart(id) {
 
   load_food_items_display();
 }
+
+document.querySelector(".login-btn").addEventListener("click",() => {
+  document.querySelector(".popup-box").style.display = "flex";
+})
+
+document.querySelector(".login-txt").addEventListener("click",() => {
+  document.querySelector(".signup-form").style.display = "none";
+  document.querySelector(".login-form").style.display = "flex";
+})
+
+document.querySelector(".signup-txt").addEventListener("click",() => {
+  document.querySelector(".login-form").style.display = "none";
+  document.querySelector(".signup-form").style.display = "flex";
+})
+
+document.querySelector(".close-form").addEventListener("click",() => {
+  document.querySelector(".signup-form").style.display = "flex";
+  document.querySelector(".login-form").style.display = "none";
+  document.querySelector(".popup-box").style.display = "none"
+})
+
+const user = {
+  email: '',
+  userName:'',
+  password:''
+}

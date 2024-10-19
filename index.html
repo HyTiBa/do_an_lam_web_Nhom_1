@@ -8,11 +8,51 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-
+    <div class="popup-box">
+      <div class="signup-form">
+        <img src="./images/cross.png" class="close-form">
+        <form class="form-container">
+            <h1 align="center" style="color: crimson;">ĐĂNG KÝ</h1>
+            <label class="form-label" for="email">Email: </label>
+            <input class="form-input" type="text" placeholder="Enter your email" name="email" required>
+            <br>
+            <label class="form-label" for="fname">Tên: </label>
+            <input class="form-input" type="text" placeholder="Enter your name" name="fname" required>
+            <br>
+            <label class="form-label" for="pws">Mật khẩu: </label>
+            <input class="form-input" type="password" placeholder="Enter your password" name="password" required>
+            <br>
+            <label class="form-label" for="pws">Nhập lại mật khẩu: </label>
+            <input class="form-input" type="password" placeholder="Reenter your password above" name="confirm_password" required>
+            <br>
+            <button class="btn-submit" type="submit">Đăng Ký</button>
+            <br>
+            <p>Đã có tài khoản? <u style="color: blue; cursor: pointer;" class="login-txt">Nhấn đây</u></p>
+        </form>
+      </div>
+      <div class="login-form">
+        <img src="./images/cross.png" class="close-form" onclick="
+          document.querySelector('.signup-form').style.display = 'flex';
+          document.querySelector('.login-form').style.display = 'none';
+          document.querySelector('.popup-box').style.display = 'none'
+          ">
+        <form class="form-container">
+          <h1 align="center" style="color: crimson;">ĐĂNG NHẬP</h1>
+          <label class="form-label" for="email">Email: </label>
+          <input class="form-input" type="text" placeholder="Enter your email" name="email" required>
+          <br>
+          <label class="form-label" for="pws">Mật khẩu: </label>
+          <input class="form-input" type="password" placeholder="Enter your password" name="password" required>
+          <br>
+          <button class="btn-submit" type="submit">Đăng Nhập</button>
+          <br>
+          <p>Chưa có tài khoản? <u style="color: blue; cursor: pointer;" class="signup-txt">Nhấn đây</u></p>
+        </form>
+      </div>
+    </div>
 <main>
-  <nav class="navbar" id="navbar">
+  <header class="navbar" id="navbar">
     <img src="./images/logo.png" class="logo" alt="" />
-
     <ul class="navbar-menu">
       <a>Trang chủ</a>
       <a href="#explore-menu">Thực đơn</a>
@@ -25,10 +65,9 @@
         <img src="./images/shopping-cart.png" class="icon" alt="" />
         <div class="dot"></div>
       </div>
-      <button>Đăng ký</button>
-      <button>Đăng nhập</button>
+      <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
     </div>
-  </nav>
+  </header>
   <div  class="header">
     <div class="header-contents">
       <h2>Order your favourite food here</h2>
@@ -36,6 +75,9 @@
       <button>Xem thực đơn</button>
     </div>
   </div>
+
+
+
   <div class="explore-menu" id="explore-menu">
     <h1>Explore our menu</h1>
     <p class="explore-menu-text">Choose from our diverse menu</p>
