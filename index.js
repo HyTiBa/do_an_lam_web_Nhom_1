@@ -192,38 +192,3 @@ function remove_from_cart(id) {
 
   load_food_items_display();
 }
-let cart = [];
-
-function addToCart(itemName, itemPrice) {
-    cart.push({ name: itemName, price: itemPrice });
-    updateCart();
-}
-
-function updateCart() {
-    const cartItemsContainer = document.getElementById("cart-items");
-    const totalPriceContainer = document.getElementById("total-price");
-
-    cartItemsContainer.innerHTML = "";
-    let totalPrice = 0;
-
-    cart.forEach((item, index) => {
-        const itemElement = document.createElement("li");
-        itemElement.textContent = `${item.name} - ${item.price.toLocaleString()} VND`;
-        
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "Xóa";
-        removeButton.onclick = () => removeFromCart(index);
-        
-        itemElement.appendChild(removeButton);
-        cartItemsContainer.appendChild(itemElement);
-        
-        totalPrice += item.price;
-    });
-
-    totalPriceContainer.textContent = `Tổng tiền: ${totalPrice.toLocaleString()} VND`;
-}
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
