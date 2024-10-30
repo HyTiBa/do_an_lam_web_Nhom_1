@@ -1,3 +1,81 @@
+/*===============================    Nam    ======================*/
+ul.product_list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style-type: none;
+}
+
+ul.product_list li{
+    flex-basis: 33.33%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+ul.product_list li img{
+    max-width: 100%;
+    height: auto;
+}
+
+.product_item {
+    background-color: #f0f0f0; /* Màu nền để dễ nhìn hơn */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product_item:hover {
+    transform: translateY(-5px); /* Di chuyển lên một chút */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
+}
+
+/* Màn hình vừa (dưới 768px) - 2 sản phẩm mỗi hàng */
+@media (max-width: 768px) {
+    ul.product_list li {
+        flex-basis: 50%; /* 2 sản phẩm mỗi hàng */
+    }
+}
+
+/* Màn hình nhỏ (dưới 480px) - 1 sản phẩm mỗi hàng */
+@media (max-width: 550px) {
+    ul.product_list li {
+        flex-basis: 100%; /* 1 sản phẩm mỗi hàng */
+    }
+}
+
+
+.product_info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    text-align: center;
+    justify-content: center;
+}
+
+.product_info h3{
+    color: tomato;
+}
+
+.product_info i{
+    margin-bottom: 6px;
+}
+
+.container_addToCart{
+    width: 100%;
+}
+.container_addToCart button{
+    width: 100%;
+    height: 24px;
+    background-color: tomato;
+    border: #f0f0f0;
+    border-radius: 4px;
+}
+
+.product_top img{
+    border-radius: 4px;
+}
+/*=====================================================================*/
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 :root{
   --main:#E64A27;
