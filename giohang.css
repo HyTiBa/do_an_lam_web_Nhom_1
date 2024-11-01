@@ -1,93 +1,82 @@
-/* index.css */
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+}
+
+.cart-sidebar {
+    position: fixed;
+    left: -500px;
+    top: 0;
+    width: 500px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+.cart-sidebar.open {
+    left: 0;
+}
+#cart-items {
+    max-height: 300px;
+    overflow-y: auto; 
+    padding: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+    padding-right: 10px; 
+}
+
+
+#cart-items li {
+    margin-bottom: 10px;
+}
+.delete-item {
+    background: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+.cart-sidebar.active {
+    right: 0;
 }
 
 .cart-button {
     position: fixed;
     top: 20px;
-    right: 20px;
-    background-color: #ff6347;
-    border: none;
-    border-radius: 50%;
     width: 50px;
     height: 50px;
+    right: 350px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cart-button .icon {
-    width: 24px;
-    height: 24px;
-}
-
-.cart-sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100vh;
-    background-color: #ffffff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
     z-index: 1000;
 }
 
-.cart-sidebar.active {
-    transform: translateX(0);
-}
-
-#cart-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
 .item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
-.item img {
-    width: 60px;
-    height: 60px;
+    background-color: #f8f9fa;
+    padding: 15px;
     border-radius: 8px;
-    margin-right: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
-
-.item h2 {
-    font-size: 16px;
-    margin: 0;
-    color: #333;
-}
-
-.item p {
-    margin: 5px 0;
-    color: #888;
+button {
+    padding: 8px 16px;
     font-size: 14px;
-}
-
-.item button {
-    background-color: #28a745;
+    background-color: #17b417;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
 }
 
-.item button:hover {
-    background-color: #218838;
+button:hover {
+    background-color: #e0e9e0;
 }
