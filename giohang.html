@@ -1,119 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ Hàng Đồ Ăn</title>
-    <link rel="stylesheet" href="giohang.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="giohang.css">
+</head>
+<body>
+
     <button class="cart-button" onclick="toggleCart()">
-      <img src="./images/shopping-cart.png" class="icon" alt="Cart" />
+        <img src="./images/shopping-cart.png" class="icon" alt="Cart">
     </button>
-    <div class="cart-sidebar" id="cart-sidebar">
-      <ul id="cart-items">
+    <div  class="cart-sidebar" id="cart-sidebar">
+    <ul id="cart-items">
         <div class="item">
+            
           <h2>Bánh mì</h2>
-          <img
-            src="./images/banh mi.jpg"
-            alt="ảnh sản phẩm"
-            id="img"
-            width="30%"
-            height="auto"
-          />
-          <p>Giá : 15.000 VND</p>
-          <button type="button" onclick="addToCart(' Bánh mì', 15000)">
-            Thêm vào giỏ
-          </button>
-        </div>
+              <img src="./images/banh mi.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
+              <p>Giá : 15.000 VND</p>
+               <button type="button" onclick="addToCart(' Bánh mì', 15000)">Thêm vào giỏ</button>
+              </div>
 
-        <div class="item">
-          <h2>Bún Bò</h2>
-          <img
-            src="./images/bun bo.jpg"
-            alt="ảnh sản phẩm"
-            id="img"
-            width="30%"
-            height="auto"
-          />
-          <p>Giá: 50.000 VND</p>
-          <button type="button" onclick="addToCart('bún bò', 50000)">
-            Thêm vào giỏ
-          </button>
-        </div>
+              <div class="item">
+         <h2>Bún Bò</h2>
+              <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
+              <p>Giá: 50.000 VND</p>
+              <button type="button" onclick="addToCart('bún bò', 50000)">Thêm vào giỏ</button>
+            </div>
 
-        <div class="item">
-          <h2>Cơm Chiên Dương Châu</h2>
-          <img
-            src="./images/com chien duong chau.jpg"
-            alt="ảnh sản phẩm"
-            id="img"
-            width="30%"
-            height="auto"
-          />
-          <p>Giá: 40.000 VND</p>
-          <button
-            type="button"
-            onclick="addToCart('Cơm chiên dương châu', 40000)"
-          >
-            Thêm vào giỏ
-          </button>
-        </div>
 
-        <div class="item">
-          <h2>Hải sản</h2>
-          <img
-            src="./images/hai san.jpg"
-            alt="ảnh sản phẩm"
-            id="img"
-            width="30%"
-            height="auto"
-          />
-          <p>Giá: 99.000 VND</p>
-          <button type="button" onclick="addToCart('Hải sản', 99000)">
-            Thêm vào giỏ
-          </button>
-        </div>
+              <div class="item">
+         <h2>Cơm Chiên Dương Châu</h2>
+                  <img src="./images/com chien duong chau.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
+                  <p>Giá: 40.000 VND</p>
+                  <button type="button" onclick="addToCart('Cơm chiên dương châu', 40000)">Thêm vào giỏ</button>
+                </div>
 
-        <div class="item">
+                <div class="item">
+          <h2>Hải sản </h2>
+                  <img src="./images/hai san.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
+                  <p>Giá: 99.000 VND</p>
+                  <button type="button" onclick="addToCart('Hải sản', 99000)">Thêm vào giỏ</button>
+                </div>
+
+                <div class="item">
           <h2>Lẩu gà</h2>
-          <img
-            src="./images/lau ga.webp"
-            alt="ảnh sản phẩm"
-            id="img"
-            width="30%"
-            height="auto"
-          />
-          <p>Giá: 138.000 VND</p>
-          <button type="button" onclick="addToCart('Lẩu gà', 138000)">
-            Thêm vào giỏ
-          </button>
-        </div>
-
-        <div class="item">
+                <img src="./images/lau ga.webp" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
+                <p>Giá: 138.000 VND</p>
+                <button type="button" onclick="addToCart('Lẩu gà', 138000)">Thêm vào giỏ</button>
+              </div>
+            
+              <div class="item">
           <h2>Tráng Miệng</h2>
-          <img
-            src="./images/trang mieng.jpg"
-            alt="ảnh sản phẩm"
-            id="img"
-            width="30%"
-            height="auto"
-          />
-          <p>Giá: 60.000 VND</p>
-          <button type="button" onclick="addToCart('Tráng miệng', 40000)">
-            Thêm vào giỏ
-          </button>
-        </div>
-      </ul>
-      <div>
-        <h2>Giỏ hàng của bạn</h2>
-        <ul id="cart-items"></ul>
-        <p id="total-price">Tổng tiền: 0 VND</p>
-      </div>
-      <div>
-        <button onclick="toggleCart()" class="close-cart">Đóng</button>
-      </div>
-    </div>
-    <script src="giohang.js"></script>
-  </body>
+              <img src="./images/trang mieng.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
+              <p>Giá: 60.000 VND</p>
+              <button type="button" onclick="addToCart('Tráng miệng', 40000)">Thêm vào giỏ</button>
+          </div>
+          </ul>
+              <div>
+                   <h2>Giỏ hàng của bạn</h2>
+                   <ul id="cart-items"></ul>
+                   <p id="total-price">Tổng tiền: 0 VND</p>
+              </div>
+              <div>
+                <button onclick="toggleCart()" class="close-cart">Đóng</button>
+             
+              </div>
+            </div>
+            <script src="giohang.js"></script>
+</body>
 </html>
