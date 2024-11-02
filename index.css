@@ -653,3 +653,13 @@ main{
 }
 
 /* ADMIN SIDEBAR NAVIGATION --->>> */
+
+.food-item button{
+    width: 100%;
+    background-color: tomato;
+    border: 0;
+    padding: 0.2rem;
+}
+.food-item i{
+    color: white;
+}

@@ -44,12 +44,13 @@ export function foodListDisplay() {
               <div class="food-item-info">
                 <div class="food-item-name-rating">
                   <p>${food.name}</p>
-                  <img src='./images/1-star.png' alt="" />
                 </div>
-                <p class="food-item-description">${food.description}</p>
-                <p class="food-item-price">${food.price}đ</p>
-              </div>
-            </div>
+                <p class="food-item-price">Giá ${food.price}đ</p>
+                <button>
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                </div>
+        </div>
         `
         : "";
   });
