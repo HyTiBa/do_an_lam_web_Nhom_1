@@ -3,6 +3,11 @@ const pages = document.querySelectorAll(".page")
 
 
 export function pageDisplay(pageToDisplay){
-console.log("hello");
+    pages.forEach(page => console.log(page.attributes.page.value)
+
+    )
+}
+
+function removeAllPages(){
 
 }
