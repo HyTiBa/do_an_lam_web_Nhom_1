@@ -2,7 +2,7 @@ const pageButtonLinks = document.querySelectorAll(".admin-navbar-nav a")
 const pages = document.querySelectorAll(".page")
 let pageToDisplay
 pages.forEach(page => {
-    if(page.attributes.page.value == "home"){
+    if(page.attributes.page.value == "user"){
         pageToDisplay = page
         
     }
