@@ -1,20 +1,20 @@
-const pageButtonLinks = document.querySelectorAll(".admin-navbar-nav a")
 const pages = document.querySelectorAll(".page")
-let pageToDisplay
-pages.forEach(page => {
-    if(page.attributes.page.value == "user"){
-        pageToDisplay = page
-        
-    }
-})
 
 export function pageDisplay(){
+    const pageButtonLinks = document.querySelectorAll(".admin-navbar-nav a")
+    let pageToDisplay
+    pages.forEach(page => {
+        if(page.attributes.page.value == "user"){
+            pageToDisplay = page
+            
+        }
+    })
+    
     removeAllPages()
     displayChoosenPage(pageToDisplay)
     
-    pageButtonLinks.forEach(link => 
-        link.addEventListener("click", () => displayChoosenPage(link)
-        )
+    pageButtonLinks.forEach(link => link.addEventListener("click", () => displayChoosenPage(link)
+    )
     )
 }
 
@@ -26,9 +26,9 @@ function removeAllPages(){
 
 function displayChoosenPage(pageLink){
 
-    removeAllPages()
     pages.forEach(page => {
         if(getPageValue(page) == getPageValue(pageLink)){
+            removeAllPages()
             page.style.display = "block"
     }})
 }
