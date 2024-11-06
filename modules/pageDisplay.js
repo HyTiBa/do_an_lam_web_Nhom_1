@@ -4,7 +4,7 @@ export function pageDisplay(){
     const pageButtonLinks = document.querySelectorAll(".admin-navbar-nav a")
     let pageToDisplay
     pages.forEach(page => {
-        if(page.attributes.page.value == "product"){
+        if(page.attributes.page.value == "shipping"){
             pageToDisplay = page
             
         }

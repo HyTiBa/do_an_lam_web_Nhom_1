@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./adminDashboard.css" />
     <link rel="stylesheet" href="./adminUserManagement.css" />
     <link rel="stylesheet" href="./adminProductManagement.css" />
+    <link rel="stylesheet" href="./adminOrderManager.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -102,7 +103,7 @@
         <div>
           <div class="adminUserSearch">
             <div class="search-box">
-              <input type="text" placeholder="Search..." />
+              <input type="text" placeholder="Tìm người dùng..." />
               <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                   <path
@@ -168,7 +169,7 @@
         <div>
           <div class="adminProductSearch">
             <div class="search-box">
-              <input type="text" placeholder="Search..." />
+              <input type="text" placeholder="Tìm sản phẩm..." />
               <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                   <path
@@ -225,7 +226,49 @@
       </div>
     </main>
 
-    <main class="page" page="shipping">shipping</main>
+    <main class="page adminOrderPage" page="shipping">
+      <h1>Những đơn hàng</h1>
+      <div class="adminOrderBoard">
+        <div class="section">
+          <h2>Mã</h2>
+          <h2>Người mua</h2>
+          <h2>Đơn hàng</h2>
+          <h2>Trạng thái</h2>
+          <h2>thêm</h2>
+        </div>
+        <div class="section">
+          <div>
+            85436
+          </div>
+          <div class="user">
+            <img
+              src="https://imgs.search.brave.com/azUd2Mn9JYyErMUp2jYjrr5xvnkaDf_0IawvDYdwP-g/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzc2LzI3LzUz/LzM2MF9GXzc2Mjc1/Mzg0X21STnJtQUk4/OVVQV29XZVVKZkNM/OUNwdFJ4ZzNjRW9G/LmpwZw"
+              alt=""
+            />
+            <div>
+              <p class="name">Bao Huynh</p>
+              <p class="email">captianbao@gmail.com</p>
+            </div>
+          </div>
+          <div class="foods">
+            <img src="https://imgs.search.brave.com/z31HSgMLsIdyAaEtHo_wHtpesiPxCRvGEvDRup_7Nuc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZWRpZ2l0YWxw/aG90b3MubmV0L2lt/YWdlcy9jYXRlZ29y/eS1pbWFnZXMvMTM0/LmpwZw" alt="">
+          </div>
+          <div class="status">
+            <p class="processing">Đang xử lý</p>
+            <p class="cooking">đang nấu</p>
+            <p class="delivering">đang giao hàng</p>
+          </div>
+          <div class="more">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+            <div class="options">
+              <p>Chi tiết</p>
+              <p>Chỉnh sửa</p>
+              <p>Xóa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <nav class="admin-navbar">
       <ul class="admin-navbar-nav">
