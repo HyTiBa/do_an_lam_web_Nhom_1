@@ -588,7 +588,7 @@ main{
 
 .signup-form{
     display: flex;
-    background: #46ec1d;
+    background:white;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -599,7 +599,7 @@ main{
 
 .login-form{
     display: none;
-    background: #46ec1d;
+    background: white;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -625,13 +625,15 @@ main{
     box-sizing: border-box;
 }
 .btn-submit{
-    color: #49557e;
+    color: white;
+    background-color: blue;
     font-size: 16px;
     padding: 5px 10px;
     border: 1px solid;
     border-radius: 50px;
     transition: 0.3s;
     cursor: pointer;
+    width: 100%;
 }
 .close-form{
     height: 7%;
