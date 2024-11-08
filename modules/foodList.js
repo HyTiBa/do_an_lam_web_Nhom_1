@@ -1,6 +1,7 @@
 const food_display_list = document.querySelector(".food-display-list");
 import { explore_menu_category } from "./menuList.js";
 import { food_list, cart_items } from "./informationalObjects.js";
+import * as chitietsp from "./chitietsp.js";
 
 function add_to_cart(id) {
   if (!cart_items[id]) {
@@ -54,6 +55,8 @@ export function foodListDisplay() {
         `
         : "";
   });
+  
+  chitietsp.showChiTiet();
   add_remove_icon();
 }
 

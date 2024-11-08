@@ -12,9 +12,10 @@
     </style>
 </head>
 <body>
+   
     <div class="container_product_detail">
         <div class="product_img">
-            <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="100%" height="auto">
+            <img src="./images/com chien duong chau.jpg" alt="ảnh sản phẩm" id="img" width="100%" height="auto">
         </div>
         <div class="Product_Description">
             <h1>Tên sản phẩm</h1>
@@ -24,17 +25,37 @@
                 <textarea name="note" id="note" placeholder="Nhập ghi chú của bạn..."></textarea>
                 <h4>Số lượng phần ăn</h4>
                 <div class="increase_decrease">
-                    <button>-</button>
-                    <button>0</button>
-                    <button>+</button>
+                    <div>
+                        <button onclick="decrease()">-</button>
+                        <button id="counter">1</button>
+                        <button onclick="increase()">+</button>
+                    </div>
+                    <p >100000000 VND</p>
                 </div>
-                <p>0VND</p>
             </div>
             
-            <div  class="add_cart">
-                <button>Thêm vào giỏ hàng</button>
-            </div>
+            
+        </div>
+        <div  class="add_cart">
+            <button>Thêm vào giỏ hàng</button>
         </div>
     </div>
 </body>
+
+    <script>
+        let count = 1; // Initial count
+
+        function increase() {
+            count++;
+            document.getElementById("counter").textContent = count;
+        }
+
+        function decrease() {
+            if(count>1){
+                count--;
+                document.getElementById("counter").textContent = count;
+            }
+            
+        }
+    </script>
 </html>
