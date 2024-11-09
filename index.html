@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./adminDashboard.css" />
     <link rel="stylesheet" href="./adminUserManagement.css" />
     <link rel="stylesheet" href="./adminProductManagement.css" />
+    <link rel="stylesheet" href="./signCode.css" />
     <link rel="stylesheet" href="./adminOrderManager.css" />
     <link
       rel="stylesheet"
@@ -16,6 +17,50 @@
     />
   </head>
   <body>
+
+    <div class="popup-box">
+      <div class="signup-form">
+        <img src="./images/cross.png" class="close-form">
+        <form class="form-container" id="signup_form">
+            <h1 align="center" style="color: black;">ĐĂNG KÝ</h1>
+            <label class="form-label" for="signup_email">Email: </label>
+            <input class="form-input" id="signup_email" type="email" placeholder="Enter your email" name="email" required autocomplete="off">
+            <br>
+            <label class="form-label" for="fname">Tên: </label>
+            <input class="form-input" id="fname" type="text" placeholder="Enter your name" name="fname" required>
+            <br>
+            <label class="form-label" for="signup_pws">Mật khẩu: </label>
+            <input class="form-input" id="signup_pws" type="password" placeholder="Enter your password" name="password" required>
+            <br>
+            <label class="form-label" for="re_pws">Nhập lại mật khẩu: </label>
+            <input class="form-input" id="re_pws" type="password" placeholder="Reenter your password above" name="confirm_password" required>
+            <br>
+            <button class="btn-submit" id="signup_btn" type="submit">Đăng Ký</button>
+            <br>
+            <p style="padding: 10px;">Đã có tài khoản? <u style="color: blue; cursor: pointer" class="login-txt">Nhấn đây</u></p>
+        </form>
+      </div>
+      <div class="login-form">
+        <img src="./images/cross.png" class="close-form" onclick="
+          document.querySelector('.signup-form').style.display = 'flex';
+          document.querySelector('.login-form').style.display = 'none';
+          document.querySelector('.popup-box').style.display = 'none'
+          ">
+        <form class="form-container" id="signin_form">
+          <h1 align="center" style="color: black;">ĐĂNG NHẬP</h1>
+          <label class="form-label" for="signin_email">Email: </label>
+          <input class="form-input" id="signin_email" type="email" placeholder="Enter your email" name="email" required autocomplete="off">
+          <br>
+          <label class="form-label" for="signin_pws">Mật khẩu: </label>
+          <input class="form-input" id="signin_pws" type="password" placeholder="Enter your password" name="password" required>
+          <br>
+          <button class="btn-submit" id="signin_btn" type="submit">Đăng Nhập</button>
+          <br>
+          <p style="padding: 10px;">Chưa có tài khoản? <u style="color: blue; cursor: pointer;" class="signup-txt">Nhấn đây</u></p>
+        </form>
+      </div>
+    </div>
+
     <main page="home" class="page">
       <nav class="navbar" id="navbar">
         <img src="./images/logo.png" class="logo" alt="" />
@@ -32,8 +77,7 @@
             <img src="./images/shopping-cart.png" class="icon" alt="" />
             <div class="dot"></div>
           </div>
-          <button>Đăng ký</button>
-          <button>Đăng nhập</button>
+          <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
         </div>
       </nav>
       <div class="header">

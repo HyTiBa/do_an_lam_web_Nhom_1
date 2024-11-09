@@ -4,6 +4,7 @@ import { pageDisplay } from "./modules/pageDisplay.js"
 import { adminSidebarIconDisplay } from "./modules/adminSidebar.js"
 import { adminUserBoardDisplay } from "./modules/adminUserBoard.js"
 import { adminProductBoardDisplay } from "./modules/adminProductBoardDisplay.js"
+import { signCode } from "./modules/signCode.js"
 
 adminSidebarIconDisplay()
 pageDisplay()
@@ -11,3 +12,4 @@ menuListDisplay()
 foodListDisplay()
 adminUserBoardDisplay()
 adminProductBoardDisplay()
+signCode()
