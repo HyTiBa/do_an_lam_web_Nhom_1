@@ -1,0 +1,162 @@
+.adminProductPage {
+    padding: 3rem clamp(1rem, 5vw,5rem) 0 clamp(1rem, 5vw,5rem);
+}
+.adminProductSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adminProductPage h1{
+    font-size: 25px;
+}
+.search-box{
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    padding: 20px 15px 20px 15px;
+}
+.search-box:hover input{
+    width: 200px;
+}
+.search-box input{
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
+.search-box a svg{
+    fill: tomato;
+    width: 18px;
+}
+.adminProductPage .top-section{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.adminProductPage .top-section > div{
+    display: flex;
+    gap: 20px;
+}
+.adminProductPage button{
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    background-color: tomato;
+    padding: 15px;
+}
+
+/* ADMIN USER MANAGE BOARD */
+
+.adminProductBoard{
+    border-radius: 20px;
+    margin-top: 50px;
+}
+.adminProductBoard .section{
+    display: grid;
+    padding: 20px;
+    align-items: center;
+    height: 90px;
+    border: solid 1px grey;
+    border-top: 0;
+    grid-template-columns:1fr 1fr 0.5fr 0.5fr;
+}
+.adminProductBoard .section:first-child{
+    border: solid 1px grey;
+    font-weight: 700;
+    font-size: large;
+}
+
+.adminProductBoard img{
+    height: 50px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.adminProductBoard .product{
+    background-color: rgba(0, 0, 0, 0.03);
+}
+.adminProductBoard .product .info{
+    display: flex;
+    gap: 15px;
+}
+.adminProductBoard .product .info div{
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: 600;
+font-size: 18px;
+}
+
+
+.adminProductBoard .product .categories{
+    display: flex;
+    gap: 10px;
+}
+.adminProductBoard .product .categories .category{
+    border-radius: 50px;   
+    padding: 8px 10px;
+    font-weight: 500;
+    color: white;
+    font-size: small ;
+    background-color: grey;
+}
+.adminProductBoard .product .categories .admin{
+    background-color:darkslategrey ;
+}
+.adminProductBoard .product .categories .customer{
+    background-color: darkgoldenrod;
+}
+
+.adminProductBoard .actions{
+    display: flex;
+    gap: 20px;
+    font-size: medium;
+    font-weight: 600;
+    color: gray;
+}
+.adminProductBoard .actions svg{
+fill: grey;
+width: 25px;    
+}
+.adminProductBoard .actions div{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+/* ADMIN USER MANAGE BOARD */
+
+/* ADMIN USER POP UPS */
+
+.adminProductBoard .pop-ups{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    opacity: 0.5;
+    width: 100vw;
+    background-color: black;
+    height: 100vh;
+}
+.adminProductBoard .pop-ups div{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    background-color: white;
+}
+.adminProductBoard .pop-ups .modify{
+}
+.adminProductBoard .pop-ups .remove{
+}
+
+/* ADMIN USER POP UPS */
