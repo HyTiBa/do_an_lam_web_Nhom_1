@@ -6,7 +6,7 @@ export function adminSidebarIconDisplay(){
     adminNavbarLinks.forEach((item) => {
         adminNavbar.innerHTML += `
    <li class="admin-navbar-item">
-          <a page="${item.page}" class="admin-navbar-link">
+          <a page="${item.page}" class="pageButtonLink admin-navbar-link">
           ${item.icon}
             <span class="link-text">${item.text}</span>
           </a>
