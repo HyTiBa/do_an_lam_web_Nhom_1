@@ -26,6 +26,15 @@ export const food_list = [
       "món lẩu gà của Việt Nam, gồm thịt gà mềm, rau và thảo mộc được ninh trong nước dùng đậm đà, ăn kèm với mì hoặc cơm.",
     category: "Lẩu",
   },
+  {
+    id: 4,
+    name: "Bánh mì trứng",
+    image: "./images/lau ga.webp",
+    price: 15000,
+    description:
+      "Bánh mì từ Pháp ăn kèm trứng",
+    category: "Bánh mì",
+  }
 ];
 
 export const menu_list = [
@@ -79,3 +88,41 @@ export const adminNavbarLinks =[
     text:"Shipping"
   },
 ];
+
+export const users =[
+  {
+    email: 'nguyenkhanh0127@gmail.com',
+    userName: 'Khanh',
+    password: '123456',
+    roles: ['Nhan vien', 'Khach hang'],
+    cart: [
+      {
+        name: 'Bún bò',
+        quantity: 2
+      }
+    ]
+  },
+  {
+    email: 'captianBao@gmail.com',
+    userName: 'Bao',
+    password: '123456',
+    roles: ['Admin'],
+    cart:[]
+  },
+  {
+    email: 'ThanhTran1997@gmail.com',
+    userName: 'Tran',
+    password: '654321',
+    roles: ['Khach hang'],
+    cart: [
+      {
+        name: 'Bún bò',
+        quantity: 1
+      },
+      {
+        name: 'Cơm chiên dương châu',
+        quantity: 1
+      }
+    ]
+  }
+]

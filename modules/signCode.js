@@ -1,3 +1,5 @@
+import { users } from "./informationalObjects.js";
+
 export function signCode(){
 document.querySelector(".login-btn").addEventListener("click",() => {
     document.querySelector(".popup-box").style.display = "flex";
@@ -18,9 +20,6 @@ document.querySelector(".login-btn").addEventListener("click",() => {
     document.querySelector(".login-form").style.display = "none";
     document.querySelector(".popup-box").style.display = "none"
   })
-  
-  const userArr = [];
-  const productArr = [];
   
   function checkPwd(P1, P2){
     if(P1 !== P2){
@@ -47,9 +46,14 @@ document.querySelector(".login-btn").addEventListener("click",() => {
         email: userE,
         userName: userN,
         password: userP1,
-        roll: 'Khach hang'
+        roles: ['Khach hang'],
+        cart:[]
       };
-      userArr.push(user);
+
+      users.push(user);
+      users.forEach((e) =>{
+        console.log(e);
+      })
     }
     else{
       alert('Mat khau nhap lai khong trung khop');
