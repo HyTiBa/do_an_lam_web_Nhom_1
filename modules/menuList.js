@@ -26,6 +26,7 @@ export function menuListDisplay() {
       menu_links.forEach((link) => link.classList.remove("active"));
       link.classList.add("active");
     })
+
   );
 
   explore_menu_list_items.forEach((item) => {
