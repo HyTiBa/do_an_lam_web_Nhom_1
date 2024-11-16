@@ -1,13 +1,13 @@
 import * as foodList from "./foodList.js";
-
 const food_display_list = document.querySelector(".food-display-list");
     
-var elementPageNumber = document.getElementById("pageNumber");
-//elementPageNumber.innerText = foodList.pages.length;
+
 
 var currentPage = 0;
 export function pagination(){
-    
+    var elementPageNumber = document.getElementById("pageNumber");
+    var elementCurrentPage = document.getElementById("currentPage");
+    elementPageNumber.innerText = foodList.page_number;
     var nextPage = document.querySelector(".next");
     if(nextPage){
         nextPage.addEventListener("click", function(){
@@ -24,6 +24,7 @@ export function pagination(){
                     food_display_list.innerHTML += item;    
                 }); 
             }
+            elementCurrentPage.innerText = currentPage + 1;
         });
     }
 
@@ -43,17 +44,9 @@ export function pagination(){
                     food_display_list.innerHTML += item;    
                 }); 
             }
+            elementCurrentPage.innerText = currentPage + 1;
         });
     }
 
 }
-
-
-
-
-
-
-pagination();
-
-
 

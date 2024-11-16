@@ -5,6 +5,7 @@
     position:fixed;
     background-color: #262626;
     transition: all 0.2s ease;
+    z-index: 101;
 }
 .admin-navbar-nav{
     list-style: none;

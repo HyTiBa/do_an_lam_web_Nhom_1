@@ -62,27 +62,29 @@
     </div>
 
     <main page="home" class="page">
-      <nav class="navbar" id="navbar">
-        <img src="./images/logo.png" class="logo" alt="" />
-
-        <ul class="navbar-menu">
-          <a>Trang chủ</a>
-          <a href="#explore-menu">Thực đơn</a>
-          <a href="#footer">Liên hệ</a>
-        </ul>
-
-        <div class="navbar-right">
-          <div class="search-container">
-            <input type="text" class="search-input" placeholder="Tìm kiếm...">
-            <img src="./images/search.png" class="icon" alt="" />
+      <div style="position: sticky; background-color: white; top: 0; z-index: 99;">
+        <nav class="navbar" id="navbar">
+          <img src="./images/logo.png" class="logo" alt="" />
+  
+          <ul class="navbar-menu">
+            <a>Trang chủ</a>
+            <a href="#explore-menu">Thực đơn</a>
+            <a href="#footer">Liên hệ</a>
+          </ul>
+  
+          <div class="navbar-right">
+            <div class="search-container">
+              <input type="text" class="search-input" placeholder="Tìm kiếm...">
+              <img src="./images/search.png" class="icon" alt="" />
+            </div>
+            <div class="cart-icon">
+              <img src="./images/shopping-cart.png" class="icon" alt="" />
+              <div class="dot"></div>
+            </div>
+            <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
           </div>
-          <div class="cart-icon">
-            <img src="./images/shopping-cart.png" class="icon" alt="" />
-            <div class="dot"></div>
-          </div>
-          <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
-        </div>
-      </nav>
+        </nav>
+      </div>
       <div class="header">
         <div class="header-contents">
           <h2>Order your favourite food here</h2>
@@ -244,14 +246,7 @@
           <p>Sửa/Xóa</p>
         </div>
         <div class="product section">
-          <div class="info">
-            <img
-              src="https://imgs.search.brave.com/azUd2Mn9JYyErMUp2jYjrr5xvnkaDf_0IawvDYdwP-g/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzc2LzI3LzUz/LzM2MF9GXzc2Mjc1/Mzg0X21STnJtQUk4/OVVQV29XZVVKZkNM/OUNwdFJ4ZzNjRW9G/LmpwZw"
-            />
-            <div>
-              <p class="name">Bún Bò Huế</p>
-            </div>
-          </div>
+          
           <div class="categories">
             <div class="category">Bún bò</div>
           </div>

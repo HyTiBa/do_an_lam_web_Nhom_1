@@ -282,6 +282,9 @@ a{
     padding: 20px;
     justify-content: space-between;
     background-color: var(rgb(235, 235, 235));
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 .navbar .icon{
 width: 24px;
