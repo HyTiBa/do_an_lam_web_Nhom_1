@@ -245,6 +245,7 @@ a{
     padding: 20px;
     justify-content: space-between;
     background-color: var(rgb(235, 235, 235));
+    position: relative;
 }
 .navbar .icon{
 width: 24px;
