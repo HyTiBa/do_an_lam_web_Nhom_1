@@ -21,6 +21,11 @@
     
     background-color: white;
 }
+.adminOrderPage .top-section{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
 .adminOrderBoard .user {
     display: flex;
 }
