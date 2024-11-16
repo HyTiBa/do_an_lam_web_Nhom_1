@@ -52,6 +52,18 @@
     padding: 15px;
 }
 
+@media (max-width:750px){
+.adminUserPage .top-section{
+    flex-direction: column;
+    align-items: baseline;
+    gap: 10px;
+}
+.adminUserPage .top-section div{
+    display: flex;
+    flex-direction: row-reverse;
+}
+}
+
 /* ADMIN USER MANAGE BOARD */
 
 .adminUserBoard{

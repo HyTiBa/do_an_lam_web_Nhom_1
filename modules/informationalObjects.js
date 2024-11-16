@@ -28,13 +28,40 @@ export const food_list = [
   },
   {
     id: 4,
-    name: "Bánh mì trứng",
-    image: "./images/lau ga.webp",
+ name: "Sữa chua",
+    image: "https://imgs.search.brave.com/6_Q7yxunHnvmPE7ctY7vnJOVwUoW7YtFfgqBYXvUOBI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/eW91bWVkLnZuL3Rp/bi10dWMvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMDgvMTku/anBn",
+    price: 10000,
+    description:
+      "Món ăn nhẹ mịn mượt, vị chua ngọt, bổ dưỡng và tốt cho tiêu hóa, thích hợp ăn trực tiếp hoặc kết hợp với trái cây, mật ong.",
+    category: "Tráng miệng",
+  },
+  {
+    id: 5,
+    name: "Bánh mì thịt",
+    image: "https://imgs.search.brave.com/U6mPHARfwKRqEW830QeYlPiN_EPnFscLvrwYzRqTpNM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcGlj/ZWJyZWV6ZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvQmFuaC1NaS1U/aGl0LTItZTE2MDAw/MDQ0MDE5NzQuanBn",
     price: 15000,
     description:
-      "Bánh mì từ Pháp ăn kèm trứng",
+      "Nhân thịt, pate, rau tươi, và gia vị đậm đà, được yêu thích.",
     category: "Bánh mì",
-  }
+  },
+  {
+    id: 6,
+    name: "Cá chiên",
+    image: "https://imgs.search.brave.com/7brdeoHhRkFozO7hA1eTmLsfvnEh6C09ttMfyrGK5Bs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb25u/Z29uLnR2L3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzA5L2Yz/NjU1MWYxNGQ2ZDE5/MzFkZWRhNTM2ZmZk/OTg4MWIxLWNhY2gt/Y2hpZW4tY2EtdGh1/LW5nb24tbmhvLmpw/Zw",
+    price: 40000,
+    description:
+      "Giòn rụm, thơm ngon với vỏ vàng, thịt mềm ngọt, thường chấm nước mắm và ăn kèm rau sống, tạo hương vị đậm đà.",
+    category: "Hải sản",
+  },
+  {
+    id: 7,
+    name: "Ốc cuốn lá lốt",
+    image: "https://imgs.search.brave.com/NVtWX7Z6s3NAm_Cr7KWjQQsCEVVLFRdKpm9V4vQ7JB0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly92Y2Ru/MS1naWFkaW5oLnZu/ZWNkbi5uZXQvMjAy/MS8xMS8xOS9UaG5o/cGhtMS0xNjM3MzI4/NTUxLTU5NDUtMTYz/NzMyODU2NC5qcGc_/dz01MDAmaD0zMDAm/cT0xMDAmZHByPTEm/Zml0PWNyb3Amcz10/bWZjX2NnWGJuYWh6/WFctNjZsT0ZB",
+    price: 53000,
+    description:
+      "Dân dã, thơm ngon với ốc băm cuộn lá lốt, nướng hoặc chiên, chấm cùng nước mắm chua ngọt, tạo hương vị hấp dẫn.",
+    category: "Hải sản",
+  },
 ];
 
 export const menu_list = [
