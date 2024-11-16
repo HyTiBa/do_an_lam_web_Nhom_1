@@ -98,7 +98,7 @@ document.querySelector(".login-btn").addEventListener("click",() => {
   
   document.getElementById('signup_form').addEventListener('submit', addUser);
   document.getElementById('signin_form').addEventListener('submit', loginAcc);
-  document.getElementById('logout-btn'),addEventListener('click',logOut);
+  document.getElementById('logout-btn').addEventListener('click',logOut);
 
   document.querySelector('.profile-icon').addEventListener('click', ()=>{
     if(document.querySelector('.sub-menu-wrap').style.display === 'block'){
