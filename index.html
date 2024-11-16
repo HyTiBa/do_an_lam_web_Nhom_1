@@ -72,7 +72,10 @@
         </ul>
 
         <div class="navbar-right">
-          <img src="./images/search.png" class="icon" alt="" />
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Tìm kiếm...">
+            <img src="./images/search.png" class="icon" alt="" />
+          </div>
           <div class="cart-icon">
             <img src="./images/shopping-cart.png" class="icon" alt="" />
             <div class="dot"></div>
@@ -100,6 +103,13 @@
         <h2>Top dishes near you</h2>
         <div class="food-display-list">
           <!-- food items is display in index.js -->
+        </div>
+        <div class="pagination">
+          <i class="fa-solid fa-caret-left back"></i>
+          <span id="currentPage" style="color: tomato;">1</span>
+          <span>/</span>
+          <span id="pageNumber">3</span>
+          <i class="fa-solid fa-caret-right next"></i>
         </div>
       </div>
       <footer class="footer" id="footer">
@@ -333,6 +343,6 @@
     </nav>
 
     <script type="module" src="./index.js"></script>
-    <script src="./modules/chitietsp.js"></script>
+    <script type="module" src="./modules/pagination.js"></script>
   </body>
 </html>

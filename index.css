@@ -202,6 +202,43 @@ ul.product_list li img{
     background-color: coral;
 }
 
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+ 
+  .search-input {
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .search-input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .pagination{
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 10px;
+  }
+
+  .pagination i{
+    cursor: pointer;
+    font-size: 36px;
+  }
+
+  .pagination span{
+    font-size: 24px;
+  }
 /*=====================================================================*/
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
