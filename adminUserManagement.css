@@ -132,32 +132,165 @@ width: 25px;
     justify-content: center;
     gap: 10px;
 }
+
+.top-section .addUser_btn{
+    cursor: pointer;
+}
 /* ADMIN USER MANAGE BOARD */
 
 /* ADMIN USER POP UPS */
 
-.adminUserBoard .pop-ups{
-    position: absolute;
+.top-section .pop-ups{
+    position: fixed;
     top: 0;
-    display: flex;
     display: none;
     justify-content: center;
     align-items: center;
     right: 0;
-    opacity: 0.5;
+    opacity: 1;
     width: 100vw;
-    background-color: black;
+    background: rgba(0, 0, 0, 0.6);
     height: 100vh;
 }
-.adminUserBoard .pop-ups div{
+
+.top-section .pop-ups .add-user{
+    display: block;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 480px;
+    text-align: left;
+    position:absolute;
+}
+
+.top-section .pop-ups .btn-submit{
+    color: white;
+    background-color: green;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border: 1px solid;
+    border-radius: 0px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.top-section .pop-ups .btn-close{
+    color: white;
+    background-color: red;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border: 1px solid;
+    cursor: pointer;
+    width: 100%;
+}
+
+.top-section .pop-ups .add-user #added_role{
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.adminUserBoard .pop-ups{
+    position: fixed;
+    top: 0;
+    display: none;
+    /* display: none; */
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    opacity: 1;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+}
+/* .adminUserBoard .pop-ups div{
     width: 200px;
     height: 200px;
     margin: 20px;
     background-color: white;
-}
+} */
+
 .adminUserBoard .pop-ups .modify{
+    display: none;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 320px;
+    text-align: left;
+    position:absolute;
 }
 .adminUserBoard .pop-ups .remove{
+    display: none;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 340px;
+    text-align: left;
+    position:absolute;
+}
+
+.adminUserBoard .pop-ups .remove .yn_btn{
+    display: flex;
+    margin-top: 20px;
+    justify-content: right;
+}
+
+.adminUserBoard .pop-ups .remove .deny_btn{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.adminUserBoard .pop-ups .remove .cfm_btn{
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.adminUserBoard .btn-submit{
+    color: white;
+    background-color: blue;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border: 1px solid;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 40%;
+}
+
+.adminUserBoard .btn-close{
+    color: white;
+    background-color: red;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border: 1px solid;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 40%;
+}
+
+.adminUserBoard #modify_role{
+    padding: 5px 10px;
+    margin: 5px;
 }
 
 /* ADMIN USER POP UPS */

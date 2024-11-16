@@ -94,10 +94,12 @@ export const users =[
     email: 'nguyenkhanh0127@gmail.com',
     userName: 'Khanh',
     password: '123456',
+    address: null,
     roles: ['Nhan vien', 'Khach hang'],
     cart: [
       {
         name: 'Bún bò',
+        price: 35000,
         quantity: 2
       }
     ]
@@ -106,6 +108,7 @@ export const users =[
     email: 'captianBao@gmail.com',
     userName: 'Bao',
     password: '123456',
+    address: null,
     roles: ['Admin'],
     cart:[]
   },
@@ -113,14 +116,17 @@ export const users =[
     email: 'ThanhTran1997@gmail.com',
     userName: 'Tran',
     password: '654321',
+    address: null,
     roles: ['Khach hang'],
     cart: [
       {
         name: 'Bún bò',
+        price: 35000,
         quantity: 1
       },
       {
         name: 'Cơm chiên dương châu',
+        price: 35000,
         quantity: 1
       }
     ]

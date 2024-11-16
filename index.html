@@ -20,7 +20,7 @@
 
     <div class="popup-box">
       <div class="signup-form">
-        <img src="./images/cross.png" class="close-form">
+        <img src="./images/close-button-png-27.png" class="close-form">
         <form class="form-container" id="signup_form">
             <h1 align="center" style="color: black;">ĐĂNG KÝ</h1>
             <label class="form-label" for="signup_email">Email: </label>
@@ -41,9 +41,9 @@
         </form>
       </div>
       <div class="login-form">
-        <img src="./images/cross.png" class="close-form" onclick="
-          document.querySelector('.signup-form').style.display = 'flex';
-          document.querySelector('.login-form').style.display = 'none';
+        <img src="./images/close-button-png-27.png" class="close-form" onclick="
+          document.querySelector('.signup-form').style.display = 'none';
+          document.querySelector('.login-form').style.display = 'flex';
           document.querySelector('.popup-box').style.display = 'none'
           ">
         <form class="form-container" id="signin_form">
@@ -77,8 +77,30 @@
             <img src="./images/shopping-cart.png" class="icon" alt="" />
             <div class="dot"></div>
           </div>
+
           <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
+
+          <img class="profile-icon" style="width: 35px;" src="images/user pic.jpg" alt="user profile picture">
         </div>
+
+        <div class="sub-menu-wrap">
+          <div class="sub-menu">
+            <div class="user-info">
+              <img style="width: 100px;" src="images/user pic.jpg">
+              <p style="margin-left: 15px; font-size: 20px; color: coral; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">User Name</p>
+            </div>
+            <div class="sub-menu-ops">
+              <p>Chỉnh sửa</p>
+            </div>
+            <div class="sub-menu-ops">
+              <p>Trợ giúp </p>
+            </div>
+            <div class="sub-menu-ops" id="logout-btn">
+              <p>Đăng xuất</p>
+            </div>
+          </div>
+        </div>
+
       </nav>
       <div class="header">
         <div class="header-contents">
@@ -157,7 +179,30 @@
               </a>
             </div>
           </div>
-          <button>Thêm người dùng</button>
+          <button class="addUser_btn">Thêm người dùng</button>
+          <div class="pop-ups">
+            <div class="add-user">
+              <form class="form-container">
+                <label class="form-label" for="added_email">Email:</label>
+                <input class="form-input" type="email" id="added_email" name="userEmail" required>
+                <label class="form-label" for="added_name">Tên:</label>
+                <input class="form-input" type="text" name="userName" id="added_name">
+                <label class="form-label" for="added_pwd">Mật Khẩu:</label>
+                <input class="form-input" type="password" id="added_pwd" name="userPassword">
+                <label class="form-label" for="added_role">Chức vụ:</label>
+                <select name="userRole" id="added_role">
+                  <option value="Admin">Admin</option>
+                  <option value="Khach hang">Khách hàng</option>
+                  <option value="Nhan vien">Nhân viên</option>
+                </select>
+                <div style="text-align: center;">
+                  <button class="btn-submit" id="add_btn" type="submit">Thêm</button>
+                  <button class="btn-close" id="close_btn" type="button">Hủy</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="adminUserBoard">
@@ -200,8 +245,32 @@
             </div>
           </div>
           <div class="pop-ups">
-            <div class="modify"></div>
-            <div class="remove"></div>
+            <div class="modify">
+              <form class="form-container">
+                <label class="form-label" for="modify_email">Email:</label>
+                <input class="form-input" type="email" id="modify_email" name="userEmail" required>
+                <label class="form-label" for="modify_name">Tên:</label>
+                <input class="form-input" type="text" name="userName" id="modify_name">
+                <label class="form-label" for="modify_role">Chức vụ:</label>
+                <select name="userRole" id="modify_role">
+                  <option value="Admin">Admin</option>
+                  <option value="Khach hang">Khách hàng</option>
+                  <option value="Nhan vien">Nhân viên</option>
+                </select>
+                <div style="text-align: center;">
+                  <button class="btn-submit" id="confirm_btn" type="submit">Xác Nhận</button>
+                  <button class="btn-close" id="close_btn" type="button">Hủy</button>
+                </div>
+              </form>
+            </div>
+            <div class="remove">
+              <h2 style="margin-bottom: 10px; border-bottom: 2px solid rgb(205, 183, 154);"><b>Thông báo</b></h2>
+              <p style="font-size: 16px; margin-bottom: 80px;">Bạn có chắc chắn muốn gỡ bỏ người dùng?</p>
+              <div class="yn_btn">
+                <button class="cfm_btn">Xác nhận</button>
+                <button class="deny_btn">Hủy</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
