@@ -5,6 +5,7 @@ import { adminSidebarIconDisplay } from "./modules/adminSidebar.js"
 import { adminUserBoardDisplay } from "./modules/adminUserBoard.js"
 import { adminProductBoardDisplay } from "./modules/adminProductBoardDisplay.js"
 import { signCode } from "./modules/signCode.js"
+import {pagination} from "./modules/pagination.js"
 import { adminUserManage } from "./modules/adminUserManage.js"
 
 adminSidebarIconDisplay()
@@ -15,3 +16,4 @@ adminUserBoardDisplay()
 adminProductBoardDisplay()
 signCode()
 adminUserManage()
+pagination();

@@ -49,18 +49,21 @@ h1 {
         font-size: 16px;
         background-color: #ff5722;
         cursor: pointer;
+    min-width: 180px; 
 }
 .add2-button {
     padding: 10px;
     font-size: 16px;
     background-color: #ff5722;
     cursor: pointer;
+    min-width: 180px;
 }
 .add3-button {
     padding: 10px;
     font-size: 16px;
     background-color: #ff5722;
     cursor: pointer;
+    min-width: 180px;
 }
 .button-container {
     display: flex;

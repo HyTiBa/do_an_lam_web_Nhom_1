@@ -62,23 +62,28 @@
     </div>
 
     <main page="home" class="page">
-      <nav class="navbar" id="navbar">
-        <img src="./images/logo.png" class="logo" alt="" />
-
-        <ul class="navbar-menu">
-          <a>Trang chủ</a>
-          <a href="#explore-menu">Thực đơn</a>
-          <a href="#footer">Liên hệ</a>
-        </ul>
-
-        <div class="navbar-right">
-          <img src="./images/search.png" class="icon" alt="" />
-          <div class="cart-icon">
-            <img src="./images/shopping-cart.png" class="icon" alt="" />
-            <div class="dot"></div>
+      <div style="position: sticky; background-color: white; top: 0; z-index: 99;">
+        <nav class="navbar" id="navbar">
+          <img src="./images/logo.png" class="logo" alt="" />
+  
+          <ul class="navbar-menu">
+            <a>Trang chủ</a>
+            <a href="#explore-menu">Thực đơn</a>
+            <a href="#footer">Liên hệ</a>
+          </ul>
+  
+          <div class="navbar-right">
+            <div class="search-container">
+              <input type="text" class="search-input" placeholder="Tìm kiếm...">
+              <img src="./images/search.png" class="icon" alt="" />
+            </div>
+            <div class="cart-icon">
+              <img src="./images/shopping-cart.png" class="icon" alt="" />
+              <div class="dot"></div>
+            </div>
+            <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
           </div>
-
-          <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
+            <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
 
           <img class="profile-icon" style="width: 35px;" src="images/user pic.jpg" alt="user profile picture">
         </div>
@@ -100,8 +105,11 @@
             </div>
           </div>
         </div>
+        </nav>
+      </div>
 
-      </nav>
+        
+
       <div class="header">
         <div class="header-contents">
           <h2>Order your favourite food here</h2>
@@ -122,6 +130,13 @@
         <h2>Top dishes near you</h2>
         <div class="food-display-list">
           <!-- food items is display in index.js -->
+        </div>
+        <div class="pagination">
+          <i class="fa-solid fa-caret-left back"></i>
+          <span id="currentPage" style="color: tomato;">1</span>
+          <span>/</span>
+          <span id="pageNumber">3</span>
+          <i class="fa-solid fa-caret-right next"></i>
         </div>
       </div>
       <footer class="footer" id="footer">
@@ -303,14 +318,7 @@
           <p>Sửa/Xóa</p>
         </div>
         <div class="product section">
-          <div class="info">
-            <img
-              src="https://imgs.search.brave.com/azUd2Mn9JYyErMUp2jYjrr5xvnkaDf_0IawvDYdwP-g/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzc2LzI3LzUz/LzM2MF9GXzc2Mjc1/Mzg0X21STnJtQUk4/OVVQV29XZVVKZkNM/OUNwdFJ4ZzNjRW9G/LmpwZw"
-            />
-            <div>
-              <p class="name">Bún Bò Huế</p>
-            </div>
-          </div>
+          
           <div class="categories">
             <div class="category">Bún bò</div>
           </div>
@@ -416,6 +424,6 @@
     </nav>
 
     <script type="module" src="./index.js"></script>
-    <script src="./modules/chitietsp.js"></script>
+    <script type="module" src="./modules/pagination.js"></script>
   </body>
 </html>

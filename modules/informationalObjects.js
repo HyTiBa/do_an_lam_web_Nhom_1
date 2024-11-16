@@ -61,7 +61,8 @@ export const food_list = [
     description:
       "Dân dã, thơm ngon với ốc băm cuộn lá lốt, nướng hoặc chiên, chấm cùng nước mắm chua ngọt, tạo hương vị hấp dẫn.",
     category: "Hải sản",
-  },
+  }
+  
 ];
 
 export const menu_list = [
