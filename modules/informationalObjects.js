@@ -28,7 +28,7 @@ export const food_list = [
   },
   {
     id: 4,
-    name: "Sữa chua",
+ name: "Sữa chua",
     image: "https://imgs.search.brave.com/6_Q7yxunHnvmPE7ctY7vnJOVwUoW7YtFfgqBYXvUOBI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/eW91bWVkLnZuL3Rp/bi10dWMvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMDgvMTku/anBn",
     price: 10000,
     description:
@@ -116,3 +116,47 @@ export const adminNavbarLinks =[
     text:"Shipping"
   },
 ];
+
+export const users =[
+  {
+    email: 'nguyenkhanh0127@gmail.com',
+    userName: 'Khanh',
+    password: '123456',
+    address: null,
+    roles: ['Nhan vien', 'Khach hang'],
+    cart: [
+      {
+        name: 'Bún bò',
+        price: 35000,
+        quantity: 2
+      }
+    ]
+  },
+  {
+    email: 'captianBao@gmail.com',
+    userName: 'Bao',
+    password: '123456',
+    address: null,
+    roles: ['Admin'],
+    cart:[]
+  },
+  {
+    email: 'ThanhTran1997@gmail.com',
+    userName: 'Tran',
+    password: '654321',
+    address: null,
+    roles: ['Khach hang'],
+    cart: [
+      {
+        name: 'Bún bò',
+        price: 35000,
+        quantity: 1
+      },
+      {
+        name: 'Cơm chiên dương châu',
+        price: 35000,
+        quantity: 1
+      }
+    ]
+  }
+]
