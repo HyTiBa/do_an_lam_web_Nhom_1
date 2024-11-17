@@ -5,200 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ Hàng</title>
     <link rel="stylesheet" href="giohang.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="cart-icon">
-        <img src="./images/shopping-cart.png" class="icon" alt="" />
-        <div class="dot"></div>
-      </div>
-<div class="container">
-    <h1>Giỏ Hàng</h1>
-    <div class="button-container">
-        <a href="tim-kiem-san-pham.html">
-    <button class="add-button">Tìm kiếm sản phẩm</button>
-        </a>
-        <a href="danh-sach-mon-them.html">
-    <button class="add2-button">Danh sách món thêm</button>
-        </a>
-    <a href="danh-sach-mon-HOT.html">
-    <button class="add3-button">Danh sách món HOT</button>
-    </a>
-    </div>
-    
-    <div class="table-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Sản phẩm</th>
-                <th>Loại</th>
-                <th>Giá</th>
-                <th>Thêm vào giỏ</th>
-                <th>Xóa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                        <span>Bún Bò Huế</span>
-                    </div>
-                </td>
-                <td><span class="tag">Bún</span></td>
-                <td>35.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/com chien duong chau.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
-                        <span>Cơm chiên dương châu</span>
-                    </div>
-                </td>
-                <td><span class="tag">Cơm</span></td>
-                <td>35.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/com chien.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
-                        <span>Cơm chiên thập cẩm</span>
-                    </div>
-                </td>
-                <td><span class="tag">Cơm </span></td>
-                <td>35.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/banh mi.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
-                        <span>Bánh Mì</span>
-                    </div>
-                </td>
-                <td><span class="tag">Bánh</span></td>
-                <td>15.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/trang mieng.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
-                        <span>Tráng Miệng</span>
-                    </div>
-                </td>
-                <td><span class="tag">Bánh</span></td>
-                <td>55.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/lau.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
-                        <span>Lẩu hải sản</span>
-                    </div>
-                </td>
-                <td><span class="tag">Lẩu</span></td>
-                <td>95.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/hai san.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
-                        <span>hải sản tươi</span>
-                    </div>
-                </td>
-                <td><span class="tag">hải sản</span></td>
-                <td>15.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="./images/lau ga.webp" alt="ảnh sản phẩm" id="img" width="30%" height="auto">
-                        <span>Lẩu gà</span>
-                    </div>
-                </td>
-                <td><span class="tag">Lẩu</span></td>
-                <td>80.000đ</td>
-                <td>
-                    <button class="edit">Thêm</button>
-                </td>
-                <td>
-                    <button class="delete">Xóa</button>
-                </td>
-            </tr>
-            
-        </tbody>
-    </table>
-        
-</div>
-
-</div>
-</div>
-<div class="cart">
-    <h2>Giỏ hàng của bạn</h2>
-    <div class="cart-items">
+    <div class="cart_container" >
+        <div style="display: flex; width: 100%; ">
+            <i class="fa-regular fa-rectangle-xmark" style="color: black; margin-left: auto; font-size: 24px;"></i>
         </div>
-    <div class="cart-total">
-        <p>Tổng tiền: <span id="total">0</span>đ</p>
+        <div>
+            <div style="width: 100%; text-align: center; font-size: 24px; margin: 12px 0; color:rgb(61, 61, 57)">Sản phẩm</div>
+         
+            <div style="margin-right: 50px; margin-bottom: 50px; border: 1px;" class="table-container">
+                <table>
+                   <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Loại</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thêm vào giỏ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                                    <span>Bún Bò Huế</span>
+                                </div>
+                            </td>
+                            <td><span class="tag">Bún</span></td>
+                            <td>35.000đ</td>
+                            <td>
+                                <div class="container_btn">
+                                    <button onclick="decrease()">-</button>
+                                    <button >1</button>
+                                    <button onclick="increase()">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="edit">
+                                    <span>Thêm</span>
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </td>
+                            
+                        </tr>
+    
+                    
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        
+        <div style="background-color: white;">
+            <div style="width: 100%; text-align: center; font-size: 24px; margin: 12px 0; color:rgb(61, 61, 57)">
+                <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
+            </div>
+            <div class="table-container">
+            
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                                    <span>Bún Bò Huế</span>
+                                </div>
+                            </td>
+                            <td>35.000đ</td>
+                            <td>
+                                <div class="container_btn">
+                                    <button onclick="decrease()">-</button>
+                                    <button >1</button>
+                                    <button onclick="increase()">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <span>9999999 VND</span>
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;"></i>
+                            </td>
+                        </tr>
+    
+                   
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                                    <span>Bún Bò Huế</span>
+                                </div>
+                            </td>
+                            <td>35.000đ</td>
+                            <td>
+                                <div class="container_btn">
+                                    <button onclick="decrease()">-</button>
+                                    <button >1</button>
+                                    <button onclick="increase()">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <span>9999999 VND</span>
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+
+            <div style="background-color: white;">
+                <div style="width: 100%; display: flex; justify-content: space-between; margin: 10px 0;">
+                    <span>Tạm tính: </span>
+                    <span>999999 VND</span>
+                </div>
+                <button style="padding: 10px 0;width: 100%; font-size: 16px; background-color: tomato; border: none; color: white; cursor: pointer; border-radius: 10px;">Thanh toán</button>
+           
+            </div>
+        </div>
     </div>
-    <div class="promo-code">
-        <label for="promo">Mã giảm giá:</label>
-        <input type="text" id="promo">
-        <button>Áp dụng</button>
-    </div>
-    <div class="shipping">
-        <p>Phí vận chuyển: <span id="shipping">0</span>đ</p>
-    </div>
-    <div class="discount">
-        <p>Giảm giá: <span id="discount">0</span>đ</p>
-    </div>
-    <div class="tax">
-        <p>Thuế: <span id="tax">0</span>đ</p>
-    </div>
-    <div class="total">
-        <p>Tổng cộng: <span id="grand-total">0</span>đ</p>
-    </div>
-    <button class="checkout">Thanh toán</button>
-</div>
 </body>
 
 </html>

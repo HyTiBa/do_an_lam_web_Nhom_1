@@ -7,6 +7,7 @@ import { adminProductBoardDisplay } from "./modules/adminProductBoardDisplay.js"
 import { signCode } from "./modules/signCode.js"
 import {pagination} from "./modules/pagination.js"
 import { adminUserManage } from "./modules/adminUserManage.js"
+import * as cart from "./modules/cart.js"
 
 adminSidebarIconDisplay()
 pageDisplay()
@@ -17,3 +18,4 @@ adminProductBoardDisplay()
 signCode()
 adminUserManage()
 pagination();
+cart.showCart();
