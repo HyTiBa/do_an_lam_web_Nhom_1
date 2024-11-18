@@ -1,4 +1,5 @@
 import { food_list } from "./informationalObjects.js";
+import { foods } from "./chitietsp.js";
 
 export function showCart() {
     var elementCart = document.querySelector(".cart-icon");
@@ -83,53 +84,8 @@ export function showCart() {
                             <th>Xóa</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="product-info">
-                                    <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                                    <span>Bún Bò Huế</span>
-                                </div>
-                            </td>
-                            <td>35.000đ</td>
-                            <td>
-                                <div class="container_btn">
-                                    <button onclick="decrease()">-</button>
-                                    <button >1</button>
-                                    <button onclick="increase()">+</button>
-                                </div>
-                            </td>
-                            <td>
-                                <span>9999999 VND</span>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;"></i>
-                            </td>
-                        </tr>
-    
-                   
-                        <tr>
-                            <td>
-                                <div class="product-info">
-                                    <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                                    <span>Bún Bò Huế</span>
-                                </div>
-                            </td>
-                            <td>35.000đ</td>
-                            <td>
-                                <div class="container_btn">
-                                    <button onclick="decrease()">-</button>
-                                    <button >1</button>
-                                    <button onclick="increase()">+</button>
-                                </div>
-                            </td>
-                            <td>
-                                <span>9999999 VND</span>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;"></i>
-                            </td>
-                        </tr>
+                    <tbody class="cart-body">
+
                     </tbody>
                     
                 </table>
@@ -140,7 +96,7 @@ export function showCart() {
                     <span>Tạm tính: </span>
                     <span>999999 VND</span>
                 </div>
-                <button style="padding: 10px 0;width: 100%; font-size: 16px; background-color: tomato; border: none; color: white; cursor: pointer; border-radius: 10px;">Thanh toán</button>
+                <button class="btn_ThanhToan">Thanh toán</button>
            
             </div>
         </div>
@@ -187,6 +143,155 @@ export function showCart() {
                     </tr> `;
                 });
             }
+            
+            var element_cart_body = document.querySelector(".cart-body");
+            if(element_cart_body){
+                element_cart_body.innerHTML = ``;
+                foods.forEach((item)=>{
+                    const totalPrice = parseFloat(item.food.price) * item.soluong;
+                    element_cart_body.innerHTML += `
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="${item.food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                                    <span>${item.food.name}</span>
+                                </div>
+                            </td>
+                            <td>${price.toLocaleString()} VND</td>
+                            <td>
+                                <div class="container_btn">
+                                    <button onclick="decrease(${item.food.id})">-</button>
+                                    <button>${item.soluong}</button>
+                                    <button onclick="increase(${item.food.id})">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <span>${totalPrice.toLocaleString()} VND</span>
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;" onclick="removeItem(${item.food.id})"></i>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            document.querySelector(".btn_ThanhToan").addEventListener("click",()=>{
+                foods.forEach((item)=>{
+                    console.log(item);
+                    
+                })
+            })
         });
     }
+}
+
+function decrease(id) {
+    const item = foods.find((foodItem) => foodItem.food.id === id);
+    if (item && item.soluong > 1) {
+        item.soluong--; // Giảm số lượng
+    } else if (item && item.soluong === 1) {
+        foods = foods.filter((foodItem) => foodItem.food.id !== id); // Xóa sản phẩm nếu số lượng = 1
+    }
+    renderCart(); // Cập nhật lại giao diện
+}
+
+function removeItem(id) {
+    foods = foods.filter((foodItem) => foodItem.food.id !== id); // Loại bỏ sản phẩm dựa trên id
+    renderCart(); // Cập nhật lại giao diện
+}
+
+function renderCart() {
+    var element_cart_body = document.querySelector(".cart-body");
+    if (element_cart_body) {
+        element_cart_body.innerHTML = ``; // Xóa nội dung cũ
+        foods.forEach((item) => {
+            const price = parseFloat(item.food.price.replace(/[^\d.]/g, "")); // Loại bỏ ký tự không phải số
+            const totalPrice = price * item.soluong;
+
+            element_cart_body.innerHTML += `
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="${item.food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                            <span>${item.food.name}</span>
+                        </div>
+                    </td>
+                    <td>${price.toLocaleString()} VND</td>
+                    <td>
+                        <div class="container_btn">
+                            <button onclick="decrease(${item.food.id})">-</button>
+                            <button>${item.soluong}</button>
+                            <button onclick="increase(${item.food.id})">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <span>${totalPrice.toLocaleString()} VND</span>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;" onclick="removeItem(${item.food.id})"></i>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+}
+
+function renderCart() {
+    var element_cart_body = document.querySelector(".cart-body");
+    if (element_cart_body) {
+        element_cart_body.innerHTML = ``; // Xóa nội dung cũ
+        foods.forEach((item) => {
+            const price = parseFloat(item.food.price.replace(/[^\d.]/g, "")); // Loại bỏ ký tự không phải số
+            const totalPrice = price * item.soluong;
+
+            element_cart_body.innerHTML += `
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="${item.food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                            <span>${item.food.name}</span>
+                        </div>
+                    </td>
+                    <td>${price.toLocaleString()} VND</td>
+                    <td>
+                        <div class="container_btn">
+                            <button onclick="decrease(${item.food.id})">-</button>
+                            <button>${item.soluong}</button>
+                            <button onclick="increase(${item.food.id})">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <span>${totalPrice.toLocaleString()} VND</span>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;" onclick="removeItem(${item.food.id})"></i>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+}
+
+function decrease(id) {
+    const item = foods.find((foodItem) => foodItem.food.id === id);
+    if (item && item.soluong > 1) {
+        item.soluong--;
+    } else if (item && item.soluong === 1) {
+        foods = foods.filter((foodItem) => foodItem.food.id !== id);
+    }
+    renderCart();
+}
+
+function increase(id) {
+    const item = foods.find((foodItem) => foodItem.food.id === id);
+    if (item) {
+        item.soluong++;
+    }
+    renderCart();
+}
+
+function removeItem(id) {
+    foods = foods.filter((foodItem) => foodItem.food.id !== id);
+    renderCart();
 }

@@ -1,4 +1,5 @@
 import * as foodList from "./foodList.js";
+import {showChiTiet} from "./chitietsp.js";
 const food_display_list = document.querySelector(".food-display-list");
     
 
@@ -25,6 +26,7 @@ export function pagination(){
                 }); 
             }
             elementCurrentPage.innerText = currentPage + 1;
+            showChiTiet();
         });
     }
 
@@ -45,6 +47,7 @@ export function pagination(){
                 }); 
             }
             elementCurrentPage.innerText = currentPage + 1;
+            showChiTiet();
         });
     }
 
