@@ -128,7 +128,7 @@ export const users =[
     userName: 'Khanh',
     password: '123456',
     address: null,
-    roles: ['Nhan vien', 'Khach hang'],
+    roles: 'Khach hang',
     cart: [
       {
         name: 'Bún bò',
@@ -142,7 +142,7 @@ export const users =[
     userName: 'Bao',
     password: '123456',
     address: null,
-    roles: ['Admin'],
+    roles: 'Admin',
     cart:[]
   },
   {
@@ -150,7 +150,7 @@ export const users =[
     userName: 'Tran',
     password: '654321',
     address: null,
-    roles: ['Khach hang'],
+    roles: 'Khach hang',
     cart: [
       {
         name: 'Bún bò',
@@ -165,3 +165,10 @@ export const users =[
     ]
   }
 ]
+
+export function setLocalStorage(key,info){
+  localStorage.setItem(key,JSON.stringify(info))
+}
+export function getLocalStorage(key){
+  return JSON.parse(localStorage.getItem(key))
+}
