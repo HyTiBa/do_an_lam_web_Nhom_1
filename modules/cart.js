@@ -1,5 +1,6 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
+import { pageDisplay } from "./pageDisplay.js";
 
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
@@ -119,7 +120,7 @@ export function showCart() {
 
             // Nút "Thanh toán"
             document.querySelector(".btn_ThanhToan").addEventListener("click", () => {
-                
+                pageDisplay();
             });
         });
     }
