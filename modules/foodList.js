@@ -41,6 +41,7 @@ export function foodListDisplay() {
     if (explore_menu_category === "all" ||explore_menu_category === food.category) {
       let index = i;
       product_index.push(index);
+      
     }
   }
   
@@ -48,26 +49,8 @@ export function foodListDisplay() {
     page_number = Math.floor(product_index.length/6);
     for(let i=0;i<product_index.length;i++){
       const food = food_list[product_index[i]];
-        var textItem = `
-        <div class="food-item">
-          <div class="food-item-img-container">
-            <img src='${food.image}' class="food-item-img"/>
-            <div class="counter">
-              ${counter_logic(food.id)}
-            </div>
-          </div>
-          <div class="food-item-info">
-            <div class="food-item-name-rating">
-              <p>${food.name}</p>
-            </div>
-            <p class="food-item-price">Giá ${food.price}đ</p>
-            <button>
-              <i class="fa-solid fa-cart-shopping"></i>
-            </button>
-          </div>
-        </div>
-        `;
-        page.push(textItem);
+      var textItem = textSP(food);
+      page.push(textItem);
     }
     pages.push(page);
   }
@@ -76,25 +59,7 @@ export function foodListDisplay() {
     
     for(let i=0;i<product_index.length;i++){
       const food = food_list[product_index[i]];
-        var textItem = `
-        <div class="food-item">
-          <div class="food-item-img-container">
-            <img src='${food.image}' class="food-item-img"/>
-            <div class="counter">
-              ${counter_logic(food.id)}
-            </div>
-          </div>
-          <div class="food-item-info">
-            <div class="food-item-name-rating">
-              <p>${food.name}</p>
-            </div>
-            <p class="food-item-price">Giá ${food.price}đ</p>
-            <button>
-              <i class="fa-solid fa-cart-shopping"></i>
-            </button>
-          </div>
-        </div>
-        `;
+        var textItem = textSP(food);
         page.push(textItem);
         let tmp = 0;
         if(page.length % 6 == 0){
@@ -110,10 +75,9 @@ export function foodListDisplay() {
     }
   }
 
-  pages[0].forEach(function(page){
-    food_display_list.innerHTML += page;
+  pages[0].forEach(function(text){
+    food_display_list.innerHTML += text;
   });
-  
   chitietsp.showChiTiet();
   add_remove_icon();
 }
@@ -130,4 +94,27 @@ function counter_logic(id) {
   } else {
     return `<img id='${id}' class="plus-icon icon" src="./images/plus icon.png"/>`;
   }
+}
+
+function textSP(food){
+  var text = `
+        <div class="food-item">
+          <div class="food-item-img-container">
+            <img src='${food.image}' class="food-item-img"/>
+            <div class="counter">
+              ${counter_logic(food.id)}
+            </div>
+          </div>
+          <div class="food-item-info">
+            <div class="food-item-name-rating">
+              <p>${food.name}</p>
+            </div>
+            <p class="food-item-price">Giá ${food.price} VND</p>
+            <button>
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+          </div>
+        </div>
+        `;
+  return text;
 }

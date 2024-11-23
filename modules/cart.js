@@ -2,296 +2,281 @@ import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
 
 export function showCart() {
-    var elementCart = document.querySelector(".cart-icon");
+    const elementCart = document.querySelector(".cart-icon");
     if (elementCart) {
         elementCart.addEventListener("click", function () {
+            // Xóa overlay cũ nếu có
             const existingOverlay = document.querySelector(".overlay");
             if (existingOverlay) {
                 existingOverlay.remove();
             }
 
+            // Tạo overlay và giỏ hàng
             const overlay = document.createElement("div");
-            overlay.classList.add("overlay"); // Thêm lớp overlay
+            overlay.classList.add("overlay");
 
-            var cartContainer = document.createElement("div");
+            const cartContainer = document.createElement("div");
             cartContainer.classList.add("cart_container");
             cartContainer.innerHTML = `
-        <div style="display: flex; width: 100%; ">
-            <i class="fa-regular fa-rectangle-xmark" style="color: black; margin-left: auto; font-size: 24px;"></i>
-        </div>
-        <div>
-            <div style="width: 100%; text-align: center; font-size: 24px; margin: 12px 0; color:rgb(61, 61, 57)">Sản phẩm</div>
-         
-            <div style="margin-right: 50px; margin-bottom: 50px; border: 1px;" class="table-container">
-                <table>
-                   <thead>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Loại</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Thêm vào giỏ</th>
-                        </tr>
-                    </thead>
-                    <tbody class="listSP">
+                <div style="display: flex; width: 100%; ">
+                    <i class="fa-regular fa-rectangle-xmark" style="color: black; margin-left: auto; font-size: 24px;"></i>
+                </div>
+                <div>
+                    <div style="width: 100%; text-align: center; font-size: 24px; margin: 12px 0; color:rgb(61, 61, 57)">Sản phẩm</div>
+                    <div style="margin-right: 50px; margin-bottom: 50px;" class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Loại</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thêm vào giỏ</th>
+                                </tr>
+                            </thead>
+                            <tbody class="listSP"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container_cart" style="background-color: white;">
+                    <div style="width: 100%; text-align: center; font-size: 24px; margin: 12px 0; color:rgb(61, 61, 57)">
+                        <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="cart-body"></tbody>
+                        </table>
+                    </div>
+                    <div style="background-color: white;">
+                        <div style="width: 100%; display: flex; justify-content: space-between; margin: 10px 0;">
+                            <span>Tạm tính: </span>
+                            <span class="total_TamTinh">0 VND</span>
+                        </div>
+                        <button class="btn_ThanhToan">Thanh toán</button>
+                    </div>
+                </div>
+            `;
+
+            // Thêm overlay và cartContainer vào DOM
+            document.body.appendChild(overlay);
+            overlay.appendChild(cartContainer);
+
+            // Sự kiện đóng cửa sổ
+            const closeBtn = cartContainer.querySelector("i");
+            closeBtn.addEventListener("click", function () {
+                document.querySelectorAll(".SoLuong1").forEach((item)=>{
+                    item.innerText = 1;
+                });
+                overlay.remove();
+            });
+
+            // Hiển thị danh sách sản phẩm
+            const elementBodySP = document.querySelector(".listSP");
+            if (elementBodySP) {
+                elementBodySP.innerHTML = ``;
+                food_list.forEach((food) => {
+                    elementBodySP.innerHTML += `
                         <tr>
                             <td>
                                 <div class="product-info">
-                                    <img src="./images/bun bo.jpg" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                                    <span>Bún Bò Huế</span>
+                                    <img src="${food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                                    <span>${food.name}</span>
                                 </div>
                             </td>
-                            <td><span class="tag">Bún</span></td>
-                            <td>35.000đ</td>
+                            <td><span class="tag">${food.category}</span></td>
+                            <td>${food.price} VND</td>
                             <td>
                                 <div class="container_btn">
-                                    <button onclick="decrease()">-</button>
-                                    <button >1</button>
-                                    <button onclick="increase()">+</button>
+                                    <button class="giamSoLuong1">-</button>
+                                    <button class="soLuong1">1</button>
+                                    <button class="tangSoLuong1">+</button>
                                 </div>
                             </td>
                             <td>
-                                <button class="edit">
+                                <button class="edit ThemSanPham">
                                     <span>Thêm</span>
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </td>
-                            
-                        </tr>
-    
-                    
-                    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        
-        
-        <div style="background-color: white;">
-            <div style="width: 100%; text-align: center; font-size: 24px; margin: 12px 0; color:rgb(61, 61, 57)">
-                <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
-            </div>
-            <div class="table-container">
-            
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Thành tiền</th>
-                            <th>Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody class="cart-body">
+                        </tr>`;
+                });
+            }
 
-                    </tbody>
-                    
-                </table>
-            </div>
+            // Khởi tạo giỏ hàng
+            updateCart();
 
-            <div style="background-color: white;">
-                <div style="width: 100%; display: flex; justify-content: space-between; margin: 10px 0;">
-                    <span>Tạm tính: </span>
-                    <span>999999 VND</span>
-                </div>
-                <button class="btn_ThanhToan">Thanh toán</button>
-           
-            </div>
-        </div>
-            `;
-            // Thêm overlay và cartContainer vào DOM
-            document.body.appendChild(overlay);
-            overlay.appendChild(cartContainer); // Thêm cartContainer vào overlay
+            // Thêm sự kiện "Thêm sản phẩm"
+            suKienThemSanPham();
 
-            // Thêm sự kiện đóng cửa sổ khi click vào dấu 'x'
-            const closeBtn = cartContainer.querySelector("i");
-            closeBtn.addEventListener("click", function () {
-                overlay.remove(); // Xóa overlay khi click vào dấu 'x'
+            // Nút "Thanh toán"
+            document.querySelector(".btn_ThanhToan").addEventListener("click", () => {
+                alert("Đơn hàng đã được thanh toán!");
+                foods.length = 0; // Xóa giỏ hàng
+                updateCart();
+            });
+        });
+    }
+}
+
+// Hàm cập nhật giỏ hàng
+function updateCart() {
+    let total_TamTinh = 0;
+    const element_cart_body = document.querySelector(".cart-body");
+    const element_TamTinh = document.querySelector(".total_TamTinh");
+
+    if (element_cart_body) {
+        element_cart_body.innerHTML = ``;
+        foods.forEach((item) => {
+            const thanhtien = parseFloat(item.food.price) * item.soluong;
+            total_TamTinh += thanhtien;
+
+            element_cart_body.innerHTML += `
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="${item.food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
+                            <span>${item.food.name}</span>
+                        </div>
+                    </td>
+                    <td class="price">${item.food.price} VND</td>
+                    <td>
+                        <div class="container_btn">
+                            <button class="giamSoLuong">-</button>
+                            <button class="soLuong">${item.soluong}</button>
+                            <button class="tangSoLuong">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="thanhTien">${thanhtien} VND</span>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-trash delete" style="color: #74C0FC; font-size: 20px; cursor: pointer;"></i>
+                    </td>
+                </tr>`;
+        });
+
+        element_TamTinh.innerText = `${total_TamTinh} VND`;
+
+        // Gán sự kiện cho các nút trong giỏ
+        bindCartEvents();
+    }
+}
+
+// Hàm gán sự kiện
+function bindCartEvents() {
+    document.querySelectorAll(".tangSoLuong").forEach((item) => {
+        item.addEventListener("click", (event) => {
+            const parent_element = item.closest("tr");
+            const name_food = parent_element.querySelector(".product-info span").textContent;
+
+            foods.forEach((item) => {
+                if (item.food.name === name_food) {
+                    item.soluong++;
+                }
             });
 
+            updateCart();
+        });
+    });
 
-            var elementBodySP = document.querySelector(".listSP");
-            if(elementBodySP){
-                elementBodySP.innerHTML = ``;
-                food_list.forEach(food => {
-                    elementBodySP.innerHTML += `
-                    <tr>
-                        <td>
-                            <div class="product-info">
-                                <img src="${food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                                <span>${food.name}</span>
-                            </div>
-                        </td>
-                        <td><span class="tag">${food.category}</span></td>
-                        <td>${food.price}</td>
-                        <td>
-                            <div class="container_btn">
-                                <button onclick="decrease()">-</button>
-                                <button >1</button>
-                                <button onclick="increase()">+</button>
-                            </div>
-                        </td>
-                        <td>
-                            <button class="edit">
-                                <span>Thêm</span>
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                        </td>
-                            
-                    </tr> `;
+    document.querySelectorAll(".giamSoLuong").forEach((item) => {
+        item.addEventListener("click", (event) => {
+            const parent_element = item.closest("tr");
+            const name_food = parent_element.querySelector(".product-info span").textContent;
+
+            foods.forEach((item, index) => {
+                if (item.food.name === name_food) {
+                    if (item.soluong > 1) {
+                        item.soluong--;
+                    } 
+                }
+            });
+
+            updateCart();
+        });
+    });
+
+    document.querySelectorAll(".delete").forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+            const parent_element = btn.closest("tr");
+            const name_food = parent_element.querySelector(".product-info span").textContent;
+
+            for (let i = foods.length - 1; i >= 0; i--) {
+                if (foods[i].food.name === name_food) {
+                    foods.splice(i, 1);
+                }
+            }
+
+            if(foods.length===0){
+                document.querySelector(".dot").style.display = "none";
+            }
+            updateCart();
+        });
+    });
+}
+
+
+function suKienThemSanPham(){
+    document.querySelectorAll(".ThemSanPham").forEach((item) => {
+        item.addEventListener("click", (event) => {
+            const parent_element = event.target.closest("tr");
+            const name_food = parent_element.querySelector(".product-info span").textContent;
+            const sl = Number(parent_element.querySelector(".soLuong1").textContent);
+
+            // Kiểm tra sản phẩm đã có trong giỏ chưa
+            let found = false;
+            foods.forEach((item) => {
+                if (item.food.name === name_food) {
+                    item.soluong += sl; // Tăng số lượng
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                food_list.forEach((food_item) => {
+                    if (food_item.name === name_food) {
+                        foods.push({
+                            food: food_item,
+                            soluong: sl,
+                        });
+                    }
                 });
+            }
+
+            updateCart();
+            document.querySelector(".dot").style.display = "block";
+            
+        });
+    });
+
+    document.querySelectorAll(".tangSoLuong1").forEach((btn)=>{
+        btn.addEventListener("click",(event)=>{
+            const parent_element = event.target.closest("tr");
+            var sl = Number(parent_element.querySelector(".soLuong1").textContent);
+            sl++;
+            parent_element.querySelector(".soLuong1").innerText = sl;
+            
+        });
+    });
+
+    document.querySelectorAll(".giamSoLuong1").forEach((btn)=>{
+        btn.addEventListener("click",(event)=>{
+            const parent_element = event.target.closest("tr");
+            var sl = Number(parent_element.querySelector(".soLuong1").textContent);
+            if(sl>1){
+                sl--;
+                parent_element.querySelector(".soLuong1").innerText = sl;
             }
             
-            var element_cart_body = document.querySelector(".cart-body");
-            if(element_cart_body){
-                element_cart_body.innerHTML = ``;
-                foods.forEach((item)=>{
-                    const totalPrice = parseFloat(item.food.price) * item.soluong;
-                    element_cart_body.innerHTML += `
-                        <tr>
-                            <td>
-                                <div class="product-info">
-                                    <img src="${item.food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                                    <span>${item.food.name}</span>
-                                </div>
-                            </td>
-                            <td>${price.toLocaleString()} VND</td>
-                            <td>
-                                <div class="container_btn">
-                                    <button onclick="decrease(${item.food.id})">-</button>
-                                    <button>${item.soluong}</button>
-                                    <button onclick="increase(${item.food.id})">+</button>
-                                </div>
-                            </td>
-                            <td>
-                                <span>${totalPrice.toLocaleString()} VND</span>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;" onclick="removeItem(${item.food.id})"></i>
-                            </td>
-                        </tr>
-                    `;
-                });
-            }
-
-            document.querySelector(".btn_ThanhToan").addEventListener("click",()=>{
-                foods.forEach((item)=>{
-                    console.log(item);
-                    
-                })
-            })
         });
-    }
-}
-
-function decrease(id) {
-    const item = foods.find((foodItem) => foodItem.food.id === id);
-    if (item && item.soluong > 1) {
-        item.soluong--; // Giảm số lượng
-    } else if (item && item.soluong === 1) {
-        foods = foods.filter((foodItem) => foodItem.food.id !== id); // Xóa sản phẩm nếu số lượng = 1
-    }
-    renderCart(); // Cập nhật lại giao diện
-}
-
-function removeItem(id) {
-    foods = foods.filter((foodItem) => foodItem.food.id !== id); // Loại bỏ sản phẩm dựa trên id
-    renderCart(); // Cập nhật lại giao diện
-}
-
-function renderCart() {
-    var element_cart_body = document.querySelector(".cart-body");
-    if (element_cart_body) {
-        element_cart_body.innerHTML = ``; // Xóa nội dung cũ
-        foods.forEach((item) => {
-            const price = parseFloat(item.food.price.replace(/[^\d.]/g, "")); // Loại bỏ ký tự không phải số
-            const totalPrice = price * item.soluong;
-
-            element_cart_body.innerHTML += `
-                <tr>
-                    <td>
-                        <div class="product-info">
-                            <img src="${item.food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                            <span>${item.food.name}</span>
-                        </div>
-                    </td>
-                    <td>${price.toLocaleString()} VND</td>
-                    <td>
-                        <div class="container_btn">
-                            <button onclick="decrease(${item.food.id})">-</button>
-                            <button>${item.soluong}</button>
-                            <button onclick="increase(${item.food.id})">+</button>
-                        </div>
-                    </td>
-                    <td>
-                        <span>${totalPrice.toLocaleString()} VND</span>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;" onclick="removeItem(${item.food.id})"></i>
-                    </td>
-                </tr>
-            `;
-        });
-    }
-}
-
-function renderCart() {
-    var element_cart_body = document.querySelector(".cart-body");
-    if (element_cart_body) {
-        element_cart_body.innerHTML = ``; // Xóa nội dung cũ
-        foods.forEach((item) => {
-            const price = parseFloat(item.food.price.replace(/[^\d.]/g, "")); // Loại bỏ ký tự không phải số
-            const totalPrice = price * item.soluong;
-
-            element_cart_body.innerHTML += `
-                <tr>
-                    <td>
-                        <div class="product-info">
-                            <img src="${item.food.image}" alt="ảnh sản phẩm" id="img" width="30%" height="auto"> 
-                            <span>${item.food.name}</span>
-                        </div>
-                    </td>
-                    <td>${price.toLocaleString()} VND</td>
-                    <td>
-                        <div class="container_btn">
-                            <button onclick="decrease(${item.food.id})">-</button>
-                            <button>${item.soluong}</button>
-                            <button onclick="increase(${item.food.id})">+</button>
-                        </div>
-                    </td>
-                    <td>
-                        <span>${totalPrice.toLocaleString()} VND</span>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash" style="color: #74C0FC; font-size: 20px; cursor: pointer;" onclick="removeItem(${item.food.id})"></i>
-                    </td>
-                </tr>
-            `;
-        });
-    }
-}
-
-function decrease(id) {
-    const item = foods.find((foodItem) => foodItem.food.id === id);
-    if (item && item.soluong > 1) {
-        item.soluong--;
-    } else if (item && item.soluong === 1) {
-        foods = foods.filter((foodItem) => foodItem.food.id !== id);
-    }
-    renderCart();
-}
-
-function increase(id) {
-    const item = foods.find((foodItem) => foodItem.food.id === id);
-    if (item) {
-        item.soluong++;
-    }
-    renderCart();
-}
-
-function removeItem(id) {
-    foods = foods.filter((foodItem) => foodItem.food.id !== id);
-    renderCart();
+    });
 }
