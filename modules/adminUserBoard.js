@@ -1,6 +1,7 @@
 import { users } from "./informationalObjects.js";
 export function adminUserBoardDisplay(){
-    const board = document.querySelector(".adminUserBoard")
+    const board = document.querySelector(".adminUserBoard");
+    board.innerHTML='';
     console.log(users[0].roles);
     
     users.forEach((item) => {
@@ -40,10 +41,10 @@ export function adminUserBoardDisplay(){
           <div class="pop-ups">
             <div class="modify">
               <form class="form-container">
-                <label class="form-label" for="modify_email">Email:</label>
-                <input class="form-input" type="email" id="modify_email" name="userEmail" required>
                 <label class="form-label" for="modify_name">Tên:</label>
                 <input class="form-input" type="text" name="userName" id="modify_name">
+                <label class="form-label" for="modify_pwd">Mật Khẩu:</label>
+                <input class="form-input" type="password" name="userPassword" id="modify_password">
                 <label class="form-label" for="modify_role">Chức vụ:</label>
                 <select name="userRole" id="modify_role">
                   <option value="Admin">Admin</option>
@@ -73,11 +74,13 @@ export function adminUserBoardDisplay(){
 function displayUserRole(roles){
 switch (roles){
     case "Admin":
- return `<div class="role admin">Admin</div>`
-break
-case "Khach hang":
-    return `<div class="role customer">Khách hàng</div>`
-    break
-
+      return `<div class="role admin">Admin</div>`
+      break
+    case "Khach hang":
+      return `<div class="role customer">Khách hàng</div>`
+      break
+    case "Nhan vien":
+      return `<div class="role staff">Nhân viên</div>`
+      break;
 }
 }

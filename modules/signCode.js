@@ -1,4 +1,5 @@
 import { users } from "./informationalObjects.js";
+import { setLocalStorage } from "./informationalObjects.js";
 
 export function signCode(){
 document.querySelector(".login-btn").addEventListener("click",() => {
@@ -53,11 +54,12 @@ document.querySelector(".login-btn").addEventListener("click",() => {
         email: userE,
         userName: userN,
         password: userP1,
-        roles: ['Khach hang'],
+        roles: 'Khach hang',
         cart:[]
       };
       alert("Đăng ký tài khoản thành công");
-      users.push(user);
+      //users.push(user);
+      setLocalStorage('user', user);
       document.querySelector(".signup-form").style.display = "none";
       document.querySelector(".login-form").style.display = "flex";
       document.querySelector(".popup-box").style.display = "none"
