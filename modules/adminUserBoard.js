@@ -8,7 +8,7 @@ export function adminUserBoardDisplay(){
         <div class="user section">
           <div class="info">
             <img
-              src="https://imgs.search.brave.com/azUd2Mn9JYyErMUp2jYjrr5xvnkaDf_0IawvDYdwP-g/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzc2LzI3LzUz/LzM2MF9GXzc2Mjc1/Mzg0X21STnJtQUk4/OVVQV29XZVVKZkNM/OUNwdFJ4ZzNjRW9G/LmpwZw"
+              src="${item.avt}"
               alt=""
             />
             <div>

@@ -124,6 +124,7 @@ export const adminNavbarLinks =[
 
 export const users =[
   {
+    avt: null,
     email: 'nguyenkhanh0127@gmail.com',
     userName: 'Khanh',
     password: '123456',
@@ -139,6 +140,9 @@ export const users =[
   },
   {
     email: 'captianBao@gmail.com',
+    avt: 
+    `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`
+    ,
     userName: 'Bao',
     password: '123456',
     address: null,
@@ -146,6 +150,7 @@ export const users =[
     cart:[]
   },
   {
+    avt: null,
     email: 'ThanhTran1997@gmail.com',
     userName: 'Tran',
     password: '654321',
