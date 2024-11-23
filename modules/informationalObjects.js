@@ -1,3 +1,5 @@
+import { foods } from "./chitietsp";
+
 export const food_list = [
   {
     id: 1,
@@ -172,12 +174,44 @@ export const users =[
 ]
 
 
+foods =[
+  {
+    food: food_list[0],
+    soluong: 2
+  },
+  {
+    food: food_list[1],
+    soluong: 2
+  },
+]
+
+ship = [
+  {
+    ten: "Thường",
+    gia: 20000
+  },
+  {
+    ten: "Nhanh",
+    gia: 50000
+  },
+  {
+    ten: "Hỏa tốc",
+    gia: 80000
+  }
+
+
+]
 export const receipts = [
   {
     id: 1,
     email: "test@gmail.com",
     diachi: "TP HCM",
-    ArrayFood: []
+    ArrayFood: foods,
+    TamTinh: 1000,
+    HinhThucVanChuyen: "Thuong",
+    PhiVanChuyen: 1000,
+    TongCong: TamTinh + PhiVanChuyen,
+    NgayMua: "20/11/2024"
   }
 
 ]
