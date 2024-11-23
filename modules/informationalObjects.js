@@ -171,6 +171,16 @@ export const users =[
   }
 ]
 
+
+export const receipts = [
+  {
+    id: 1,
+    email: "test@gmail.com",
+    diachi: "TP HCM",
+    ArrayFood: []
+  }
+
+]
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info))
 }
