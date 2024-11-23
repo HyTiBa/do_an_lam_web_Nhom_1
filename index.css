@@ -409,6 +409,117 @@ button.delete:hover {
     padding: 10px 0;width: 100%; font-size: 16px; background-color: tomato; border: none; color: white; cursor: pointer; border-radius: 10px;
 }
 
+
+/*====== CSS  Phiếu Thanh Toán =================*/
+
+.page-title {
+    margin: 0 0 10px 0;
+    font-size: 2em;
+
+}
+
+.page-title h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff9966;
+    border-bottom: 1px solid #c0bcb7;
+    padding-bottom: 7px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.row {
+    max-width: 100%;
+}
+
+.box-checkout {
+    margin-bottom: 20px;
+}
+
+.box-checkout .box-title {
+    background: #ff9966;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 700;
+    padding: 17px 15px 11px;
+}
+
+.box-checkout .box-content {
+    padding: 15px 20px;
+    border: 1px solid #c2c2c2;
+    border-top: 0;
+}
+
+.input-box {
+    margin-bottom: 9px;
+}
+
+.input-text {
+    width: 100%;
+    min-height: 40px;
+    font-size: 15px;
+    border-radius: 2px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    resize: vertical;
+}
+
+.data-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    border: 0;
+    font-size: 14px;
+    text-transform: none;
+}
+
+.data-table tfoot {
+    font-weight: 700;
+}
+
+.data-table tfoot td {
+    padding: 10px 25px;
+    color: #0000007d;
+    text-align: left;
+    font-size: 16px;
+    border: 0;
+}
+
+.data-table .no-data td {
+    padding: 25px 25px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 18px;
+    font-family: "Roboto", sans-serif;
+    color: #2d2d2d;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #eceeef;
+    text-transform: uppercase;
+}
+
+.order-confi {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.order-confi button {
+    max-width: 300px;
+    height: 60px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #ff9966;
+    border-radius: 7px;
+    border: 0;
+    line-height: 54px;
+    font-family: "block-pro", "Helvetica Neue", Verdana, Arial, sans-serif;
+    cursor: pointer;
+}
+/*====== CSS  Phiếu Thanh Toán =================*/
+
 /*=====================================================================*/
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');

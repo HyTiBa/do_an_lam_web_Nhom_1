@@ -1,7 +1,8 @@
 const pages = document.querySelectorAll(".page")
 
 export function pageDisplay(){
-    const pageButtonLinks = document.querySelectorAll(".pageButtonLink")
+    const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
+    
     let pageToDisplay
     pages.forEach(page => {
         if(page.attributes.page.value == "home"){

@@ -61,7 +61,7 @@ export function showCart() {
                             <span>Tạm tính: </span>
                             <span class="total_TamTinh">0 VND</span>
                         </div>
-                        <button class="btn_ThanhToan">Thanh toán</button>
+                        <button class="btn_ThanhToan pageButtonLink" page="ThanhToan">Thanh toán</button>
                     </div>
                 </div>
             `;
@@ -119,9 +119,7 @@ export function showCart() {
 
             // Nút "Thanh toán"
             document.querySelector(".btn_ThanhToan").addEventListener("click", () => {
-                alert("Đơn hàng đã được thanh toán!");
-                foods.length = 0; // Xóa giỏ hàng
-                updateCart();
+                
             });
         });
     }

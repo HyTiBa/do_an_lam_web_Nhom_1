@@ -176,6 +176,95 @@
       </footer>
     </main>
 
+    <main page="ThanhToan" class="page">
+      <form>
+        <div>
+            <div class="page-title">
+                <h2>THANH TOÁN</h2>
+            </div>
+            <div style="padding: 23px;">
+                <div class="row">
+                    <div class="box-checkout">
+                        <h3 class="box-title">
+                            GHI CHÚ THÊM
+                        </h3>
+                        <div class="box-content" style="padding: 20px 67px;">
+                            <label for="accress-order">Địa chỉ</label>
+                            <span id="error" class="error"></span>
+                            <input type="text" name="accress_order" id="accress_order"
+                                placeholder="Vui lòng nhập dịa chỉ" class="input-text">
+
+                            <label>Ghi chú</label>
+                            <div class="input-box">
+                                <textarea name="order_comment" id="ghi_chu_deal" placeholder="Vui lòng nhập ghi chú"
+                                    class="input-text"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-checkout">
+                        <h3 class="box-title">
+                            XEM LẠI ĐƠN HÀNG
+                        </h3>
+                        <div class="box-content" style="padding: 0;">
+                            <table class="data-table" id="">
+                                <colgroup>
+                                    <col>
+                                    <col width="1">
+                                    <col width="1">
+                                    <col width="1">
+                                    <col width="1">
+                                </colgroup>
+                                <thead style="background: #f0ebe5; border: none; height: 60px;">
+                                    <tr>
+                                        <th rowspan="1" style="width: 40%;">Tên sản phẩm</th>
+                                        <th colspan="1" style="width: 25%;">Đơn giá</th>
+                                        <th rowspan="1" style="width: 10%;">Số lượng</th>
+                                        <th colspan="1" style="width: 25%;">Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td class="a-right" colspan="3">Tạm tính</td>
+                                        <td class="a-right" id="thanh_toan_tmp_cal_money" colspan="1">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style class="a-right" colspan="1">Phí vận chuyển</td>
+                                        <td style class="a-right" colspan="1">Hình thức vận chuyển</td>
+                                        <td colspan="1">
+                                            <select name="choose" id="hinh_thuc_van_chuyen"
+                                                class="choose" onchange="van_chuyen();tong_cong();">
+                                                <option value=1>Thường</option>
+                                                <option value=2>Nhanh</option>
+                                                <option value=3>Hỏa tốc</option>
+                                            </select>
+                                        </td>
+                                        <td colspan="1" id="phi_van_chuyen">10000 VND
+                                        </td>
+                                    </tr>
+                                    <tr class="grand-total">
+                                        <td class="a-left" colspan="3"
+                                            style="font-size: 18px; color: black;">Tổng cộng</td>
+                                        <td class="a-right" id="tong_cong">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                                <tfoot class="no-data" id="no-data">
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="order-confi">
+                        <button type="button" onclick="check_final()">XÁC NHẬN ĐƠN HÀNG</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+    </main>
     <main page="analytics" class="page adminAnalytics">
       <h1>
         Thống kê
