@@ -125,6 +125,9 @@
 .adminUserBoard .user .roles .customer{
     background-color: darkgoldenrod;
 }
+.adminUserBoard .user .roles .staff{
+    background-color: rgb(11, 92, 184);
+}
 
 .adminUserBoard .actions{
     display: flex;
