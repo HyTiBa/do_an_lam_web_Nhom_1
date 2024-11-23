@@ -110,6 +110,7 @@ export function showCart() {
                             </td>
                         </tr>`;
                 });
+
             }
 
             // Khởi tạo giỏ hàng
@@ -120,8 +121,8 @@ export function showCart() {
 
             // Nút "Thanh toán"
             document.querySelector(".btn_ThanhToan").addEventListener("click", () => {
-                pageDisplay();
             });
+            pageDisplay();
         });
     }
 }

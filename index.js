@@ -9,7 +9,6 @@ import {pagination} from "./modules/pagination.js"
 import { adminUserManage } from "./modules/adminUserManage.js"
 import * as cart from "./modules/cart.js"
 adminSidebarIconDisplay()
-pageDisplay()
 menuListDisplay()
 foodListDisplay()
 adminUserBoardDisplay()
@@ -18,3 +17,4 @@ signCode()
 adminUserManage()
 pagination();
 cart.showCart();
+pageDisplay()
