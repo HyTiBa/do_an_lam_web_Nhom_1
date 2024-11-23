@@ -1,6 +1,6 @@
 import { food_list, cart_items } from "./informationalObjects.js";
 
-
+export var foods = [];
 export function showChiTiet() {
     const chonsp = document.querySelectorAll(".food-item");
 
@@ -80,6 +80,26 @@ export function showChiTiet() {
                 overlay.remove(); // Xóa overlay khỏi DOM
             });
 
+            productDetail.querySelector(".add_cart").addEventListener("click", () => {
+                // Kiểm tra nếu sản phẩm đã tồn tại trong giỏ hàng
+                const existingFood = foods.find(item => item.food.id === element_food.id);
+            
+                if (existingFood) {
+                    // Nếu tồn tại, tăng số lượng
+                    existingFood.soluong += count;
+                } else {
+                    // Nếu chưa tồn tại, thêm mới vào giỏ hàng
+                    foods.push({
+                        food: element_food,
+                        soluong: count
+                    });
+                }
+            
+                // Đóng overlay và hiển thị thông báo
+                overlay.remove();
+                document.querySelector(".dot").style.display = "block";
+            });
+            
             // Thêm container_product_detail vào overlay và thêm overlay vào body
             overlay.appendChild(productDetail);
             document.body.appendChild(overlay);

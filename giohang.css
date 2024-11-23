@@ -1,90 +1,25 @@
-/* style.css */
-
-.cart-icon{
-    position: relative;
-    display: inline-block;
-    top: -310px; 
-    left: 900px; 
-    cursor: pointer;
-}
-.icon {
-    width: 30px; 
-    height: 30px;
-}
-.dot{
-    position: absolute;
-    background-color: tomato;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    top: -5px;
-    right: -8px;
-}
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-wrap: wrap;
     margin: 0;
-}
-
-.container {
-    width: 70%;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.add-button {
     padding: 10px;
-        font-size: 16px;
-        background-color: #ff5722;
-        cursor: pointer;
-    min-width: 180px; 
-}
-.add2-button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #ff5722;
-    cursor: pointer;
-    min-width: 180px;
-}
-.add3-button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #ff5722;
-    cursor: pointer;
-    min-width: 180px;
-}
-.button-container {
-    display: flex;
-    flex-direction: column; /* Sắp xếp các nút thành hàng dọc */
-    gap: 10px; /* Tạo khoảng cách giữa các nút */
-    float: right;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 20px;
 }
 
-
+.cart_container{
+    display: flex; flex-wrap: wrap; background-color: white;
+    width: 100%;
+}
 .table-container {
-    max-height: 500px; /* Chiều cao cố định */
+    max-height: 400px; /* Chiều cao cố định */
     overflow-y: auto; /* Bật thanh cuộn dọc */
     border: 1px solid #ddd;
     border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 table {
@@ -93,25 +28,35 @@ table {
 }
 
 th, td {
-    text-align: left;
+    text-align: center;
     padding: 15px;
+    border-bottom: 1px solid #ddd;
 }
 
 thead {
     background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 th {
     font-weight: bold;
+    font-size: 16px;
 }
 
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
 .product-info {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .product-info img {
@@ -130,45 +75,95 @@ tbody tr:nth-child(even) {
     color: #555;
 }
 
-button.edit, button.delete {
-    background-color: transparent;
+button.edit {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    color: #555;
-    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+button.edit:hover {
+    background-color: #0056b3;
 }
 
 button.delete {
-    color: #ff0000;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-button.edit::before {
-    content: '✏️';
-    margin-right: 5px;
+button.delete:hover {
+    background-color: #cc0000;
 }
 
-button.delete::before {
-    content: '🚫';
-    margin-right: 5px;
-}
-.cart {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ff0000;
-    background-color: #89ca4f92;
+.container_btn button {
+    background-color: #555;
+    color: white;
+    border-radius: 20px;
+    min-width: 30px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
 }
 
-.cart-total, .promo-code, .shipping, .discount, .tax, .total {
-    margin-top: 10px;
+.container_btn button:hover {
+    background-color: #333;
 }
 
 .checkout {
     background-color: #4CAF50;
-    color: rgb(255, 255, 255);
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
+    text-align: center;
 }
+
+.checkout:hover {
+    background-color: #388e3c;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        flex-direction: column; /* Chuyển hướng thành cột */
+        align-items: stretch; /* Các phần tử sẽ dàn đều theo chiều ngang */
+        padding: 5px;
+    }
+
+    .table-container {
+        width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng */
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px; /* Giảm padding để hiển thị tốt hơn */
+        font-size: 14px; /* Giảm kích thước chữ */
+    }
+
+    button.edit, button.delete {
+        font-size: 12px; /* Điều chỉnh kích thước nút */
+    }
+
+    .checkout {
+        width: 100%; /* Nút thanh toán chiếm toàn bộ chiều rộng */
+        font-size: 16px;
+    }
+}
+
+
