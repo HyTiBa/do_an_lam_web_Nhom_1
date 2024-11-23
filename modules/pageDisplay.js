@@ -1,7 +1,7 @@
 const pages = document.querySelectorAll(".page")
 
 export function pageDisplay(){
-    const pageButtonLinks = document.querySelectorAll(".admin-navbar-nav a")
+    const pageButtonLinks = document.querySelectorAll(".pageButtonLink")
     let pageToDisplay
     pages.forEach(page => {
         if(page.attributes.page.value == "user"){

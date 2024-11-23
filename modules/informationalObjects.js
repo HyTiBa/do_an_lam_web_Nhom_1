@@ -101,6 +101,11 @@ export const adminNavbarLinks =[
     text:"Trang chính"
   },
   {
+    page:"analytics",
+    icon:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M160 80c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 352c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-352zM0 272c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 160c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48L0 272zM368 96l32 0c26.5 0 48 21.5 48 48l0 288c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48z"/></svg>',
+    text:"Thống kê"
+  },
+  {
     page:"user",
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>',
     text:"Người dùng"
@@ -119,11 +124,12 @@ export const adminNavbarLinks =[
 
 export const users =[
   {
+    avt: null,
     email: 'nguyenkhanh0127@gmail.com',
     userName: 'Khanh',
     password: '123456',
     address: null,
-    roles: ['Nhan vien', 'Khach hang'],
+    roles: 'Khach hang',
     cart: [
       {
         name: 'Bún bò',
@@ -134,18 +140,22 @@ export const users =[
   },
   {
     email: 'captianBao@gmail.com',
+    avt: 
+    `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`
+    ,
     userName: 'Bao',
     password: '123456',
     address: null,
-    roles: ['Admin'],
+    roles: 'Admin',
     cart:[]
   },
   {
+    avt: null,
     email: 'ThanhTran1997@gmail.com',
     userName: 'Tran',
     password: '654321',
     address: null,
-    roles: ['Khach hang'],
+    roles: 'Khach hang',
     cart: [
       {
         name: 'Bún bò',
@@ -160,3 +170,10 @@ export const users =[
     ]
   }
 ]
+
+export function setLocalStorage(key,info){
+  localStorage.setItem(key,JSON.stringify(info))
+}
+export function getLocalStorage(key){
+  return JSON.parse(localStorage.getItem(key))
+}
