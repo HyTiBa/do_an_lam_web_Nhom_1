@@ -1,10 +1,17 @@
 import { users } from "./informationalObjects.js";
-export function adminUserBoardDisplay(){
+export function adminUserBoardDisplay(userArr = null){
     const board = document.querySelector(".adminUserBoard");
     board.innerHTML='';
     console.log(users[0].roles);
+    let userAccs = null;
     
-    users.forEach((item) => {
+    if(userArr != null){
+      userAccs = userArr;
+    } else{
+      userAccs = users;
+    }
+
+    userAccs.forEach((item) => {
         board.innerHTML += `
         <div class="user section">
           <div class="info">
@@ -44,7 +51,7 @@ export function adminUserBoardDisplay(){
                 <label class="form-label" for="modify_name">Tên:</label>
                 <input class="form-input" type="text" name="userName" id="modify_name">
                 <label class="form-label" for="modify_pwd">Mật Khẩu:</label>
-                <input class="form-input" type="password" name="userPassword" id="modify_password">
+                <input class="form-input" type="password" name="userPassword" id="modify_pwd">
                 <label class="form-label" for="modify_role">Chức vụ:</label>
                 <select name="userRole" id="modify_role">
                   <option value="Admin">Admin</option>
