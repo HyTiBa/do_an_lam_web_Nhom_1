@@ -30,7 +30,7 @@ export function adminUserManage(){
     }
 
     function reattachEventListenerAdminUserBoard(){
-        document.querySelectorAll(".actions .modify").forEach((button) => {
+        document.querySelectorAll(".adminUserBoard .actions .modify").forEach((button) => {
             button.addEventListener('click', (event) =>{
                 document.querySelector(".adminUserBoard .pop-ups").style.display = 'flex';
                 document.querySelector(".adminUserBoard .pop-ups .modify").style.display = 'flex';
@@ -56,7 +56,7 @@ export function adminUserManage(){
             document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
         })
     
-        document.querySelectorAll(".actions .remove").forEach((button) => {
+        document.querySelectorAll(".adminUserBoard .actions .remove").forEach((button) => {
             button.addEventListener('click', (event) =>{
                 document.querySelector(".adminUserBoard .pop-ups").style.display = 'flex';
                 document.querySelector(".adminUserBoard .pop-ups .remove").style.display = 'block';
@@ -97,10 +97,10 @@ export function adminUserManage(){
       }
 
     function adminAddUser(){
-        let userE = document.querySelector('.top-section .add-user #added_email').value;
-        let userN = document.querySelector('.top-section .add-user #added_name').value;
-        let userP = document.querySelector('.top-section .add-user #added_pwd').value;
-        let userR = document.querySelector('.top-section .add-user #added_role').value;
+        let userE = document.querySelector('.adminUserPage .top-section .add-user #added_email').value;
+        let userN = document.querySelector('.adminUserPage .top-section .add-user #added_name').value;
+        let userP = document.querySelector('.adminUserPage .top-section .add-user #added_pwd').value;
+        let userR = document.querySelector('.adminUserPage .top-section .add-user #added_role').value;
         if(!checkEmail(userE)){
             alert('Tài khoản gmail đã tồn tại!');
             return 0;
@@ -117,10 +117,10 @@ export function adminUserManage(){
         //setLocalStorage('user', user);
         users.push(user);
         alert('Thêm Người Dùng Thành Công');
-        document.querySelector('.top-section .add-user #added_email').value ='';
-        document.querySelector('.top-section .add-user #added_name').value ='';
-        document.querySelector('.top-section .add-user #added_pwd').value = '';
-        document.querySelector('.top-section .pop-ups').style.display = 'none';
+        document.querySelector('.adminUserPage .top-section .add-user #added_email').value ='';
+        document.querySelector('.adminUserPage .top-section .add-user #added_name').value ='';
+        document.querySelector('.adminUserPage .top-section .add-user #added_pwd').value = '';
+        document.querySelector('.adminUserPage .top-section .pop-ups').style.display = 'none';
         document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
         adminUserBoardDisplay();
         reattachEventListenerAdminUserBoard();
@@ -128,15 +128,18 @@ export function adminUserManage(){
     
     reattachEventListenerAdminUserBoard();
 
-    document.querySelector('.top-section .addUser_btn').addEventListener('click', () =>{
-        document.querySelector('.top-section .pop-ups').style.display = 'flex';
+    document.querySelector('.adminUserPage .top-section .addUser_btn').addEventListener('click', () =>{
+        document.querySelector('.adminUserPage .top-section .pop-ups').style.display = 'flex';
     })
 
-    document.querySelector('.top-section .pop-ups .add-user .btn-close').addEventListener('click', () =>{
-        document.querySelector('.top-section .pop-ups').style.display = 'none';
+    document.querySelector('.adminUserPage .top-section .pop-ups .add-user .btn-close').addEventListener('click', () =>{
+        document.querySelector('.adminUserPage .top-section .pop-ups .add-user #added_email').value ='';
+        document.querySelector('.adminUserPage .top-section .pop-ups .add-user #added_name').value ='';
+        document.querySelector('.adminUserPage .top-section .pop-ups .add-user #added_pwd').value ='';
+        document.querySelector('.adminUserPage .top-section .pop-ups').style.display = 'none';
     })
 
-    document.querySelector('.top-section .add-user .form-container').addEventListener('submit', (event) =>{
+    document.querySelector('.adminUserPage .top-section .add-user .form-container').addEventListener('submit', (event) =>{
         event.preventDefault();
         adminAddUser();
     })
