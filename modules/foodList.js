@@ -101,9 +101,6 @@ function textSP(food){
         <div class="food-item">
           <div class="food-item-img-container">
             <img src='${food.image}' class="food-item-img"/>
-            <div class="counter">
-              ${counter_logic(food.id)}
-            </div>
           </div>
           <div class="food-item-info">
             <div class="food-item-name-rating">
