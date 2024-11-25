@@ -1,7 +1,7 @@
 import { log } from "../index.js";
 import { users } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
-let loginedUser = null
+export let loginedUser = null
 
 export function signCode(){
 document.querySelector(".login-btn").addEventListener("click",() => {
