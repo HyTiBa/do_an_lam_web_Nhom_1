@@ -137,4 +137,24 @@ export function adminUserManage(){
         event.preventDefault();
         adminAddUser();
     })
+
+    document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').addEventListener('input', (event) =>{
+        let userArr = [];
+        let searchInput = document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value;
+        if(searchInput == ''){
+            adminUserBoardDisplay();
+            reattachEventListenerAdminUserBoard();
+            return 0;
+        }
+
+        for(let i = 0; i < users.length; i++){
+            if(users[i].userName.toLocaleLowerCase().includes(searchInput.toLowerCase())
+            || users[i].email.toLocaleLowerCase().includes(searchInput.toLowerCase())){
+                userArr.push(users[i]);
+            }
+        }
+        adminUserBoardDisplay(userArr);
+        reattachEventListenerAdminUserBoard();
+
+    })
 }

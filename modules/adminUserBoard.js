@@ -1,10 +1,17 @@
 import { users } from "./informationalObjects.js";
-export function adminUserBoardDisplay(){
+export function adminUserBoardDisplay(userArr = null){
     const board = document.querySelector(".adminUserBoard");
     board.innerHTML='';
     console.log(users[0].roles);
+    let userAccs = null;
     
-    users.forEach((item) => {
+    if(userArr != null){
+      userAccs = userArr;
+    } else{
+      userAccs = users;
+    }
+
+    userAccs.forEach((item) => {
         board.innerHTML += `
         <div class="user section">
           <div class="info">
