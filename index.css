@@ -409,7 +409,10 @@ button.delete:hover {
     padding: 10px 0;width: 100%; font-size: 16px; background-color: tomato; border: none; color: white; cursor: pointer; border-radius: 10px;
 }
 
-
+.product_null{
+    color: red;
+    display: none;
+}
 /*====== CSS  Phiếu Thanh Toán =================*/
 
 .page-title {
@@ -518,7 +521,22 @@ button.delete:hover {
     font-family: "block-pro", "Helvetica Neue", Verdana, Arial, sans-serif;
     cursor: pointer;
 }
+
+.error {
+    color: red;
+}
+
+#thanh_toan_tmp_cal_money,
+#phi_van_chuyen,
+#tong_cong {
+    text-align: right;
+}
 /*====== CSS  Phiếu Thanh Toán =================*/
+
+.back_home{
+    font-size: 26px; margin: 20px;
+}
+
 
 /*=====================================================================*/
 

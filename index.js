@@ -8,6 +8,7 @@ import { signCode } from "./modules/signCode.js"
 import {pagination} from "./modules/pagination.js"
 import { adminUserManage } from "./modules/adminUserManage.js"
 import * as cart from "./modules/cart.js"
+import * as ThanhToan from "./modules/ThanhToan.js";
 adminSidebarIconDisplay()
 menuListDisplay()
 foodListDisplay()
@@ -18,3 +19,4 @@ adminUserManage()
 pagination();
 cart.showCart();
 pageDisplay()
+ThanhToan.fromThanhToan();

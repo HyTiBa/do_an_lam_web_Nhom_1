@@ -176,31 +176,12 @@
       </footer>
     </main>
 
-    <main page="ThanhToan" class="page">
-      <div style="position: sticky; background-color: white; top: 0; z-index: 99;">
-        <nav class="navbar" id="navbar">
-          <img src="./images/logo.png" class="logo" alt="" />
-  
-          <ul class="navbar-menu">
-            <a href="#explore-menu">Thực đơn</a>
-            <a href="#footer">Liên hệ</a>
-          </ul>
-  
-          <div class="navbar-right">
-            <div class="search-container">
-              <input type="text" class="search-input" placeholder="Tìm kiếm...">
-              <img src="./images/search.png" class="icon" alt="" />
-            </div>
-            <div class="cart-icon">
-              <img src="./images/shopping-cart.png" class="icon" alt="" />
-              <div class="dot"></div>
-            </div>
-            <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
-          </div>
-          <img class="profile-icon" style="width: 35px;" src="images/user pic.jpg" alt="user profile picture">
-        </div>
+    <main page="ThanhToan" class="page check_sp">
       <form>
         <div>
+          <div >
+            <i class="fa-solid fa-backward back_home pageButtonLink" page="home" style="color: #74C0FC;"></i>
+          </div>
             <div class="page-title">
                 <h2>THANH TOÁN</h2>
             </div>
@@ -247,15 +228,14 @@
                                 <tfoot>
                                     <tr>
                                         <td class="a-right" colspan="3">Tạm tính</td>
-                                        <td class="a-right" id="thanh_toan_tmp_cal_money" colspan="1">
-                                        </td>
+                                        <td class="a-right" id="thanh_toan_tmp_cal_money" colspan="1"></td>
                                     </tr>
                                     <tr>
                                         <td style class="a-right" colspan="1">Phí vận chuyển</td>
                                         <td style class="a-right" colspan="1">Hình thức vận chuyển</td>
                                         <td colspan="1">
-                                            <select name="choose" id="hinh_thuc_van_chuyen"
-                                                class="choose" onchange="van_chuyen();tong_cong();">
+                                            <select name="choose" id="hinh_thuc_van_chuyen" onchange="vanchuyen()"
+                                                class="choose">
                                                 <option value=1>Thường</option>
                                                 <option value=2>Nhanh</option>
                                                 <option value=3>Hỏa tốc</option>
@@ -275,12 +255,13 @@
                                     </tr>
                                 </tfoot>
                                 <tfoot class="no-data" id="no-data">
+
                                 </tfoot>
                             </table>
                         </div>
                     </div>
                     <div class="order-confi">
-                        <button type="button" onclick="check_final()">XÁC NHẬN ĐƠN HÀNG</button>
+                        <button type="button" class = "order_confirm">XÁC NHẬN ĐƠN HÀNG</button>
                     </div>
                 </div>
             </div>
