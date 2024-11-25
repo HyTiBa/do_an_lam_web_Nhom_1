@@ -58,8 +58,8 @@ document.querySelector(".login-btn").addEventListener("click",() => {
         cart:[]
       };
       alert("Đăng ký tài khoản thành công");
-      //users.push(user);
-      setLocalStorage('user', user);
+      users.push(user);
+      setLocalStorage('users', users);
       document.querySelector(".signup-form").style.display = "none";
       document.querySelector(".login-form").style.display = "flex";
       document.querySelector(".popup-box").style.display = "none"
