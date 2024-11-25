@@ -1,3 +1,5 @@
+// import { foods } from "./chitietsp.js" ;
+
 export const food_list = [
   {
     id: 1,
@@ -171,6 +173,48 @@ export const users =[
   }
 ]
 
+
+const foods =[
+  {
+    food: food_list[0],
+    soluong: 2
+  },
+  {
+    food: food_list[1],
+    soluong: 2
+  },
+]
+
+const ship = [
+  {
+    ten: "Thường",
+    gia: 20000
+  },
+  {
+    ten: "Nhanh",
+    gia: 50000
+  },
+  {
+    ten: "Hỏa tốc",
+    gia: 80000
+  }
+
+
+]
+export const receipts = [
+  {
+    id: 1,
+    email: "test@gmail.com",
+    diachi: "TP HCM",
+    ArrayFood: foods,
+    TamTinh: 1000,
+    HinhThucVanChuyen: "Thuong",
+    PhiVanChuyen: 1000,
+    // TongCong: TamTinh + PhiVanChuyen,
+    NgayMua: "20/11/2024"
+  }
+
+]
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info))
 }

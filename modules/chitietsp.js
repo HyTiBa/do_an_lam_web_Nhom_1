@@ -1,6 +1,6 @@
 import { food_list, cart_items } from "./informationalObjects.js";
 
-export var foods = [];
+export const foods = [];
 export function showChiTiet() {
     const chonsp = document.querySelectorAll(".food-item");
 
