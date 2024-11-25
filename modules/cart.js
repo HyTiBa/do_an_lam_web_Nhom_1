@@ -1,5 +1,7 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
+import { pageDisplay } from "./pageDisplay.js";
+import { formThanhToan } from "./ThanhToan.js";
 
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
@@ -61,7 +63,9 @@ export function showCart() {
                             <span>Tạm tính: </span>
                             <span class="total_TamTinh">0 VND</span>
                         </div>
+                        <span class="product_null">* Bạn chưa có sản phẩm để thanh toán</span>
                         <button class="btn_ThanhToan pageButtonLink" page="ThanhToan">Thanh toán</button>
+                        
                     </div>
                 </div>
             `;
@@ -109,6 +113,7 @@ export function showCart() {
                             </td>
                         </tr>`;
                 });
+
             }
 
             // Khởi tạo giỏ hàng
@@ -118,11 +123,65 @@ export function showCart() {
             suKienThemSanPham();
 
             // Nút "Thanh toán"
-            document.querySelector(".btn_ThanhToan").addEventListener("click", () => {
-                
+            var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+            element_btnThanhToan.addEventListener("click", () => {
+                if(foods.length===0){
+                    document.querySelector(".product_null").style.display = "block";
+                }
+                else{
+                    document.querySelector(".product_null").style.display = "none";
+                    overlay.remove();
+                    formThanhToan();
+                    var body_product = document.querySelector(".no-data");
+                    body_product.innerHTML = "";
+                    var total_tmp = 0;
+                    foods.forEach((item)=>{
+                        body_product.innerHTML += `
+                            <td class="bill_title" >${item.food.name}</td>
+                            <td class="bill_price" style="color: rgb(243, 124, 2);text-align: center;">${item.food.price}</td>
+                            <td class="bill_count" style="text-align: center;">${item.soluong}</td>
+                            <td class="bill_thanh_tien" style="color: rgb(243, 124, 2);text-align: right;">${item.soluong*item.food.price} VND</td>
+                        `;
+                        total_tmp += item.food.price*item.soluong;
+                    });
+                    document.getElementById("thanh_toan_tmp_cal_money").innerText = total_tmp;
+
+                    
+                    van_chuyen();
+                    
+                    
+                }
             });
+            pageDisplay();
         });
     }
+}
+
+function van_chuyen() {
+    var comboBox = document.querySelector("#hinh_thuc_van_chuyen");
+    var phivanchuyen = document.getElementById("phi_van_chuyen");
+    if(comboBox.value==="1"){
+        phivanchuyen.innerText = "20000 VND";
+        document.getElementById("tong_cong").innerText = `${tong_cong()} VND`;
+    }
+    comboBox.addEventListener("change",()=>{
+        const selectedValue = parseInt(comboBox.value);
+        if (selectedValue === 1) { 
+            phivanchuyen.innerText = "20000 VND"; // Hiển thị số tiền kèm đơn vị
+        } else if (selectedValue === 2) {
+            phivanchuyen.innerText = "50000 VND";
+        } else if (selectedValue === 3) {
+            phivanchuyen.innerText = "80000 VND";
+        }
+        document.getElementById("tong_cong").innerText = `${tong_cong()} VND`
+    });
+}
+
+function tong_cong(){
+    const number = parseInt(document.getElementById("phi_van_chuyen").textContent.split(" ")[0], 10);
+    var total_TamTinh = parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10);
+    var total = total_TamTinh + number;
+    return total;
 }
 
 // Hàm cập nhật giỏ hàng

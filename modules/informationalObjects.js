@@ -221,3 +221,4 @@ export function setLocalStorage(key,info){
 export function getLocalStorage(key){
   return JSON.parse(localStorage.getItem(key))
 }
+
