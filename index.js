@@ -19,4 +19,8 @@ adminUserManage()
 pagination();
 cart.showCart();
 pageDisplay()
-ThanhToan.fromThanhToan();
+ThanhToan.formThanhToan();
+
+export function log(text){
+    console.log(text)
+}
