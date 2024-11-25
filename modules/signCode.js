@@ -1,5 +1,6 @@
 import { users } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
+let loginedUser = null
 
 export function signCode(){
 document.querySelector(".login-btn").addEventListener("click",() => {
@@ -80,6 +81,7 @@ document.querySelector(".login-btn").addEventListener("click",() => {
     for(let i = 0; i < users.length; i++){
       if(userE === users[i].email && userP === users[i].password){
         alert('Đăng nhập thành công');
+        loginedUser = users.find(user => user.email == userE);
         document.querySelector(".popup-box").style.display = "none"
         document.querySelector('.login-btn').style.display = 'none';
         document.querySelector('.profile-icon').style.display = 'block';
