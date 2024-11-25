@@ -1,3 +1,4 @@
+import { log } from "../index.js";
 import { users } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
 let loginedUser = null
@@ -98,6 +99,7 @@ document.querySelector(".login-btn").addEventListener("click",() => {
     document.querySelector('.sub-menu-wrap').style.display = 'none';
     document.querySelector('.profile-icon').style.display = 'none';
     document.querySelector('.login-btn').style.display = 'block';
+    loginedUser = null
   }
   
   document.getElementById('signup_form').addEventListener('submit', addUser);
