@@ -1,4 +1,4 @@
-import { foods } from "./chitietsp";
+// import { foods } from "./chitietsp.js" ;
 
 export const food_list = [
   {
@@ -174,7 +174,7 @@ export const users =[
 ]
 
 
-foods =[
+const foods =[
   {
     food: food_list[0],
     soluong: 2
@@ -185,7 +185,7 @@ foods =[
   },
 ]
 
-ship = [
+const ship = [
   {
     ten: "Thường",
     gia: 20000
@@ -210,7 +210,7 @@ export const receipts = [
     TamTinh: 1000,
     HinhThucVanChuyen: "Thuong",
     PhiVanChuyen: 1000,
-    TongCong: TamTinh + PhiVanChuyen,
+    // TongCong: TamTinh + PhiVanChuyen,
     NgayMua: "20/11/2024"
   }
 
