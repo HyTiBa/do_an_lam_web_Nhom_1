@@ -23,6 +23,7 @@ export function adminUserManage(){
             alert('Cập nhật người dùng thành công');
             document.querySelector(".adminUserBoard .pop-ups .modify").style.display = 'none';
             document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
+            document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
             adminUserBoardDisplay();
             reattachEventListenerAdminUserBoard();
         }
@@ -75,6 +76,7 @@ export function adminUserManage(){
                 alert('Xóa người dùng thành công');
                 document.querySelector(".adminUserBoard .pop-ups .remove").style.display = 'none';
                 document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
+                document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
                 adminUserBoardDisplay();
                 reattachEventListenerAdminUserBoard();
             }
@@ -119,6 +121,7 @@ export function adminUserManage(){
         document.querySelector('.top-section .add-user #added_name').value ='';
         document.querySelector('.top-section .add-user #added_pwd').value = '';
         document.querySelector('.top-section .pop-ups').style.display = 'none';
+        document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
         adminUserBoardDisplay();
         reattachEventListenerAdminUserBoard();
     }
