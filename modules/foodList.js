@@ -4,7 +4,10 @@ import { explore_menu_category } from "./menuList.js";
 import { food_list, cart_items } from "./informationalObjects.js";
 import * as chitietsp from "./chitietsp.js";
 import * as pagination from "./pagination.js";
-
+let foodPriceItems = food_list
+let foodMenuItems= food_list
+let food_to_display = food_list
+let foodSearchItems = food_list
 function add_to_cart(id) {
   if (!cart_items[id]) {
     cart_items[id] = 1;
@@ -33,39 +36,12 @@ function add_remove_icon() {
 export var pages = [];
 export var page_number = 0;
 export function foodListDisplay() {
-  document.querySelectorAll(".explore-menu-list-item").forEach((menu_list) =>
-    // console.log(menu_list.children[1].innerHTML)
-
-    menu_list.addEventListener("click", () => {
-      food_display_list.innerHTML = "";
-      food_list.forEach((food) => {
-
-        if (
-          explore_menu_category == "all" ||
-          explore_menu_category == food.category
-        ) {
-          food_display_list.innerHTML += textSP(food)
-        }
-      });
-    })
-  );
-
-  food_search.addEventListener('input', e=>{
-    
-    food_display_list.innerHTML = "";
-    food_list.forEach((food) => {
-
-      if (
-        food.name.toLocaleLowerCase().includes(e.target.value.toLowerCase())
-      ) {
-        food_display_list.innerHTML += textSP(food)
-      }
-    });
-    ;
-    
-  })
   
-
+  
+  foodMenuSearch()
+  foodInputSearch()
+  
+  
   // ---------------------------------------------------------
   food_display_list.innerHTML = "";
   var page = [];
@@ -148,4 +124,58 @@ function textSP(food) {
         </div>
         `;
   return text;
+}
+
+function foodInputSearch(){
+  food_search.addEventListener('input', e=>{
+    foodSearchItems = []
+    food_display_list.innerHTML = "";
+    food_list.forEach((food) => {
+  
+      if (
+        food.name.toLocaleLowerCase().includes(e.target.value.toLowerCase())
+      ) {
+        foodSearchItems.push(food)
+      }
+    });
+    FoodItemsJoin()
+  })
+
+}
+
+function foodMenuSearch(){
+  document.querySelectorAll(".explore-menu-list-item").forEach((menu_list) =>
+    menu_list.addEventListener("click", () => {
+      // food_display_list.innerHTML = "";
+      foodMenuItems = []
+      food_list.forEach((food) => {
+        if (
+          explore_menu_category == "all" ||
+          explore_menu_category == food.category
+        ) {
+          foodMenuItems.push(food)
+        }
+      });
+      FoodItemsJoin()
+    })
+  );
+
+}
+
+function FoodItemsJoin(){
+
+  
+      let firstJoin = []
+      foodSearchItems.forEach(searchItems => {
+        foodMenuItems.forEach(menuItems => {
+          if(searchItems == menuItems){
+            firstJoin.push(searchItems)
+          }
+        })
+      })
+      food_to_display = firstJoin
+      food_display_list.innerHTML = "";
+      food_to_display.forEach(food => {
+        food_display_list.innerHTML += textSP(food) 
+      })
 }
