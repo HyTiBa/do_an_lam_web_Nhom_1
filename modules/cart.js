@@ -1,7 +1,6 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
-import { pageDisplay } from "./pageDisplay.js";
-
+import { pageDisplay} from "./pageDisplay.js";
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
     if (elementCart) {
@@ -165,7 +164,7 @@ function van_chuyen() {
     comboBox.addEventListener("change",()=>{
         const selectedValue = parseInt(comboBox.value);
         if (selectedValue === 1) { 
-            phivanchuyen.innerText = "20000 VND"; // Hiển thị số tiền kèm đơn vị
+            phivanchuyen.innerText = "20000 VND"; 
         } else if (selectedValue === 2) {
             phivanchuyen.innerText = "50000 VND";
         } else if (selectedValue === 3) {
@@ -275,6 +274,9 @@ function bindCartEvents() {
                 document.querySelector(".dot").style.display = "none";
             }
             updateCart();
+            if(foods.length === 0){
+                document.querySelector(".btn_ThanhToan").classList.remove("pageButtonLink");
+            }
         });
     });
 }
