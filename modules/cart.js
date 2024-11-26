@@ -1,7 +1,6 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
 import { pageDisplay } from "./pageDisplay.js";
-import { formThanhToan } from "./ThanhToan.js";
 
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
@@ -131,7 +130,6 @@ export function showCart() {
                 else{
                     document.querySelector(".product_null").style.display = "none";
                     overlay.remove();
-                    formThanhToan();
                     var body_product = document.querySelector(".no-data");
                     body_product.innerHTML = "";
                     var total_tmp = 0;

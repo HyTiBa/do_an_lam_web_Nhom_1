@@ -1,4 +1,3 @@
-// import { foods } from "./chitietsp.js" ;
 
 export const food_list = [
   {
@@ -130,15 +129,8 @@ export const users =[
     email: 'nguyenkhanh0127@gmail.com',
     userName: 'Khanh',
     password: '123456',
-    address: null,
     roles: 'Khach hang',
-    cart: [
-      {
-        name: 'Bún bò',
-        price: 35000,
-        quantity: 2
-      }
-    ]
+    address: null
   },
   {
     email: 'captianBao@gmail.com',
@@ -147,9 +139,8 @@ export const users =[
     ,
     userName: 'Bao',
     password: '123456',
-    address: null,
     roles: 'Admin',
-    cart:[]
+    address: null
   },
   {
     email: 'admin@gmail.com',
@@ -158,74 +149,21 @@ export const users =[
     ,
     userName: 'Bao',
     password: 'admin',
-    address: null,
     roles: 'Admin',
-    cart:[]
+    address: null
   },
   {
     avt: null,
     email: 'ThanhTran1997@gmail.com',
     userName: 'Tran',
     password: '654321',
-    address: null,
     roles: 'Khach hang',
-    cart: [
-      {
-        name: 'Bún bò',
-        price: 35000,
-        quantity: 1
-      },
-      {
-        name: 'Cơm chiên dương châu',
-        price: 35000,
-        quantity: 1
-      }
-    ]
+    address: null
   }
 ]
 
 
-const foods =[
-  {
-    food: food_list[0],
-    soluong: 2
-  },
-  {
-    food: food_list[1],
-    soluong: 2
-  },
-]
 
-const ship = [
-  {
-    ten: "Thường",
-    gia: 20000
-  },
-  {
-    ten: "Nhanh",
-    gia: 50000
-  },
-  {
-    ten: "Hỏa tốc",
-    gia: 80000
-  }
-
-
-]
-export const receipts = [
-  {
-    id: 1,
-    email: "test@gmail.com",
-    diachi: "TP HCM",
-    ArrayFood: foods,
-    TamTinh: 1000,
-    HinhThucVanChuyen: "Thuong",
-    PhiVanChuyen: 1000,
-    // TongCong: TamTinh + PhiVanChuyen,
-    NgayMua: "20/11/2024"
-  }
-
-]
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info))
 }

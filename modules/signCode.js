@@ -57,7 +57,6 @@ document.querySelector(".login-btn").addEventListener("click",() => {
         userName: userN,
         password: userP1,
         roles: 'Khach hang',
-        cart:[]
       };
       alert("Đăng ký tài khoản thành công");
       users.push(user);

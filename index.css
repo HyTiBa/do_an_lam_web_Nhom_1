@@ -537,7 +537,9 @@ button.delete:hover {
     font-size: 26px; margin: 20px;
 }
 
-
+.popup-box{
+    z-index: 100000;
+}
 /*=====================================================================*/
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
