@@ -3,7 +3,8 @@ import { setLocalStorage } from "./informationalObjects.js";
 export let loginedUser = null
 import { adminUserBoardDisplay } from "./adminUserBoard.js";
 import { adminUserManage } from "./adminUserManage.js";
-
+const adminNavbar = document.querySelector(".admin-navbar")
+const mains = document.querySelectorAll("main")
 export function signCode(){
   document.querySelector(".login-btn").addEventListener("click",() => {
       document.querySelector(".popup-box").style.display = "flex";
@@ -245,8 +246,7 @@ export function signCode(){
 }
 
 function adminSidebarDisplayLogic(){
-  const adminNavbar = document.querySelector(".admin-navbar")
-  const mains = document.querySelectorAll("main")
+
   if(loginedUser == null){
 
     adminNavbar.style.display = "none"
