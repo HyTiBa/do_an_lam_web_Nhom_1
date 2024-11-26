@@ -49,9 +49,10 @@ export function menuListDisplay() {
             image.classList.remove("active")
           );
           explore_menu_category = "all";
-        }
+        }        
         foodListDisplay();
       });
     }
   });
 }
+
