@@ -21,6 +21,3 @@ cart.showCart();
 pageDisplay()
 ThanhToan.formThanhToan();
 
-export function log(text){
-    console.log(text)
-}
