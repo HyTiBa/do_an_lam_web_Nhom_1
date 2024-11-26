@@ -1,4 +1,3 @@
-import { log } from "../index.js";
 import { users } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
 export let loginedUser = null
