@@ -43,6 +43,12 @@
       </div>
       <div class="login-form">
         <img src="./images/close-button-png-27.png" class="close-form" onclick="
+          document.querySelector('.login-form #signin_email').value = '';
+          document.querySelector('.login-form #signin_pws').value = '';
+          document.getElementsByName('email')[0].value = '';
+          document.getElementsByName('fname')[0].value = '';
+          document.getElementsByName('password')[0].value = '';
+          document.getElementsByName('confirm_password')[0].value = '';
           document.querySelector('.signup-form').style.display = 'none';
           document.querySelector('.login-form').style.display = 'flex';
           document.querySelector('.popup-box').style.display = 'none'
@@ -58,6 +64,45 @@
           <button class="btn-submit" id="signin_btn" type="submit">Đăng Nhập</button>
           <br>
           <p style="padding: 10px;">Chưa có tài khoản? <u style="color: blue; cursor: pointer;" class="signup-txt">Nhấn đây</u></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="pop-up-update">
+      <div class="update-info">
+        <form class="form-container">
+          <div style="display: flex; justify-content: center;">
+            <img class="user-avt" style="width: 30%; cursor: pointer; border: 2px solid;" src="images/user pic.jpg" title="Upload Image">
+            <input class="form-input" id="upload-avt" type="file" name="user-avt" style="display: none;">
+          </div>
+          <label class="form-label" for="updateName">Tên: </label>
+          <input class="form-input" id="updateName" type="text"  name="uname" required>
+          <label class="form-label" for="updateAddress">Địa Chỉ:</label>
+          <input class="form-input" id="updateAddress" type="text" name="uaddress" autocomplete="address-level3">
+          <label class="form-label" for="currentPwd">Mật khẩu:</label>
+          <div class="change-password">
+            <input class="form-input" id="currentPwd" type="password" name="currentPwd" disabled>
+            <button class="changePwd-btn" type="button">Đổi mật khẩu</button>
+          </div>
+          <div class="yn_btn">
+            <button class="sav_btn" type="submit">Lưu</button>
+            <button class="deny_btn" type="button">Hủy</button>
+          </div>
+        </form>
+      </div>
+      <div class="update-password">
+        <form class="form-container">
+          <h1 align="center" style="color: black; margin-bottom: 30px;">ĐỔI MẬT KHẨU</h1>
+          <label class="form-label" for="oldPwd">Nhập mật khẩu cũ:</label>
+          <input class="form-input" id="oldPwd" type="password"  name="oldPwd" required>
+          <label class="form-label" for="newPwd">Nhập mật khẩu mới:</label>
+          <input class="form-input" id="newPwd" type="password"  name="newPwd" required>
+          <label class="form-label" for="renewPwd">Nhập lại mật khẩu mới:</label>
+          <input class="form-input" id="renewPwd" type="password" name="renewPwd" required>
+          <div class="yn_btn">
+            <button class="sav_btn" type="submit">Xác Nhận</button>
+            <button class="deny_btn" type="button">Hủy</button>
+          </div>
         </form>
       </div>
     </div>
@@ -87,10 +132,10 @@
           <div class="sub-menu-wrap">
             <div class="sub-menu">
               <div class="user-info">
-                <img style="width: 100px;" src="images/user pic.jpg">
+                <img class="user-mini-avt" style="width: 100px; border: 2px solid;" src="images/user pic.jpg">
                 <p style="margin-left: 15px; font-size: 20px; color: coral; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">User Name</p>
               </div>
-              <div class="sub-menu-ops">
+              <div class="sub-menu-ops" id="updateUserInfo-btn">
                 <p>Chỉnh sửa</p>
               </div>
               <div class="sub-menu-ops">
@@ -356,11 +401,6 @@
         </div>
       </div>
       <div class="adminUserBoard">
-        <div class="section">
-          <p>Name</p>
-          <p>Roles</p>
-          <p>Actions</p>
-        </div>
 
         <!-- DISPLAY IN adminUserBoard.js -->
         
@@ -393,7 +433,7 @@
           <p>Giá</p>
           <p>Sửa/Xóa</p>
         </div>
-        <div class="product section">
+        <!-- <div class="product section">
           
           <div class="categories">
             <div class="category">Bún bò</div>
@@ -419,7 +459,7 @@
             <div class="modify"></div>
             <div class="remove"></div>
           </div> -->
-        </div>
+        </div> -->
       </div>
     </main>
 

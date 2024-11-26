@@ -46,16 +46,20 @@ export function adminUserManage(){
             })
         })
     
-        document.querySelector('.adminUserBoard .pop-ups .modify .form-container').addEventListener('submit', (event) =>{
-           event.preventDefault();
-           updateUser();
-        })
+        if(document.querySelector('.adminUserBoard .pop-ups .modify .form-container')){
+            document.querySelector('.adminUserBoard .pop-ups .modify .form-container').addEventListener('submit', (event) =>{
+                event.preventDefault();
+                updateUser();
+             })
+        }
 
-        document.querySelector(".adminUserBoard .btn-close").addEventListener('click', () =>{
-            document.querySelector(".adminUserBoard .pop-ups .modify").style.display = 'none';
-            document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
-        })
-    
+        if(document.querySelector(".adminUserBoard .btn-close")){
+            document.querySelector(".adminUserBoard .btn-close").addEventListener('click', () =>{
+                document.querySelector(".adminUserBoard .pop-ups .modify").style.display = 'none';
+                document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
+            })
+        }
+
         document.querySelectorAll(".adminUserBoard .actions .remove").forEach((button) => {
             button.addEventListener('click', (event) =>{
                 document.querySelector(".adminUserBoard .pop-ups").style.display = 'flex';
@@ -65,27 +69,31 @@ export function adminUserManage(){
         
         })
 
-        document.querySelector('.adminUserBoard .pop-ups .remove .cfm_btn').addEventListener('click', () =>{
-            if(userED != null){
-                for(let i = 0; i < users.length; i++){
-                    if(userED === users[i].email){
-                        users.splice(i, 1);
-                        break;
+        if(document.querySelector('.adminUserBoard .pop-ups .remove .cfm_btn')){
+            document.querySelector('.adminUserBoard .pop-ups .remove .cfm_btn').addEventListener('click', () =>{
+                if(userED != null){
+                    for(let i = 0; i < users.length; i++){
+                        if(userED === users[i].email){
+                            users.splice(i, 1);
+                            break;
+                        }
                     }
+                    alert('Xóa người dùng thành công');
+                    document.querySelector(".adminUserBoard .pop-ups .remove").style.display = 'none';
+                    document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
+                    document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
+                    adminUserBoardDisplay();
+                    reattachEventListenerAdminUserBoard();
                 }
-                alert('Xóa người dùng thành công');
+            })
+        }
+
+        if(document.querySelector(".adminUserBoard .deny_btn")){
+            document.querySelector(".adminUserBoard .deny_btn").addEventListener('click', () => {
                 document.querySelector(".adminUserBoard .pop-ups .remove").style.display = 'none';
                 document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
-                document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
-                adminUserBoardDisplay();
-                reattachEventListenerAdminUserBoard();
-            }
-        })
-
-        document.querySelector(".adminUserBoard .deny_btn").addEventListener('click', () => {
-            document.querySelector(".adminUserBoard .pop-ups .remove").style.display = 'none';
-            document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
-        })
+            })
+        }
     }
     function checkEmail(userE){
         for(let i = 0; i < users.length; i++){
