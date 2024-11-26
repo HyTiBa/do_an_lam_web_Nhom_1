@@ -19,29 +19,36 @@
 <body>
 
     <div class="popup-box">
-        <div class="signup-form">
-            <img src="./images/close-button-png-27.png" class="close-form">
-            <form class="form-container" id="signup_form">
-                <h1 align="center" style="color: black;">ĐĂNG KÝ</h1>
-                <label class="form-label" for="signup_email">Email: </label>
-                <input class="form-input" id="signup_email" type="email" placeholder="Enter your email" name="email" required autocomplete="off">
-                <br>
-                <label class="form-label" for="fname">Tên: </label>
-                <input class="form-input" id="fname" type="text" placeholder="Enter your name" name="fname" required>
-                <br>
-                <label class="form-label" for="signup_pws">Mật khẩu: </label>
-                <input class="form-input" id="signup_pws" type="password" placeholder="Enter your password" name="password" required>
-                <br>
-                <label class="form-label" for="re_pws">Nhập lại mật khẩu: </label>
-                <input class="form-input" id="re_pws" type="password" placeholder="Reenter your password above" name="confirm_password" required>
-                <br>
-                <button class="btn-submit" id="signup_btn" type="submit">Đăng Ký</button>
-                <br>
-                <p style="padding: 10px;">Đã có tài khoản? <u style="color: blue; cursor: pointer" class="login-txt">Nhấn đây</u></p>
-            </form>
-        </div>
-        <div class="login-form">
-            <img src="./images/close-button-png-27.png" class="close-form" onclick="
+      <div class="signup-form">
+        <img src="./images/close-button-png-27.png" class="close-form">
+        <form class="form-container" id="signup_form">
+            <h1 align="center" style="color: black;">ĐĂNG KÝ</h1>
+            <label class="form-label" for="signup_email">Email: </label>
+            <input class="form-input" id="signup_email" type="email" placeholder="Enter your email" name="email" required autocomplete="off">
+            <br>
+            <label class="form-label" for="fname">Tên: </label>
+            <input class="form-input" id="fname" type="text" placeholder="Enter your name" name="fname" required>
+            <br>
+            <label class="form-label" for="signup_pws">Mật khẩu: </label>
+            <input class="form-input" id="signup_pws" type="password" placeholder="Enter your password" name="password" required>
+            <br>
+            <label class="form-label" for="re_pws">Nhập lại mật khẩu: </label>
+            <input class="form-input" id="re_pws" type="password" placeholder="Reenter your password above" name="confirm_password" required>
+            <br>
+            <button class="btn-submit" id="signup_btn" type="submit">Đăng Ký</button>
+            <br>
+            <p style="padding: 10px;">Đã có tài khoản? <u style="color: blue; cursor: pointer" class="login-txt">Nhấn đây</u></p>
+        </form>
+      </div>
+      <div class="login-form">
+        <img src="./images/close-button-png-27.png" class="close-form" onclick="
+          document.querySelector('.login-form #signin_email').value = '';
+          document.querySelector('.login-form #signin_pws').value = '';
+          document.getElementsByName('email')[0].value = '';
+          document.getElementsByName('fname')[0].value = '';
+          document.getElementsByName('password')[0].value = '';
+          document.getElementsByName('confirm_password')[0].value = '';
+
           document.querySelector('.signup-form').style.display = 'none';
           document.querySelector('.login-form').style.display = 'flex';
           document.querySelector('.popup-box').style.display = 'none'
@@ -61,10 +68,87 @@
         </div>
     </div>
 
+    <div class="pop-up-update">
+      <div class="update-info">
+        <form class="form-container">
+          <div style="display: flex; justify-content: center;">
+            <img class="user-avt" style="width: 30%; cursor: pointer; border: 2px solid;" src="images/user pic.jpg" title="Upload Image">
+            <input class="form-input" id="upload-avt" type="file" name="user-avt" style="display: none;">
+          </div>
+          <label class="form-label" for="updateName">Tên: </label>
+          <input class="form-input" id="updateName" type="text"  name="uname" required>
+          <label class="form-label" for="updateAddress">Địa Chỉ:</label>
+          <input class="form-input" id="updateAddress" type="text" name="uaddress" autocomplete="address-level3">
+          <label class="form-label" for="currentPwd">Mật khẩu:</label>
+          <div class="change-password">
+            <input class="form-input" id="currentPwd" type="password" name="currentPwd" disabled>
+            <button class="changePwd-btn" type="button">Đổi mật khẩu</button>
+          </div>
+          <div class="yn_btn">
+            <button class="sav_btn" type="submit">Lưu</button>
+            <button class="deny_btn" type="button">Hủy</button>
+          </div>
+        </form>
+      </div>
+      <div class="update-password">
+        <form class="form-container">
+          <h1 align="center" style="color: black; margin-bottom: 30px;">ĐỔI MẬT KHẨU</h1>
+          <label class="form-label" for="oldPwd">Nhập mật khẩu cũ:</label>
+          <input class="form-input" id="oldPwd" type="password"  name="oldPwd" required>
+          <label class="form-label" for="newPwd">Nhập mật khẩu mới:</label>
+          <input class="form-input" id="newPwd" type="password"  name="newPwd" required>
+          <label class="form-label" for="renewPwd">Nhập lại mật khẩu mới:</label>
+          <input class="form-input" id="renewPwd" type="password" name="renewPwd" required>
+          <div class="yn_btn">
+            <button class="sav_btn" type="submit">Xác Nhận</button>
+            <button class="deny_btn" type="button">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <main page="home" class="page">
-        <div style="position: sticky; background-color: white; top: 0; z-index: 99;">
-            <nav class="navbar" id="navbar">
-                <img src="./images/logo.png" class="logo" alt="" />
+      <div style="position: sticky; background-color: white; top: 0; z-index: 99;">
+        <nav class="navbar" id="navbar">
+          <img src="./images/logo.png" class="logo" alt="" />
+  
+          <ul class="navbar-menu">
+            <a href="#explore-menu">Thực đơn</a>
+            <a href="#footer">Liên hệ</a>
+          </ul>
+  
+          <div class="navbar-right">
+            <div class="search-container">
+              <input type="text" class="search-input" placeholder="Tìm kiếm...">
+              <img src="./images/search.png" class="icon" alt="" />
+            </div>
+            <div class="cart-icon">
+              <img src="./images/shopping-cart.png" class="icon" alt="" />
+              <div class="dot"></div>
+            </div>
+            <button class="login-btn" id="login-button">Đăng ký / Đăng nhập</button>
+          </div>
+          <img class="profile-icon" style="width: 35px;" src="images/user pic.jpg" alt="user profile picture">
+          <div class="sub-menu-wrap">
+            <div class="sub-menu">
+              <div class="user-info">
+                <img class="user-mini-avt" style="width: 100px; border: 2px solid;" src="images/user pic.jpg">
+                <p style="margin-left: 15px; font-size: 20px; color: coral; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">User Name</p>
+              </div>
+              <div class="sub-menu-ops" id="updateUserInfo-btn">
+                <p>Chỉnh sửa</p>
+              </div>
+              <div class="sub-menu-ops">
+                <p>Trợ giúp </p>
+              </div>
+              <div class="sub-menu-ops" id="logout-btn">
+                <p>Đăng xuất</p>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
 
                 <ul class="navbar-menu">
                     <a href="#explore-menu">Thực đơn</a>
@@ -348,12 +432,9 @@
 
             </div>
         </div>
-        <div class="adminUserBoard">
-            <div class="section">
-                <p>Name</p>
-                <p>Roles</p>
-                <p>Actions</p>
-            </div>
+      </div>
+      <div class="adminUserBoard">
+
 
             <!-- DISPLAY IN adminUserBoard.js -->
 
@@ -406,12 +487,27 @@
                 </div>
             </div>
         </div>
-        <div class="adminProductBoard">
-            <div class="section">
-                <p>Sản phẩm</p>
-                <p>Loại</p>
-                <p>Giá</p>
-                <p>Sửa/Xóa</p>
+      </div>
+      <div class="adminProductBoard">
+        <div class="section">
+          <p>Sản phẩm</p>
+          <p>Loại</p>
+          <p>Giá</p>
+          <p>Sửa/Xóa</p>
+        </div>
+        <!-- <div class="product section">
+          
+          <div class="categories">
+            <div class="category">Bún bò</div>
+          </div>
+          <div class="price">
+            35.000đ
+          </div>
+          <div class="actions">
+            <div class="modify">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z"/></svg>
+              <p>Sửa</p>
+
             </div>
             <div class="product section">
 
@@ -435,10 +531,11 @@
                         <p>Gỡ</p>
                     </div>
                 </div>
-                <!-- <div class="pop-ups">
+                <div class="pop-ups">
             <div class="modify"></div>
             <div class="remove"></div>
           </div> -->
+
             </div>
         </div>
     </main>
