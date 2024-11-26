@@ -90,6 +90,7 @@ export function signCode(){
       if(userE === users[i].email && userP === users[i].password){
         alert('Đăng nhập thành công');
         loginedUser = users.find(user => user.email == userE);
+        adminSidebarDisplayLogic()
         document.querySelector(".popup-box").style.display = "none"
         document.querySelector('.login-btn').style.display = 'none';
         document.querySelector('.profile-icon').style.display = 'block';
@@ -106,11 +107,12 @@ export function signCode(){
   }
 
   function logOut(){
+    loginedUser = null
     document.querySelector('.navbar .sub-menu-wrap .sub-menu .user-info .user-mini-avt').src = 'images/user pic.jpg';
     document.querySelector('.sub-menu-wrap').style.display = 'none';
     document.querySelector('.profile-icon').style.display = 'none';
     document.querySelector('.login-btn').style.display = 'block';
-    loginedUser = null
+    adminSidebarDisplayLogic()
   }
 
   function updateUser(){
@@ -240,4 +242,19 @@ export function signCode(){
     event.preventDefault();
     updatePassword();
   })
+}
+
+function adminSidebarDisplayLogic(){
+  const adminNavbar = document.querySelector(".admin-navbar")
+  const mains = document.querySelectorAll("main")
+  if(loginedUser == null){
+
+    adminNavbar.style.display = "none"
+    mains.forEach(main => main.style.marginLeft = "0rem")
+  }
+  if(loginedUser.roles == "Admin"){
+adminNavbar.style.display = "block"
+mains.forEach(main => main.style.marginLeft = "5rem")
+  }
+  
 }
