@@ -9,6 +9,110 @@ export const food_list = [
     description:
       "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
     category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  }, {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  }, {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  }, {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },   {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
   },
   {
     id: 2,

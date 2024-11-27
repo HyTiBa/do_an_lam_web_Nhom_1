@@ -931,3 +931,67 @@ gap: 8px;
 .food-item i{
     color: white;
 }
+
+/* -------Price Range ---------- */
+.price-range{width: 400px;
+    background-color: transparent;
+    height: 80px;
+    margin-top: -50px;    
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.price-input{
+    width: 100%;
+    display: flex;
+    margin: 30px 0 35px;
+    
+    
+}
+.price-input .field{
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.price-input .field input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 12px;
+    border-radius: 5px;
+    border: 1px solid #999;
+        }
+.price-range input[type="number"]::-webkit-inner-spin-button,
+.price-range input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+.price-range .price-input .separator{
+
+    width: 130px;
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+}
+.price-range .slider{
+    height: 5px;
+    border-radius: 5px;
+    background-color: #ddd;
+    position: relative;
+
+}
+
+.price-range .slider.progress{
+height: 5px;
+left: 25%;
+right: 25%;
+position: absolute;
+border-radius: 5px;
+background-color: tomato;
+}
+

@@ -3,11 +3,21 @@ const food_search = document.querySelector(".search-input");
 import { explore_menu_category } from "./menuList.js";
 import { food_list, cart_items } from "./informationalObjects.js";
 import * as chitietsp from "./chitietsp.js";
-import * as pagination from "./pagination.js";
+const back = document.querySelector(".back")
+const next = document.querySelector(".next")
+// import * as pagination from "./pagination.js";
 let foodPriceItems = food_list;
 let foodMenuItems = food_list;
 let food_to_display = food_list;
 let foodSearchItems = food_list;
+let currentPage = 1;
+let maxPage = Math.ceil(food_to_display.length / 6);
+const currentPageElement = document.querySelector("#currentPage");
+const maxPageElement = document.querySelector("#pageNumber");
+const inputMin = document.querySelector(".input-min")
+const inputMax = document.querySelector(".input-max")
+
+
 function add_to_cart(id) {
   if (!cart_items[id]) {
     cart_items[id] = 1;
@@ -35,98 +45,43 @@ function add_remove_icon() {
 
 export var pages = [];
 export var page_number = 0;
-export function foodListDisplay() {
-  foodMenuSearch();
+export function foodListLogic() {
+  
   foodInputSearch();
+  foodPriceSearch();
+  foodListDisplay();
+  pagination()  
 
-  // ---------------------------------------------------------
-  food_display_list.innerHTML = "";
-  var page = [];
-  let product_index = [];
 
-  for (let i = 0; i < food_list.length; i++) {
-    const food = food_list[i];
-    if (
-      explore_menu_category === "all" ||
-      explore_menu_category === food.category
-    ) {
-      let index = i;
-      product_index.push(index);
-    }
-  }
-
-  if (product_index.length / 6 <= 1) {
-    page_number = Math.floor(product_index.length / 6);
-    for (let i = 0; i < product_index.length; i++) {
-      const food = food_list[product_index[i]];
-      var textItem = textSP(food);
-      page.push(textItem);
-    }
-    pages.push(page);
-  } else {
-    page_number = Math.ceil(product_index.length / 6);
-
-    for (let i = 0; i < product_index.length; i++) {
-      const food = food_list[product_index[i]];
-      var textItem = textSP(food);
-      page.push(textItem);
-      let tmp = 0;
-      if (page.length % 6 == 0) {
-        tmp++;
-        if (tmp < product_index.length / 6) {
-          pages.push(page);
-          page = [];
-        }
-      }
-      if (food_list[i] == food_list[product_index.length - 1]) {
-        pages.push(page);
-      }
-    }
-  }
-
-  pages[0].forEach(function (text) {
-    food_display_list.innerHTML += text;
-  });
-  chitietsp.showChiTiet();
-  add_remove_icon();
-}
-
-function counter_logic(id) {
-  if (cart_items[id] > 0) {
-    return `
-      <img id='${id}' class="icon subtract minus-icon" src="./images/red minus icon.png"/>
-      <p>${cart_items[id]}</p>
-      <img id='${id}' class="icon add plus-icon" src="./images/green plus icon.png" alt=""/>
-  `;
-  } else {
-    return `<img id='${id}' class="plus-icon icon" src="./images/plus icon.png"/>`;
-  }
 }
 
 function textSP(food) {
-  var text = `
-        <div class="food-item">
-          <div class="food-item-img-container">
-            <img src='${food.image}' class="food-item-img"/>
-          </div>
-          <div class="food-item-info">
-            <div class="food-item-name-rating">
-              <p>${food.name}</p>
+  if(food != null){
+    var text = `
+          <div class="food-item">
+            <div class="food-item-img-container">
+              <img src='${food.image}' class="food-item-img"/>
             </div>
-            <p class="food-item-price">Giá ${food.price} VND</p>
-            <button>
-              <i class="fa-solid fa-cart-shopping"></i>
-            </button>
+            <div class="food-item-info">
+              <div class="food-item-name-rating">
+                <p>${food.name}</p>
+              </div>
+              <p class="food-item-price">Giá ${food.price} VND</p>
+              <button>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
           </div>
-        </div>
-        `;
-  return text;
+          `;
+    return text;
+
+  }
+  return ""
 }
 
 function foodInputSearch() {
   food_search.addEventListener("input", (e) => {
     foodSearchItems = [];
-    food_display_list.innerHTML = "";
     food_list.forEach((food) => {
       if (
         food.name.toLocaleLowerCase().includes(e.target.value.toLowerCase())
@@ -138,25 +93,22 @@ function foodInputSearch() {
   });
 }
 
-function foodMenuSearch() {
-  document.querySelectorAll(".explore-menu-list-item").forEach((menu_list) =>
-    menu_list.addEventListener("click", () => {
-      foodMenuItems = [];
-      food_list.forEach((food) => {
-        if (
-          explore_menu_category == "all" ||
-          explore_menu_category == food.category
-        ) {
-          foodMenuItems.push(food);
-        }
-      });
-      FoodItemsJoin();
-    })
-  );
+export function foodMenuSearch() {
+  foodMenuItems = [];
+  food_list.forEach((food) => {
+    if (
+      explore_menu_category == "all" ||
+      explore_menu_category == food.category
+    ) {
+      foodMenuItems.push(food);
+    }
+  });
+  FoodItemsJoin();
 }
 
 function FoodItemsJoin() {
   let firstJoin = [];
+  let secondJoin = []
   foodSearchItems.forEach((searchItems) => {
     foodMenuItems.forEach((menuItems) => {
       if (searchItems == menuItems) {
@@ -164,12 +116,85 @@ function FoodItemsJoin() {
       }
     });
   });
-  food_to_display = firstJoin;
-  food_display_list.innerHTML = "";
-  food_to_display.forEach((food) => {
-    food_display_list.innerHTML += textSP(food);
+
+  firstJoin.forEach(joinItems => {
+    foodPriceItems.forEach(priceItems => {
+      if(priceItems == joinItems){
+        secondJoin.push(priceItems)
+      }
+    })
+  })
+  food_to_display = secondJoin;
+  foodListDisplay();
+}
+
+function foodPriceSearch() {
+  let max = inputMax.attributes[1].value
+  let min = inputMin.attributes[1].value
+
+  inputMax.addEventListener("input", (e) => {
+    max = e.target.value
+    logic()
+  })
+  inputMin.addEventListener("input", (e) => {
+    min = e.target.value
+    logic()})
+  
+
+  function logic(){
+    foodPriceItems = []
+
+
+food_list.forEach(food => {
+  if(food.price > min && food.price < max){
+    foodPriceItems.push(food)
+  }
+}
+)
+FoodItemsJoin()
+  }
+}
+
+
+export function foodListDisplay() {
+  maxPage = Math.ceil(food_to_display.length / 6);
+  currentPage = 1
+  maxPageElement.innerHTML = maxPage;
+  displayFoodList()
+  
+  
+
+}
+
+
+export function pagination(){
+
+  back.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      console.log("max" + maxPage);
+      console.log("cur" +currentPage);
+      
+      displayFoodList();
+    }
   });
-  pagination.pagination()
+  next.addEventListener("click", () => {
+    if (currentPage < maxPage) {
+      currentPage++;
+      console.log("max" + maxPage);
+      console.log("cur" +currentPage);
+
+      displayFoodList();
+    }
+  });
+}
+function displayFoodList(){
+currentPageElement.innerHTML = currentPage;
+food_display_list.innerHTML = "";
+  for (let i = (currentPage - 1) * 6; i < currentPage * 6; i++) {
+    food_display_list.innerHTML += textSP(food_to_display[i]);
+    chitietsp.showChiTiet();
+  }
 
 }
 
