@@ -8,7 +8,7 @@ export function adminUserBoardDisplay(userArr = null){
           <p>Actions</p>
         </div>
     `;
-    console.log(users[0].roles);
+   ;
     let userAccs = null;
     
     if(userArr != null){
