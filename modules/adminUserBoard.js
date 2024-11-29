@@ -1,5 +1,10 @@
-import { users } from "./informationalObjects.js";
+import { users, getLocalStorage, setUsers } from "./informationalObjects.js";
+
+
 export function adminUserBoardDisplay(userArr = null){
+  if(getLocalStorage('users')){
+    setUsers(getLocalStorage('users'));
+  }
     const board = document.querySelector(".adminUserBoard");
     board.innerHTML=`
         <div class="section">

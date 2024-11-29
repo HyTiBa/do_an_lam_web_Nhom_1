@@ -9,110 +9,6 @@ export const food_list = [
     description:
       "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
     category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  }, {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  }, {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  }, {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },   {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },  {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
   },
   {
     id: 2,
@@ -228,7 +124,7 @@ export const adminNavbarLinks =[
   },
 ];
 
-export const users =[
+export let users =[
   {
     avt: null,
     email: 'nguyenkhanh0127@gmail.com',
@@ -338,7 +234,7 @@ export const receipts = [
   {
     id: 2,
     status:"shipping",
-    email: "huynh8a0k5@gmail.com@gmail.com",
+    email: "ThanhTran1997@gmail.com",
     diachi: "TP HCM",
     ArrayFood: [
       {
@@ -362,12 +258,104 @@ export const receipts = [
     TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
     thoiGian: new Date()
   },
-
+  {
+    id: 3,
+    status:"shipping",
+    email: "nguyenkhanh0127@gmail.com",
+    diachi: "63 Gò Vấp",
+    ArrayFood: [
+      {
+        food: food_list[2],
+        soluong: 2
+      },
+      {
+        food: food_list[5],
+        soluong: 1
+      },
+    ],
+    TamTinh: function(){
+      let total = 0
+      this.ArrayFood.forEach(foodDetail => {
+        total += foodDetail.food.price*foodDetail.soluong
+      })
+      return total
+    },
+    HinhThucVanChuyen: "Thuong",
+    PhiVanChuyen: 80000,
+    TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
+    thoiGian: new Date()
+  },
+  {
+    id: 4,
+    status:"shipping",
+    email: "ThanhTran1997@gmail.com",
+    diachi: "TP HCM",
+    ArrayFood: [
+      {
+        food: food_list[1],
+        soluong: 1
+      },
+      {
+        food: food_list[3],
+        soluong: 2
+      },
+      {
+        food: food_list[0],
+        soluong: 2
+      }
+    ],
+    TamTinh: function(){
+      let total = 0
+      this.ArrayFood.forEach(foodDetail => {
+        total += foodDetail.food.price*foodDetail.soluong
+      })
+      return total
+    },
+    HinhThucVanChuyen: "Thuong",
+    PhiVanChuyen: 80000,
+    TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
+    thoiGian: new Date()
+  },
+  {
+    id: 5,
+    status:"shipping",
+    email: "ThanhTran1997@gmail.com",
+    diachi: "TP HCM",
+    ArrayFood: [
+      {
+        food: food_list[0],
+        soluong: 1
+      },
+      {
+        food: food_list[5],
+        soluong: 2
+      },
+      {
+        food: food_list[2],
+        soluong: 2
+      }
+    ],
+    TamTinh: function(){
+      let total = 0
+      this.ArrayFood.forEach(foodDetail => {
+        total += foodDetail.food.price*foodDetail.soluong
+      })
+      return total
+    },
+    HinhThucVanChuyen: "Thuong",
+    PhiVanChuyen: 80000,
+    TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
+    thoiGian: new Date()
+  }
 ]
 export function setLocalStorage(key,info){
-  localStorage.setItem(key,JSON.stringify(info))
+  localStorage.setItem(key,JSON.stringify(info));
 }
+export function setUsers(newUsers){
+  users = newUsers;
+}
+
 export function getLocalStorage(key){
-  return JSON.parse(localStorage.getItem(key))
+  return JSON.parse(localStorage.getItem(key));
 }
 

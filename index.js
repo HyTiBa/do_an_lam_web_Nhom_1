@@ -10,6 +10,8 @@ import * as cart from "./modules/cart.js"
 import * as ThanhToan from "./modules/ThanhToan.js";
 import { adminOrderLogic } from "./modules/adminOrderLogic.js"
 import { receipts } from "./modules/informationalObjects.js"
+import { orderHistory } from "./modules/orderHistory.js"
+
 adminSidebarIconDisplay()
 menuListDisplay()
 foodListLogic()
@@ -21,3 +23,4 @@ cart.showCart();
 pageDisplay()
 ThanhToan.formThanhToan();  
 adminOrderLogic()
+orderHistory();
