@@ -62,7 +62,7 @@ export function showCart() {
                             <span class="total_TamTinh">0 VND</span>
                         </div>
                         <span class="product_null">* Bạn chưa có sản phẩm để thanh toán</span>
-                        <button class="btn_ThanhToan pageButtonLink" page="ThanhToan">Thanh toán</button>
+                        <button class="btn_ThanhToan " page="ThanhToan">Thanh toán</button>
                         
                     </div>
                 </div>
@@ -122,6 +122,10 @@ export function showCart() {
 
             // Nút "Thanh toán"
             var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+            if(!isEmptyProduct(foods)){
+                element_btnThanhToan.classList.add("pageButtonLink");
+            }
+
             element_btnThanhToan.addEventListener("click", () => {
                 if(foods.length===0){
                     document.querySelector(".product_null").style.display = "block";
@@ -152,6 +156,13 @@ export function showCart() {
             pageDisplay();
         });
     }
+}
+
+function isEmptyProduct(foods){
+    if(foods.length===0){
+        return true;
+    }
+    return false;
 }
 
 function van_chuyen() {
@@ -270,13 +281,15 @@ function bindCartEvents() {
                 }
             }
 
-            if(foods.length===0){
+            if(isEmptyProduct(foods)){
                 document.querySelector(".dot").style.display = "none";
+                var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+                element_btnThanhToan.classList.remove("pageButtonLink");
+                pageDisplay();
             }
             updateCart();
-            if(foods.length === 0){
-                document.querySelector(".btn_ThanhToan").classList.remove("pageButtonLink");
-            }
+            
+            
         });
     });
 }
@@ -308,7 +321,11 @@ function suKienThemSanPham(){
                     }
                 });
             }
-
+            if(!isEmptyProduct(foods)){
+                var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+                element_btnThanhToan.classList.add("pageButtonLink");
+                pageDisplay();
+            }
             updateCart();
             document.querySelector(".dot").style.display = "block";
             
