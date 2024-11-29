@@ -20,7 +20,6 @@ export function adminAnalyticsLogic(){
 
 function analyticBoardDisplay(){
 receipts.forEach(receipt => {
-    console.log(receipt.thoiGian.getMonth());
     
     if(dateAlreadyExist(receipt.thoiGian) == false){
         board.innerHTML += `

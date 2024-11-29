@@ -267,7 +267,7 @@ export const users =[
     cart:[]
   },
   {
-    avt: null,
+    avt: "../images/user pic.jpg",
     email: 'ThanhTran1997@gmail.com',
     userName: 'Tran',
     password: '654321',
@@ -338,7 +338,7 @@ export const receipts = [
   {
     id: 2,
     status:"shipping",
-    email: "huynh8a0k5@gmail.com@gmail.com",
+    email: "captianBao@gmail.com",
     diachi: "TP HCM",
     ArrayFood: [
       {

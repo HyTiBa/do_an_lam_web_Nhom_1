@@ -5,7 +5,7 @@ export function pageDisplay(){
     
     let pageToDisplay
     pages.forEach(page => {
-        if(page.attributes.page.value == "analytics"){
+        if(page.attributes.page.value == "shipping"){
             pageToDisplay = page
             
         }
