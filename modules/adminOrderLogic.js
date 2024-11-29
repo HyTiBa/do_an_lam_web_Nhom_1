@@ -1,7 +1,8 @@
-import { receipts, users } from "./informationalObjects.js";
+import { receipts, setLocalStorage, users } from "./informationalObjects.js";
 const board = document.querySelector(".adminOrderBoard")
 export function adminOrderLogic(){
 orderBoardDisplay()
+
 
 }
 
@@ -41,7 +42,6 @@ function orderBoardDisplay(){
           </div>
           <div class="foods">
           ${getReceiptFoodImg(receipt.ArrayFood)}  
-          <img src="https://imgs.search.brave.com/z31HSgMLsIdyAaEtHo_wHtpesiPxCRvGEvDRup_7Nuc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZWRpZ2l0YWxw/aG90b3MubmV0L2lt/YWdlcy9jYXRlZ29y/eS1pbWFnZXMvMTM0/LmpwZw" alt="">
           </div>
 
           ${orderStatusDisplay(receipt)}
@@ -76,6 +76,7 @@ function removeReceipt(orderID){
     receipts.forEach(receipt => {
         if (receipt.id == orderID) {
             receipts.splice(receipts.indexOf(receipt),1)
+            setLocalStorage("receipts",receipts)
         }
         
     })
@@ -93,6 +94,7 @@ function orderStatusLogic(){
             receipts.forEach(receipt => {
                 if(receipt.id == selectID){
                     receipt.status = selectValue
+                    setLocalStorage("receipts",receipts)
                 }
             })
             
@@ -102,10 +104,15 @@ function orderStatusLogic(){
 }
 
 function getReceiptFoodImg(foods){
-    let images
-    foods.forEach(foodDetails)
-    console.log(foods);
-    
+    let images =""
+    foods.forEach(foodDetails => {
+
+    images +=`
+     <img src="${foodDetails.food.image}" alt="">
+     `
+     
+    })
+    return images
 
 }
 
