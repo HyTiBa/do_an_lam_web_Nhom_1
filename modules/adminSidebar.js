@@ -1,5 +1,6 @@
 const adminNavbar = document.querySelector(".admin-navbar ul")
 import { adminNavbarLinks } from "./informationalObjects.js"
+import { adminAnalyticsLogic } from "./analytics.js";
 
 export function adminSidebarIconDisplay(){
     
@@ -13,4 +14,6 @@ export function adminSidebarIconDisplay(){
         </li>
         `;
       });
+      
+adminAnalyticsLogic()
 }

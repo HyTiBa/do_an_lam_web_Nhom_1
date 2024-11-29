@@ -47,3 +47,22 @@ flex-direction: row;
     width: 20px;
     background-color: aqua;
 }
+
+.analyticBoard{
+    margin: 2rem 0;
+}
+.analyticBoard .row{
+    display: grid;
+    padding: 1rem;
+    border: solid 1px grey;
+    border-top: none;
+    grid-template-columns: 1fr 1fr;
+}
+.analyticBoard .row:first-child{
+    font-size: 24px;
+    font-weight: 500;
+    border-top: solid 1px grey;;
+}
+.analyticBoard .row p{
+    margin: auto;
+}
