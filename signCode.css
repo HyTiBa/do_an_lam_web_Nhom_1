@@ -97,13 +97,15 @@
     background: white;
     padding: 5px;
     margin: 10px;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    box-shadow: -3px 7px 18px #888888;
 }
 
 .user-info{
     display: flex;
     align-items: center;
     border-bottom: 2px solid rgb(205, 183, 154);
-    border-top: 2px solid rgb(205, 183, 154);
 }
 
 .sub-menu-wrap .sub-menu .sub-menu-ops{
@@ -117,7 +119,8 @@
 }
 
 .sub-menu-wrap .sub-menu .sub-menu-ops:hover{
-    background-color:#ccc
+    background-color:#ccc;
+    border-bottom: 1px solid;
 }
 
 .pop-up-update{

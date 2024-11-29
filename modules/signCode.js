@@ -5,6 +5,10 @@ import { adminUserBoardDisplay } from "./adminUserBoard.js";
 import { adminUserManage } from "./adminUserManage.js";
 const adminNavbar = document.querySelector(".admin-navbar")
 const mains = document.querySelectorAll("main")
+
+export function isPasswordValid(Password){
+  return (Password.length < 6 ? false : true); 
+} 
 export function signCode(){
   document.querySelector(".login-btn").addEventListener("click",() => {
       document.querySelector(".popup-box").style.display = "flex";
@@ -60,10 +64,16 @@ export function signCode(){
       return 0;
     }
     if(checkPwd(userP1, userP2)){
+      if(!isPasswordValid(userP1)){
+        alert('Mật khẩu phải có ít nhất 6 ký tự');
+        return;
+      }
       const user = {
         email: userE,
+        avt: null,
         userName: userN,
         password: userP1,
+        address: null,
         roles: 'Khach hang',
         cart:[]
       };
@@ -73,6 +83,8 @@ export function signCode(){
       document.querySelector(".signup-form").style.display = "none";
       document.querySelector(".login-form").style.display = "flex";
       document.querySelector(".popup-box").style.display = "none"
+      adminUserBoardDisplay();
+      adminUserManage();
     }
     else{
       alert('Mat khau nhap lai khong trung khop');
@@ -142,6 +154,10 @@ export function signCode(){
     console.log(oP + '' + loginedUser.password);
     if(!checkPwd(oP, loginedUser.password)){
       alert('Mật khẩu cũ không chính xác');
+      return;
+    }
+    if(!isPasswordValid(nP)){
+      alert('Mật khẩu mới phải có ít nhất 6 ký tự');
       return;
     }
     if(checkPwd(oP, nP)){
