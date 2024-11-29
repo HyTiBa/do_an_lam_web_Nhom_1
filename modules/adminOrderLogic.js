@@ -16,3 +16,7 @@ function orderBoardDisplay(){
         
     })
 }
+
+function removeReceipt(){
+    
+}

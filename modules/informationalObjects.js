@@ -323,10 +323,16 @@ export const receipts = [
     email: "ThanhTran1997@gmail.com",
     diachi: "TP HCM",
     ArrayFood: foods,
-    TamTinh: 1000,
+    TamTinh: function(){
+      let total = 0
+      this.ArrayFood.forEach(foodDetail => {
+        total += foodDetail.food.price*foodDetail.soluong
+      })
+      return total
+    },
     HinhThucVanChuyen: "Thuong",
     PhiVanChuyen: 1000,
-    TongCong: function(){return this.TamTinh + this.PhiVanChuyen},
+    TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
     thoiGian: new Date()
   }
 
