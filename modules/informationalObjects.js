@@ -1,6 +1,7 @@
 // import { foods } from "./chitietsp.js" ;
 
-export const food_list = [
+export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):
+[
   {
     id: 1,
     name: "Cơm chiên dương châu",
@@ -171,7 +172,8 @@ export const food_list = [
   
 ];
 
-export const menu_list = [
+export const menu_list = getLocalStorage("menu_list")?getLocalStorage("menu_list"):
+[
   {
     menu_name: "Cơm chiên",
     menu_image: "./images/com chien.jpg",
@@ -228,7 +230,9 @@ export const adminNavbarLinks =[
   },
 ];
 
-export const users =[
+export const users = getLocalStorage("users")?getLocalStorage("users"):
+
+[
   {
     avt: null,
     email: 'nguyenkhanh0127@gmail.com',
@@ -316,7 +320,9 @@ const ship = [
 
 
 ]
-export const receipts = [
+export const receipts = getLocalStorage("receipts")?getLocalStorage("receipts"):
+
+[
   {
     id: 1,
     status:"cooking",
@@ -370,4 +376,3 @@ export function setLocalStorage(key,info){
 export function getLocalStorage(key){
   return JSON.parse(localStorage.getItem(key))
 }
-
