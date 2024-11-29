@@ -1,6 +1,9 @@
-import { food_list } from "./informationalObjects.js"; 
+import { food_list } from "./informationalObjects.js";
+import { availableImages } from "./informationalObjects.js";
+import { setLocalStorage } from "./informationalObjects.js";
 const adminProductBoard = document.querySelector(".adminProductBoard")
-export function adminProductBoardDisplay(){
+export function adminProductBoardDisplay() {
+    adminProductBoard.innerHTML = ""
     food_list.forEach((item) => {
         adminProductBoard.innerHTML += `
         <div class="product section">
@@ -32,7 +35,229 @@ export function adminProductBoardDisplay(){
             <p>Gỡ</p>
           </div>
         </div>
+        <div class="pop-ups">
+            <div class="modify">
+                <form class="form-container">
+                    <label class="form-label" for="modify_Name">Tên sản phẩm:</label>
+                    <input class="form-input" type="text" name="productname" id="modify_Name">
+                    <label class="form-label" for="modify_Price">Giá sản phẩm:</label>
+                    <input class="form-input" type="number" name="Productprice" id="modify_Price">
+                    <label class="form-label" for="modify_Category">Danh mục:</label> 
+                    <select name="productCategory" id="modify_Category">
+                        <option value="Lẩu">Lẩu</option>
+                        <option value="Cơm chiên">Cơm chiên</option>
+                        <option value="Tráng Miệng">Tráng Miệng</option>
+                        <option value="Bún">Bún</option>
+                        <option value="Hải sản">Hải sản</option>
+                        <option value="Bánh mì">Bánh mì</option>
+                    </select>
+                    <div style="text-align: center;">
+                        <button class="btn-submit" id="confirm_btn" type="submit">xác nhận</button>
+                        <button class="btn-close" id="close_btn" type="button">Hủy</button>
+                    </div>
+                </form>
+            </div>
+            <div class="remove">
+                <h2 style="margin-bottom: 10px; border-bottom: 2px solid rgb(205, 183, 154);"><b>Thông báo</b></h2>
+                <p style="font-size: 16px; margin-bottom: 80px;">Bạn có chắc chắn muốn gỡ bỏ sản phẩm ?</p>
+                <div class="ynq_btn">
+                    <button class="cfms_btn">Xác nhận</button>
+                    <button class="denys_btn">Hủy</button>
+                </div>
+            </div>
+        </div>
       </div>
         `;
-      });
+    });
+
+    let productED = null;
+
+    function updateProduct() {
+        if (productED != null) {
+            let productN = document.querySelector('.adminProductBoard .pop-ups .modify #modify_Name').value;
+            let productP = document.querySelector('.adminProductBoard .pop-ups .modify #modify_Price').value;
+            let productC = document.querySelector('.adminProductBoard .pop-ups .modify #modify_Category').value;
+
+            for (let i = 0; i < food_list.length; i++) {
+                if (productED === food_list[i].name) {
+                    food_list[i].name = productN;
+                    food_list[i].price = productP;
+                    food_list[i].category = productC;
+                    break;
+                }
+            }
+            alert('Cập nhật sản phẩm thành công');
+            document.querySelector(".adminProductBoard .pop-ups .modify").style.display = 'none';
+            document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
+            document.querySelector('adminProductPage .top-section .adminProductSearch .search-box input');
+            adminProductBoardDisplay();
+            reattachEventListeneradminProductBoardDisplay();
+            console.log("helo word ");
+        }
+    }
+
+    function reattachEventListeneradminProductBoardDisplay() {
+        document.querySelectorAll(".adminProductBoard .actions .modify").forEach((button) => {
+            button.addEventListener('click', (event) => {
+                document.querySelector(".adminProductBoard .pop-ups").style.display = 'flex';
+                document.querySelector(".adminProductBoard .pop-ups .modify").style.display = 'flex';
+                productED = event.target.closest(".product").querySelector(".info .name ").textContent;
+                for (let i = 0; i < food_list.length; i++) {
+                    if (productED === food_list[i].name) {
+                        document.querySelector('.adminProductBoard .pop-ups .modify #modify_Name').value = food_list[i].name;
+                        document.querySelector('.adminProductBoard .pop-ups .modify #modify_Price').value = food_list[i].price;
+                        document.querySelector('.adminProductBoard .pop-ups .modify #modify_Category').value = food_list[i].category;
+                        break;
+                    }
+                }
+            })
+        })
+
+        document.querySelector('.adminProductBoard .pop-ups .modify .form-container').addEventListener('submit', (event) => {
+            event.preventDefault();
+            updateProduct();
+        })
+
+        document.querySelector(".adminProductBoard .btn-close").addEventListener('click', () => {
+            document.querySelector(".adminProductBoard .pop-ups .modify").style.display = 'none';
+            document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
+        })
+
+        document.querySelectorAll(".adminProductBoard .actions .remove").forEach((button) => {
+            button.addEventListener('click', (event) => {
+                document.querySelector(".adminProductBoard .pop-ups").style.display = 'flex';
+                document.querySelector(".adminProductBoard .pop-ups .remove").style.display = 'block';
+                productED = event.target.closest(".product").querySelector(".info .name").textContent;
+            })
+
+        })
+
+        document.querySelector('.adminProductBoard .pop-ups .remove .cfms_btn').addEventListener('click', () => {
+            if (productED != null) {
+                for (let i = 0; i < food_list.length; i++) {
+                    if (productED === food_list[i].name) {
+                        food_list.splice(i, 1);
+                        break;
+                    }
+                }
+                alert('Xóa sản phẩm thành công');
+                document.querySelector(".adminProductBoard .pop-ups .remove").style.display = 'none';
+                document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
+                document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').value = '';
+                adminProductBoardDisplay();
+                reattachEventListeneradminProductBoardDisplay();
+                console.log("helo word ");
+            }
+        })
+
+        document.querySelector(".adminProductBoard .denys_btn").addEventListener('click', () => {
+            document.querySelector(".adminProductBoard .pop-ups .remove").style.display = 'none';
+            document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
+        })
+    }
+
+    function checkname(productE) {
+        for (let i = 0; i < food_list.length; i++) {
+            if (productE === food_list[i].name) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function adminAddProduct() {
+        let productN = document.querySelector('.adminProductPage .top-section .add-product #added_productName').value;
+        let productP = document.querySelector('.adminProductPage .top-section .add-product #added_productPrice').value;
+        let productD = document.querySelector('.adminProductPage .top-section .add-product #added_productDescription').value;
+        let productC = document.querySelector('.adminProductPage .top-section .add-product #added_productCategory').value;
+        let productI = document.querySelector('.adminProductPage .top-section .add-product #added_productImage').files[0];
+        let inputFile = document.getElementById("added_productImage");
+
+
+        if (!checkname(productN)) {
+            alert('Sản phẩm đã tồn tại!');
+            return 0;
+        }
+
+        const product = {
+            id: food_list.length + 1,
+            image: productI,
+            name: productN,
+            price: productP,
+            description: productD,
+            category: productC,
+
+        }
+
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+            console.log("helo")
+        }
+        const image = document.querySelector("img"),
+            input = document.querySelector("input");
+
+        input.addEventListener("change", () => {
+            image.src = URL.createObjectURL(input.files[0]);
+            console.log("helo")
+        });
+        food_list.push(product);
+        alert('Thêm Sản Phẩm Thành Công');
+        document.querySelector('.adminProductPage .top-section .add-product #added_productName').value = '';
+        document.querySelector('.adminProductPage .top-section .add-product #added_productPrice').value = '';
+        document.querySelector('.adminProductPage .top-section .add-product #added_productDescription').value = '';
+        document.querySelector('.adminProductPage .top-section .pop-ups').style.display = 'none';
+        document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').value = '';
+        adminProductBoardDisplay();
+        reattachEventListeneradminProductBoardDisplay();
+        console.log("helo word ");
+    }
+
+    reattachEventListeneradminProductBoardDisplay();
+
+    document.querySelector('.adminProductPage .top-section .addProduct_btn').addEventListener('click', () => {
+
+        document.querySelector('.adminProductPage .top-section .pop-ups').style.display = 'flex';
+    })
+
+    document.querySelector('.adminProductPage .top-section .pop-ups .add-product .btn-close').addEventListener('click', () => {
+        document.querySelector('.adminProductPage .top-section .pop-ups .add-product #added_productName').value = '';
+        document.querySelector('.adminProductPage .top-section .pop-ups .add-product #added_productPrice').value = '';
+        document.querySelector('.adminProductPage .top-section .pop-ups .add-product #added_productDescription').value = '';
+        document.querySelector('.adminProductPage .top-section .pop-ups').style.display = 'none';
+    })
+
+    document.querySelector('.adminProductPage .top-section .add-product .form-container').addEventListener('submit', (event) => {
+        event.preventDefault();
+        adminAddProduct();
+    })
+
+    document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').addEventListener('input', (event) => {
+        let productArr = [];
+        let searchInput = document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').value;
+        if (searchInput == '') {
+            adminProductBoardDisplay();
+            reattachEventListeneradminProductBoardDisplay();
+            return 0;
+        }
+
+        for (let i = 0; i < food_list.length; i++) {
+            if (food_list[i].name.toLocaleLowerCase().includes(searchInput.toLowerCase()) ||
+                food_list[i].price.toLocaleLowerCase().includes(searchInput.toLowerCase())) {
+                userArr.push(food_list[i]);
+            }
+        }
+        adminProductBoardDisplay(userArr);
+        reattachEventListeneradminProductBoardDisplay();
+
+    })
+
+
+
 }

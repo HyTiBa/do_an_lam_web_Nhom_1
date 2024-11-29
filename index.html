@@ -390,12 +390,20 @@
                             <label class="form-label" for="added_productDescription">Mô tả sản phẩm:</label>
                             <textarea class="form-input" name="productDescription" id="added_productDescription" required></textarea>
 
+                            <label class="form-label" for="added_productImage">Ảnh sản phẩm:</label>
+                            <input class="form-input" src="img.png" type="file" name="productImage" onchange="chooseFile(this)" id="added_productImage" accept="image/jpeg, image/png, image/jpd, image/gif," />
+
                             <label class="form-label" for="added_productCategory">Danh mục:</label>
+                            <img src="images.png" />
                             <select name="productCategory" id="added_productCategory">
-                        <option value="Electronics">Lẩu</option>
-                        <option value="Fashion">Cơm</option>
-                        <option value="Home">Tráng Miệng</option>
+                                <option value="Lẩu">Lẩu</option>
+                                <option value="Cơm chiên">Cơm chiên</option>
+                                <option value="Tráng Miệng">Tráng Miệng</option>
+                                <option value="Bún">Bún</option>
+                                <option value="Hải sản">Hải sản</option>
+                                <option value="Bánh mì">Bánh mì</option>
                       </select>
+
 
                             <div style="text-align: center;">
                                 <button class="btn-submit" id="add_btn" type="submit">Thêm</button>
