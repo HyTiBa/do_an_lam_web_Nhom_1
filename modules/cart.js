@@ -1,6 +1,6 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
-import { pageDisplay} from "./pageDisplay.js";
+import { displayChoosenPage, pageDisplay} from "./pageDisplay.js";
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
     if (elementCart) {
@@ -285,6 +285,15 @@ function bindCartEvents() {
                 document.querySelector(".dot").style.display = "none";
                 var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
                 element_btnThanhToan.classList.remove("pageButtonLink");
+    const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
+
+                // element_btnThanhToan.addEventListener("click", displayChoosenPage(()=>{
+                //     pageButtonLinks.forEach(link => {
+                //         if(link.attributes.page == "home"){
+                //             return link
+                //         }
+                //     })
+                // }))
                 pageDisplay();
             }
             updateCart();

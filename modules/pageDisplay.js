@@ -14,8 +14,11 @@ export function pageDisplay(){
     removeAllPages()
     displayChoosenPage(pageToDisplay)
     
-    pageButtonLinks.forEach(link => link.addEventListener("click", () => displayChoosenPage(link)
-    )
+    pageButtonLinks.forEach(link =>    {
+        link.addEventListener("click",displayChoosenPage)
+        link.removeEventListener("click",displayChoosenPage)
+    }
+        
     )
 }
 
@@ -25,8 +28,8 @@ function removeAllPages(){
 }
 
 
-function displayChoosenPage(pageLink){
-
+export function displayChoosenPage(pageLink){
+    
     pages.forEach(page => {
         if(getPageValue(page) == getPageValue(pageLink)){
             removeAllPages()
