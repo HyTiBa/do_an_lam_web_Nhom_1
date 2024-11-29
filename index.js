@@ -8,7 +8,7 @@ import { signCode } from "./modules/signCode.js"
 import { adminUserManage } from "./modules/adminUserManage.js"
 import * as cart from "./modules/cart.js"
 import * as ThanhToan from "./modules/ThanhToan.js";
-import { adminAnalyticsLogic } from "./modules/analytics.js"
+import { adminOrderLogic } from "./modules/adminOrderLogic.js"
 adminSidebarIconDisplay()
 menuListDisplay()
 foodListLogic()
@@ -19,4 +19,4 @@ adminUserManage()
 cart.showCart();
 pageDisplay()
 ThanhToan.formThanhToan();  
-adminAnalyticsLogic()
+adminOrderLogic()

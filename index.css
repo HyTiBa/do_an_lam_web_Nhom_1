@@ -995,3 +995,6 @@ border-radius: 5px;
 background-color: tomato;
 }
 
+.back_home, .search-container img{
+    cursor: pointer;
+}

@@ -319,13 +319,14 @@ const ship = [
 export const receipts = [
   {
     id: 1,
-    email: "test@gmail.com",
+    status:"cooking",
+    email: "ThanhTran1997@gmail.com",
     diachi: "TP HCM",
     ArrayFood: foods,
     TamTinh: 1000,
     HinhThucVanChuyen: "Thuong",
     PhiVanChuyen: 1000,
-    TongCong: () => {return this.TamTinh + this.PhiVanChuyen},
+    TongCong: function(){return this.TamTinh + this.PhiVanChuyen},
     thoiGian: new Date()
   }
 
