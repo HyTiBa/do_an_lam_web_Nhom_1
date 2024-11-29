@@ -331,10 +331,37 @@ export const receipts = [
       return total
     },
     HinhThucVanChuyen: "Thuong",
-    PhiVanChuyen: 1000,
+    PhiVanChuyen: 50000,
     TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
     thoiGian: new Date()
-  }
+  },
+  {
+    id: 2,
+    status:"shipping",
+    email: "huynh8a0k5@gmail.com@gmail.com",
+    diachi: "TP HCM",
+    ArrayFood: [
+      {
+        food: food_list[4],
+        soluong: 3
+      },
+      {
+        food: food_list[5],
+        soluong: 1
+      },
+    ],
+    TamTinh: function(){
+      let total = 0
+      this.ArrayFood.forEach(foodDetail => {
+        total += foodDetail.food.price*foodDetail.soluong
+      })
+      return total
+    },
+    HinhThucVanChuyen: "Thuong",
+    PhiVanChuyen: 80000,
+    TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
+    thoiGian: new Date()
+  },
 
 ]
 export function setLocalStorage(key,info){
