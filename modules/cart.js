@@ -1,8 +1,6 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
-import { pageDisplay } from "./pageDisplay.js";
-import { formThanhToan } from "./ThanhToan.js";
-
+import { displayChoosenPage, pageDisplay} from "./pageDisplay.js";
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
     if (elementCart) {
@@ -64,7 +62,7 @@ export function showCart() {
                             <span class="total_TamTinh">0 VND</span>
                         </div>
                         <span class="product_null">* Bạn chưa có sản phẩm để thanh toán</span>
-                        <button class="btn_ThanhToan pageButtonLink" page="ThanhToan">Thanh toán</button>
+                        <button class="btn_ThanhToan " page="ThanhToan">Thanh toán</button>
                         
                     </div>
                 </div>
@@ -124,6 +122,10 @@ export function showCart() {
 
             // Nút "Thanh toán"
             var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+            if(!isEmptyProduct(foods)){
+                element_btnThanhToan.classList.add("pageButtonLink");
+            }
+
             element_btnThanhToan.addEventListener("click", () => {
                 if(foods.length===0){
                     document.querySelector(".product_null").style.display = "block";
@@ -131,7 +133,6 @@ export function showCart() {
                 else{
                     document.querySelector(".product_null").style.display = "none";
                     overlay.remove();
-                    formThanhToan();
                     var body_product = document.querySelector(".no-data");
                     body_product.innerHTML = "";
                     var total_tmp = 0;
@@ -157,6 +158,13 @@ export function showCart() {
     }
 }
 
+function isEmptyProduct(foods){
+    if(foods.length===0){
+        return true;
+    }
+    return false;
+}
+
 function van_chuyen() {
     var comboBox = document.querySelector("#hinh_thuc_van_chuyen");
     var phivanchuyen = document.getElementById("phi_van_chuyen");
@@ -167,7 +175,7 @@ function van_chuyen() {
     comboBox.addEventListener("change",()=>{
         const selectedValue = parseInt(comboBox.value);
         if (selectedValue === 1) { 
-            phivanchuyen.innerText = "20000 VND"; // Hiển thị số tiền kèm đơn vị
+            phivanchuyen.innerText = "20000 VND"; 
         } else if (selectedValue === 2) {
             phivanchuyen.innerText = "50000 VND";
         } else if (selectedValue === 3) {
@@ -273,10 +281,24 @@ function bindCartEvents() {
                 }
             }
 
-            if(foods.length===0){
+            if(isEmptyProduct(foods)){
                 document.querySelector(".dot").style.display = "none";
+                var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+                element_btnThanhToan.classList.remove("pageButtonLink");
+    const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
+
+                // element_btnThanhToan.addEventListener("click", displayChoosenPage(()=>{
+                //     pageButtonLinks.forEach(link => {
+                //         if(link.attributes.page == "home"){
+                //             return link
+                //         }
+                //     })
+                // }))
+                pageDisplay();
             }
             updateCart();
+            
+            
         });
     });
 }
@@ -308,7 +330,11 @@ function suKienThemSanPham(){
                     }
                 });
             }
-
+            if(!isEmptyProduct(foods)){
+                var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+                element_btnThanhToan.classList.add("pageButtonLink");
+                pageDisplay();
+            }
             updateCart();
             document.querySelector(".dot").style.display = "block";
             
