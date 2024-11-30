@@ -1,7 +1,7 @@
 const explore_menu_list = document.querySelector(".explore-menu-list");
 const menu_links = document.querySelectorAll(".navbar-menu a");
 import { menu_list } from "./informationalObjects.js";
-import { foodListDisplay } from "./foodList.js";
+import { foodListDisplay, foodMenuSearch } from "./foodList.js";
 export let explore_menu_category = "all";
 
 export function menuListDisplay() {
@@ -49,9 +49,11 @@ export function menuListDisplay() {
             image.classList.remove("active")
           );
           explore_menu_category = "all";
-        }
-        foodListDisplay();
+        }    
+            foodMenuSearch()
+        // foodListDisplay();
       });
     }
   });
 }
+

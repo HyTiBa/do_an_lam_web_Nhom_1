@@ -1,8 +1,14 @@
 import { users } from "./informationalObjects.js";
 export function adminUserBoardDisplay(userArr = null){
     const board = document.querySelector(".adminUserBoard");
-    board.innerHTML='';
-    console.log(users[0].roles);
+    board.innerHTML=`
+        <div class="section">
+          <p>Name</p>
+          <p>Roles</p>
+          <p>Actions</p>
+        </div>
+    `;
+   ;
     let userAccs = null;
     
     if(userArr != null){
@@ -16,7 +22,7 @@ export function adminUserBoardDisplay(userArr = null){
         <div class="user section">
           <div class="info">
             <img
-              src="${item.avt}"
+              src="${(item.avt? item.avt : 'images/user pic.jpg')}"
               alt=""
             />
             <div>

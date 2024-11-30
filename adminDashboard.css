@@ -1,7 +1,7 @@
 /* <<<--- ADMIN SIDEBAR NAVIGATION */
 
 .admin-navbar{
-    /* display: block; */
+    /* display: none; */
     position:fixed;
     background-color: #262626;
     transition: all 0.2s ease;

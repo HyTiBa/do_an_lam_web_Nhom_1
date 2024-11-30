@@ -1,6 +1,111 @@
 
-export const food_list = [
+export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):
+[
   {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  }, {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  }, {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  }, {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },   {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },  {
     id: 1,
     name: "Cơm chiên dương châu",
     image: "./images/com chien duong chau.jpg",
@@ -66,7 +171,8 @@ export const food_list = [
   
 ];
 
-export const menu_list = [
+export const menu_list = getLocalStorage("menu_list")?getLocalStorage("menu_list"):
+[
   {
     menu_name: "Cơm chiên",
     menu_image: "./images/com chien.jpg",
@@ -123,7 +229,9 @@ export const adminNavbarLinks =[
   },
 ];
 
-export const users =[
+export const users = getLocalStorage("users")?getLocalStorage("users"):
+
+[
   {
     avt: null,
     email: 'nguyenkhanh0127@gmail.com',
@@ -137,7 +245,7 @@ export const users =[
     avt: 
     `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`
     ,
-    userName: 'Bao',
+    userName: 'bảo',
     password: '123456',
     roles: 'Admin',
     address: null
@@ -153,7 +261,7 @@ export const users =[
     address: null
   },
   {
-    avt: null,
+    avt: "../images/user pic.jpg",
     email: 'ThanhTran1997@gmail.com',
     userName: 'Tran',
     password: '654321',
@@ -170,4 +278,3 @@ export function setLocalStorage(key,info){
 export function getLocalStorage(key){
   return JSON.parse(localStorage.getItem(key))
 }
-
