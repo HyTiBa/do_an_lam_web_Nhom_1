@@ -1,4 +1,4 @@
-import { receipts } from "./informationalObjects.js";
+import { getLocalStorage, receipts } from "./informationalObjects.js";
 import { loginedUser } from "./signCode.js";
 import { users } from "./informationalObjects.js";
 
