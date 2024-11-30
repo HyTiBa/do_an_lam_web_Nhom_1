@@ -285,7 +285,8 @@ function bindCartEvents() {
                 document.querySelector(".dot").style.display = "none";
                 var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
                 element_btnThanhToan.classList.remove("pageButtonLink");
-    const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
+                
+                const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
 
                 // element_btnThanhToan.addEventListener("click", displayChoosenPage(()=>{
                 //     pageButtonLinks.forEach(link => {

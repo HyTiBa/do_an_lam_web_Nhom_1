@@ -20,6 +20,11 @@ export function formThanhToan() {
                 const month = (today.getMonth() + 1).toString().padStart(2, '0');
                 const year = today.getFullYear();
 
+                const hours = today.getHours();                 
+                const minutes = today.getMinutes(); 
+                const seconds = today.getSeconds(); 
+                
+                
                 currentReceipts.push({
                     id: currentReceipts.length + 1,
                     Email: loginedUser.Email,
@@ -28,7 +33,8 @@ export function formThanhToan() {
                     TamTinh: parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10),
                     PhiVanChuyen: parseInt(document.getElementById("phi_van_chuyen").textContent.split(" ")[0], 10),
                     TongCong: parseInt(document.getElementById("tong_cong").textContent.split(" ")[0], 10),
-                    NgayMua: `${day}/${month}/${year}`
+                    NgayMua: `${day}/${month}/${year}`,
+                    GioMua: `${hours}:${minutes}:${seconds}`
                 });
 
                 setLocalStorage('receipts', currentReceipts);
