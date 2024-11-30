@@ -81,7 +81,6 @@ export function signCode(){
         password: userP1,
         address: null,
         roles: 'Khach hang',
-        cart:[]
       };
       alert("Đăng ký tài khoản thành công");
       users.push(user);
