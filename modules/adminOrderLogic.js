@@ -1,4 +1,5 @@
-import { receipts, setLocalStorage, users } from "./informationalObjects.js";
+import { setLocalStorage, users } from "./informationalObjects.js";
+import { receipts } from "./ThanhToan.js";
 const board = document.querySelector(".adminOrderBoard")
 export function adminOrderLogic(){
 orderBoardDisplay()
@@ -15,50 +16,57 @@ function orderBoardDisplay(){
           <h2>Trạng thái</h2>
           <h2>thêm</h2>
         </div>
-    `
-
-    receipts.forEach(receipt => {
-        let buyer
-        users.forEach(user => {
-            if(receipt.email == user.email){
-                buyer = user
-            }
-        })
         
-        board.innerHTML += `
-         <div class="section">
-          <div>
-            ${receipt.id}
-          </div>
-          <div class="user">
-            <img
-              src="${buyer.avt}"
-              alt=""
-            />
+    `
+    if (receipts != null) {
+      
+      receipts.forEach(receipt => {
+          let buyer
+          users.forEach(user => {
+              if(receipt.email == user.email){
+                  buyer = user
+              }
+          })
+          
+          board.innerHTML += `
+           <div class="section">
             <div>
-              <p class="name">${buyer.userName}</p>
-              <p class="email">${buyer.email}</p>
+              ${receipt.id}
+            </div>
+            <div class="user">
+              <img
+                src="${buyer.avt}"
+                alt=""
+              />
+              <div>
+                <p class="name">${buyer.userName}</p>
+                <p class="email">${buyer.email}</p>
+              </div>
+            </div>
+            <div class="foods">
+            ${getReceiptFoodImg(receipt.ArrayFood)}  
+            </div>
+  
+            ${orderStatusDisplay(receipt)}
+               
+            <div class="remove" receiptID="${receipt.id}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
+                />
+              </svg>
+              <p>Gỡ</p>
             </div>
           </div>
-          <div class="foods">
-          ${getReceiptFoodImg(receipt.ArrayFood)}  
-          </div>
+          `
+          
+          
+      })
+    }
 
-          ${orderStatusDisplay(receipt)}
-             
-          <div class="remove" receiptID="${receipt.id}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path
-                d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
-              />
-            </svg>
-            <p>Gỡ</p>
-          </div>
-        </div>
-        `
-        
-        
-    })
+
+
+
     removeReceiptLogic()
     orderStatusLogic()
 }

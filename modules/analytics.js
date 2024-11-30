@@ -5,7 +5,8 @@ const orderElement = topOverviewElement[1].children[0].children[1]
 const userElement = topOverviewElement[2].children[0].children[1]
 const productElement = topOverviewElement[3].children[0].children[1]
 let datesPrinted = []
-import { food_list, receipts, users } from "./informationalObjects.js"
+import { food_list, users } from "./informationalObjects.js"
+import { receipts } from "./ThanhToan.js"
 export function adminAnalyticsLogic(){
     const analyticButtonLink = document.querySelector(`a[page ="analytics"]`)
     analyticButtonLink.addEventListener("click", () => {
@@ -19,29 +20,47 @@ export function adminAnalyticsLogic(){
 }
 
 function analyticBoardDisplay(){
-receipts.forEach(receipt => {
-    
-    if(dateAlreadyExist(receipt.thoiGian) == false){
-        board.innerHTML += `
-         <div class="row">
-              <p>${receipt.thoiGian.getDate()}/${receipt.thoiGian.getMonth()}/${receipt.thoiGian.getFullYear()}</p>
-              <p>${receipt.TongCong()}đ</p>
-            </div>
-        `
+    if(receipts != null){
+
+        receipts.forEach(receipt => {
+            
+            if(dateAlreadyExist(receipt.thoiGian) == false){
+                board.innerHTML += `
+                 <div class="row">
+                      <p>${receipt.thoiGian.getDate()}/${receipt.thoiGian.getMonth()}/${receipt.thoiGian.getFullYear()}</p>
+                      <p>${receipt.TongCong()}đ</p>
+                    </div>
+                `
+            }
+        })
+
     }
-})
+
+
+
+
+
 }
 
 function reCalculateAnalyticsPage(){
 incomeElement.innerHTML = `${sumtotal()}đ`
-orderElement.innerHTML = `${receipts.length}`
+if (receipts == null) {
+    orderElement.innerHTML = 0
+}
+else{
+
+    orderElement.innerHTML = `${receipts.length}`
+}
 userElement.innerHTML = `${users.length}`
 productElement.innerHTML = `${food_list.length}`
 function sumtotal(){
     let total = 0
-    receipts.forEach(receipt => {
-        total += receipt.TongCong()
-    })
+    if (receipts != null) {
+        
+        receipts.forEach(receipt => {
+            total += receipt.TongCong()
+        })
+    }
     return total
 }
 }

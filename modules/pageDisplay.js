@@ -1,11 +1,15 @@
+import { foods } from "./chitietsp.js";
 const pages = document.querySelectorAll(".page")
+let linkPressed
 
 export function pageDisplay(){
     const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
+    console.log("h");
+    
     
     let pageToDisplay
     pages.forEach(page => {
-        if(page.attributes.page.value == "shipping"){
+        if(page.attributes.page.value == "home"){
             pageToDisplay = page
             
         }
@@ -15,8 +19,9 @@ export function pageDisplay(){
     displayChoosenPage(pageToDisplay)
     
     pageButtonLinks.forEach(link =>    {
-        link.addEventListener("click",displayChoosenPage)
-        link.removeEventListener("click",displayChoosenPage)
+        linkPressed = link
+        // link.removeEventListener("click",()=>displayChoosenPage(link))
+        link.addEventListener("click",()=>displayChoosenPage(link))
     }
         
     )
@@ -29,14 +34,20 @@ function removeAllPages(){
 
 
 export function displayChoosenPage(pageLink){
+
     
-    pages.forEach(page => {
-        if(getPageValue(page) == getPageValue(pageLink)){
-            removeAllPages()
-            page.style.display = "block"
-    }})
-}
+    if (foods.length == 0 && pageLink.attributes.class.value== "btn_ThanhToan") {
+        return
+    }
+        pages.forEach(page => {
+            if(page.attributes.page.value == pageLink.attributes.page.value){
+                removeAllPages()
+                page.style.display = "block"
+        }})
+    }
 
 function getPageValue(page){
+    // console.log(page.attributes.page.value);
+    
     return page.attributes.page.value
 }

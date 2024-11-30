@@ -9,7 +9,7 @@ import { adminUserManage } from "./modules/adminUserManage.js"
 import * as cart from "./modules/cart.js"
 import * as ThanhToan from "./modules/ThanhToan.js";
 import { adminOrderLogic } from "./modules/adminOrderLogic.js"
-import { receipts } from "./modules/informationalObjects.js"
+// import { receipts } from "./modules/informationalObjects.js"
 adminSidebarIconDisplay()
 menuListDisplay()
 foodListLogic()
@@ -18,6 +18,6 @@ adminProductBoardDisplay()
 signCode()
 adminUserManage()
 cart.showCart();
-pageDisplay()
 ThanhToan.formThanhToan();  
 adminOrderLogic()
+pageDisplay()
