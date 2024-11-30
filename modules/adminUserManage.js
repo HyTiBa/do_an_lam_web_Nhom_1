@@ -1,5 +1,6 @@
-import { users } from "./informationalObjects.js";
+import { users, setUsers } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
+import { getLocalStorage } from "./informationalObjects.js";
 import { adminUserBoardDisplay } from "./adminUserBoard.js";
 import { isPasswordValid } from "./signCode.js";
 
@@ -8,6 +9,9 @@ export function adminUserManage(){
     let userED = null;
 
     function updateUser(){
+        if(getLocalStorage('users')){
+            setUsers(getLocalStorage('users'));
+        }
         if(userED != null){
             let userN = document.querySelector('.adminUserBoard .pop-ups .modify #modify_name').value;
             let userP = document.querySelector('.adminUserBoard .pop-ups .modify #modify_pwd').value;
@@ -22,6 +26,7 @@ export function adminUserManage(){
                     }
                 }
                 alert('Cập nhật người dùng thành công');
+                setLocalStorage('users', users);
                 document.querySelector(".adminUserBoard .pop-ups .modify").style.display = 'none';
                 document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
                 document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
@@ -36,6 +41,9 @@ export function adminUserManage(){
 
     function reattachEventListenerAdminUserBoard(){
         document.querySelectorAll(".adminUserBoard .actions .modify").forEach((button) => {
+            if(getLocalStorage('users')){
+                setUsers(getLocalStorage('users'));
+              }
             if(!button.hasAttribute('data-listener')){
                 button.addEventListener('click', (event) =>{
                     document.querySelector(".adminUserBoard .pop-ups").style.display = 'flex';
@@ -91,6 +99,9 @@ export function adminUserManage(){
             if(!document.querySelector('.adminUserBoard .pop-ups .remove .cfm_btn').hasAttribute('data-listener')){
                 document.querySelector('.adminUserBoard .pop-ups .remove .cfm_btn').addEventListener('click', () =>{
                     if(userED != null){
+                        if(getLocalStorage('users')){
+                            setUsers(getLocalStorage('users'));
+                          }
                         for(let i = 0; i < users.length; i++){
                             if(userED === users[i].email){
                                 users.splice(i, 1);
@@ -98,6 +109,7 @@ export function adminUserManage(){
                             }
                         }
                         alert('Xóa người dùng thành công');
+                        setLocalStorage('users', users);
                         document.querySelector(".adminUserBoard .pop-ups .remove").style.display = 'none';
                         document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
                         document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
@@ -121,6 +133,9 @@ export function adminUserManage(){
         }
     }
     function checkEmail(userE){
+        if(getLocalStorage('users')){
+            setUsers(getLocalStorage('users'));
+          }
         for(let i = 0; i < users.length; i++){
           if(userE === users[i].email){
             return false;
@@ -130,6 +145,9 @@ export function adminUserManage(){
       }
 
     function adminAddUser(){
+        if(getLocalStorage('users')){
+            setUsers(getLocalStorage('users'));
+          }
         let userE = document.querySelector('.adminUserPage .top-section .add-user #added_email').value;
         let userN = document.querySelector('.adminUserPage .top-section .add-user #added_name').value;
         let userP = document.querySelector('.adminUserPage .top-section .add-user #added_pwd').value;
@@ -138,6 +156,12 @@ export function adminUserManage(){
             alert('Tài khoản gmail đã tồn tại!');
             return 0;
         }
+
+        if(!isPasswordValid(userP)){
+            alert('Mật khẩu phải có ít nhất 6 kí tự');
+            return 0;
+        }
+
         const user = {
             avt: null,
             email: userE,
@@ -147,8 +171,8 @@ export function adminUserManage(){
             roles: userR,
             cart:[]
         }
-        //setLocalStorage('user', user);
         users.push(user);
+        setLocalStorage('users', users);
         alert('Thêm Người Dùng Thành Công');
         document.querySelector('.adminUserPage .top-section .add-user #added_email').value ='';
         document.querySelector('.adminUserPage .top-section .add-user #added_name').value ='';
@@ -187,6 +211,9 @@ export function adminUserManage(){
     }
 
     document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').addEventListener('input', (event) =>{
+        if(getLocalStorage('users')){
+            setUsers(getLocalStorage('users'));
+          }
         let userArr = [];
         let searchInput = document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value;
         if(searchInput == ''){

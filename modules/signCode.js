@@ -1,4 +1,4 @@
-import { users } from "./informationalObjects.js";
+import { getLocalStorage, users, setUsers } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
 export let loginedUser = null
 import { adminUserBoardDisplay } from "./adminUserBoard.js";
@@ -43,6 +43,9 @@ export function signCode(){
     return true;
   }
   function checkEmail(userE){
+    if(getLocalStorage('users')){
+      setUsers(getLocalStorage('users'));
+    }
     for(let i = 0; i < users.length; i++){
       if(userE === users[i].email){
         return false;
@@ -54,6 +57,9 @@ export function signCode(){
 
   function addUser(event){
     event.preventDefault();
+    if(getLocalStorage('users')){
+      setUsers(getLocalStorage('users'));
+    }
     let userE = document.getElementsByName('email')[0].value;
     let userN = document.getElementsByName('fname')[0].value;
     let userP1 = document.getElementsByName('password')[0].value;
@@ -86,7 +92,7 @@ export function signCode(){
       adminUserManage();
     }
     else{
-      alert('Mat khau nhap lai khong trung khop');
+      alert('Mật khẩu nhập lại không trùng khớp');
       document.getElementsByName('password')[0].value ="";
       document.getElementsByName('confirm_password')[0].value = "";
     }
@@ -97,6 +103,10 @@ export function signCode(){
 
     let userE = document.querySelector('.login-form #signin_email').value;
     let userP = document.querySelector('.login-form #signin_pws').value;
+
+    if(getLocalStorage('users')){
+      setUsers(getLocalStorage('users'));
+    }
 
     for(let i = 0; i < users.length; i++){
       if(userE === users[i].email && userP === users[i].password){
@@ -124,10 +134,14 @@ export function signCode(){
     document.querySelector('.sub-menu-wrap').style.display = 'none';
     document.querySelector('.profile-icon').style.display = 'none';
     document.querySelector('.login-btn').style.display = 'block';
+    setLocalStorage('users', users);
     adminSidebarDisplayLogic()
   }
 
   function updateUser(){
+    if(getLocalStorage('users')){
+      setUsers(getLocalStorage('users'));
+    }
     for(let i = 0; i < users.length; i++){
       if(loginedUser.email === users[i].email){
         users[i].avt = document.querySelector('.pop-up-update .update-info .user-avt').src;
@@ -138,19 +152,21 @@ export function signCode(){
       }
     }
     alert('Cập Nhật Thông Tin Thành Công!');
+    setLocalStorage('users', users);
     document.querySelector('.navbar .sub-menu-wrap .user-info p').textContent = document.querySelector('.pop-up-update .update-info #updateName').value;
     document.querySelector('.navbar .sub-menu-wrap .sub-menu .user-info .user-mini-avt').src = users.find(user => user.email == loginedUser.email).avt;
     document.querySelector('.pop-up-update').style.display = 'none';
-    console.log(users);
     adminUserBoardDisplay();
     adminUserManage();
   }
 
   function updatePassword(){
+    if(getLocalStorage('users')){
+      setUsers(getLocalStorage('users'));
+    }
     let oP = document.querySelector('.pop-up-update .update-password #oldPwd').value;
     let nP = document.querySelector('.pop-up-update .update-password #newPwd').value;
     let rnP = document.querySelector('.pop-up-update .update-password #renewPwd').value;
-    console.log(oP + '' + loginedUser.password);
     if(!checkPwd(oP, loginedUser.password)){
       alert('Mật khẩu cũ không chính xác');
       return;
@@ -175,6 +191,7 @@ export function signCode(){
       }
     }
     alert('Đổi mật khẩu thành công');
+    setLocalStorage('users', users);
     document.querySelector('.pop-up-update .update-password').style.display = 'none';
     document.querySelector('.pop-up-update .update-info').style.display = 'block';
     document.querySelector('.pop-up-update').style.display = 'none';
