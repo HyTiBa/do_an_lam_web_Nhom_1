@@ -1,4 +1,3 @@
-// import { foods } from "./chitietsp.js" ;
 
 export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):
 [
@@ -238,15 +237,8 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     email: 'nguyenkhanh0127@gmail.com',
     userName: 'Khanh',
     password: '123456',
-    address: null,
     roles: 'Khach hang',
-    cart: [
-      {
-        name: 'Bún bò',
-        price: 35000,
-        quantity: 2
-      }
-    ]
+    address: null
   },
   {
     email: 'captianBao@gmail.com',
@@ -255,9 +247,8 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     ,
     userName: 'bảo',
     password: '123456',
-    address: null,
     roles: 'Admin',
-    cart:[]
+    address: null
   },
   {
     email: 'admin@gmail.com',
@@ -266,110 +257,21 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     ,
     userName: 'Bao',
     password: 'admin',
-    address: null,
     roles: 'Admin',
-    cart:[]
+    address: null
   },
   {
     avt: "../images/user pic.jpg",
     email: 'ThanhTran1997@gmail.com',
     userName: 'Tran',
     password: '654321',
-    address: null,
     roles: 'Khach hang',
-    cart: [
-      {
-        name: 'Bún bò',
-        price: 35000,
-        quantity: 1
-      },
-      {
-        name: 'Cơm chiên dương châu',
-        price: 35000,
-        quantity: 1
-      }
-    ]
+    address: null
   }
 ]
 
 
-const foods =[
-  {
-    food: food_list[0],
-    soluong: 2
-  },
-  {
-    food: food_list[1],
-    soluong: 2
-  },
-]
 
-const ship = [
-  {
-    ten: "Thường",
-    gia: 20000
-  },
-  {
-    ten: "Nhanh",
-    gia: 50000
-  },
-  {
-    ten: "Hỏa tốc",
-    gia: 80000
-  }
-
-
-]
-export const receipts = getLocalStorage("receipts")?getLocalStorage("receipts"):
-
-[
-  {
-    id: 1,
-    status:"cooking",
-    email: "ThanhTran1997@gmail.com",
-    diachi: "TP HCM",
-    ArrayFood: foods,
-    TamTinh: function(){
-      let total = 0
-      this.ArrayFood.forEach(foodDetail => {
-        total += foodDetail.food.price*foodDetail.soluong
-      })
-      return total
-    },
-    HinhThucVanChuyen: "Thuong",
-    PhiVanChuyen: 50000,
-    TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
-    thoiGian: new Date()
-  },
-  {
-    id: 2,
-    status:"shipping",
-    email: "captianBao@gmail.com",
-    diachi: "TP HCM",
-    ArrayFood: [
-      {
-        food: food_list[4],
-        soluong: 3
-      },
-      {
-        food: food_list[5],
-        soluong: 1
-      },
-    ],
-    TamTinh: function(){
-      let total = 0
-      this.ArrayFood.forEach(foodDetail => {
-        total += foodDetail.food.price*foodDetail.soluong
-      })
-      return total
-    },
-    HinhThucVanChuyen: "Thuong",
-    PhiVanChuyen: 80000,
-    TongCong: function(){return this.TamTinh() + this.PhiVanChuyen},
-    thoiGian: new Date()
-  },
-
-]
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info))
 }
