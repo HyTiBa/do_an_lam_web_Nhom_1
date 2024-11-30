@@ -162,6 +162,14 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     password: '654321',
     roles: 'Khach hang',
     address: null
+  },
+  {
+    avt: null,
+    email: "nam@gmail.com",
+    userName: 'Hoai Nam',
+    password: '123456',
+    roles: 'Khach hang',
+    address: null
   }
 ]
 

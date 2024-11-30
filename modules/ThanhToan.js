@@ -16,31 +16,24 @@ export function formThanhToan() {
             } else {
                 let currentReceipts = getLocalStorage('receipts') || [];
                 const today = new Date();
-                const day = today.getDate().toString().padStart(2, '0');
-                const month = (today.getMonth() + 1).toString().padStart(2, '0');
-                const year = today.getFullYear();
-
-                const hours = today.getHours();                 
-                const minutes = today.getMinutes(); 
-                const seconds = today.getSeconds(); 
-                
                 
                 currentReceipts.push({
                     id: currentReceipts.length + 1,
-                    Email: loginedUser.Email,
+                    Email: loginedUser.email,
                     Address: document.querySelector(".input-text").value,
                     ArrayyFoods: foods,
                     TamTinh: parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10),
                     PhiVanChuyen: parseInt(document.getElementById("phi_van_chuyen").textContent.split(" ")[0], 10),
                     TongCong: parseInt(document.getElementById("tong_cong").textContent.split(" ")[0], 10),
-                    NgayMua: `${day}/${month}/${year}`,
-                    GioMua: `${hours}:${minutes}:${seconds}`
+                    NgayMua: today
                 });
 
                 setLocalStorage('receipts', currentReceipts);
+
                 foods.splice(0, foods.length);
                 document.querySelector(".dot").style.display = 'none';
                 alert("Thanh toán thành công");
+                
                 pageDisplay();
                 
             }
