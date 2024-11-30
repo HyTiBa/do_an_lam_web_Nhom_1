@@ -1,4 +1,6 @@
-import { getLocalStorage, users, setUsers } from "./informationalObjects.js";
+import { getLocalStorage, users, 
+  // setUsers
+ } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
 export let loginedUser = null
 import { adminUserBoardDisplay } from "./adminUserBoard.js";
@@ -43,9 +45,7 @@ export function signCode(){
     return true;
   }
   function checkEmail(userE){
-    if(getLocalStorage('users')){
-      setUsers(getLocalStorage('users'));
-    }
+  
     for(let i = 0; i < users.length; i++){
       if(userE === users[i].email){
         return false;
@@ -57,9 +57,7 @@ export function signCode(){
 
   function addUser(event){
     event.preventDefault();
-    if(getLocalStorage('users')){
-      setUsers(getLocalStorage('users'));
-    }
+   
     let userE = document.getElementsByName('email')[0].value;
     let userN = document.getElementsByName('fname')[0].value;
     let userP1 = document.getElementsByName('password')[0].value;
@@ -104,10 +102,7 @@ export function signCode(){
     let userE = document.querySelector('.login-form #signin_email').value;
     let userP = document.querySelector('.login-form #signin_pws').value;
 
-    if(getLocalStorage('users')){
-      setUsers(getLocalStorage('users'));
-    }
-
+    
     for(let i = 0; i < users.length; i++){
       if(userE === users[i].email && userP === users[i].password){
         alert('Đăng nhập thành công');
@@ -139,9 +134,7 @@ export function signCode(){
   }
 
   function updateUser(){
-    if(getLocalStorage('users')){
-      setUsers(getLocalStorage('users'));
-    }
+    
     for(let i = 0; i < users.length; i++){
       if(loginedUser.email === users[i].email){
         users[i].avt = document.querySelector('.pop-up-update .update-info .user-avt').src;
@@ -161,9 +154,7 @@ export function signCode(){
   }
 
   function updatePassword(){
-    if(getLocalStorage('users')){
-      setUsers(getLocalStorage('users'));
-    }
+   
     let oP = document.querySelector('.pop-up-update .update-password #oldPwd').value;
     let nP = document.querySelector('.pop-up-update .update-password #newPwd').value;
     let rnP = document.querySelector('.pop-up-update .update-password #renewPwd').value;

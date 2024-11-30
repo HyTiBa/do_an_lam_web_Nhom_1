@@ -170,9 +170,7 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info));
 }
-export function setUsers(newUsers){
-  users = newUsers;
-}
+
 
 export function getLocalStorage(key){
   return JSON.parse(localStorage.getItem(key));

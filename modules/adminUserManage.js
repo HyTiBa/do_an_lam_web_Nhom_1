@@ -1,4 +1,6 @@
-import { users, setUsers } from "./informationalObjects.js";
+import { users, 
+    // setUsers
+ } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
 import { getLocalStorage } from "./informationalObjects.js";
 import { adminUserBoardDisplay } from "./adminUserBoard.js";
@@ -9,9 +11,9 @@ export function adminUserManage(){
     let userED = null;
 
     function updateUser(){
-        if(getLocalStorage('users')){
-            setUsers(getLocalStorage('users'));
-        }
+        // if(getLocalStorage('users')){
+        //     setUsers(getLocalStorage('users'));
+        // }
         if(userED != null){
             let userN = document.querySelector('.adminUserBoard .pop-ups .modify #modify_name').value;
             let userP = document.querySelector('.adminUserBoard .pop-ups .modify #modify_pwd').value;
@@ -41,9 +43,7 @@ export function adminUserManage(){
 
     function reattachEventListenerAdminUserBoard(){
         document.querySelectorAll(".adminUserBoard .actions .modify").forEach((button) => {
-            if(getLocalStorage('users')){
-                setUsers(getLocalStorage('users'));
-              }
+         
             if(!button.hasAttribute('data-listener')){
                 button.addEventListener('click', (event) =>{
                     document.querySelector(".adminUserBoard .pop-ups").style.display = 'flex';
