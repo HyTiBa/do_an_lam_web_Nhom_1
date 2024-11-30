@@ -9,7 +9,7 @@ export function adminProductBoardDisplay() {
         <div class="product section">
         <div class="info">
           <img
-            src="${item.image}"
+            src="${typeof(item.image) == "string" ? item.image : URL.createObjectURL(item.image)}"
           />
           <div>
             <p class="name">${item.name}</p>
