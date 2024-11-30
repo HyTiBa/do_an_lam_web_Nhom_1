@@ -138,7 +138,7 @@
               <div class="sub-menu-ops" id="updateUserInfo-btn">
                 <p>Chỉnh sửa</p>
               </div>
-              <div class="sub-menu-ops">
+              <div class="sub-menu-ops" id="orderHistory-btn">
                 <p>Lịch sử mua</p>
               </div>
               <div class="sub-menu-ops" id="logout-btn">
@@ -366,10 +366,6 @@
           <p>Ngày</p>
           <p>Doanh thu</p>
         </div>
-        <div class="row">
-          <p>Ngày</p>
-          <p>Doanh thu</p>
-        </div>
       </section>
     </main>
 
@@ -520,5 +516,17 @@
     </nav>
 
     <script type="module" src="./index.js"></script>
+    <div class="overlay-orderHistory">
+      <img src="images/close-button-png-27.png" class="close-btn">
+      <div class="orderHistory-container">
+        <div class="section">
+          <p>Sản phẩm</p>
+          <p>Số lượng</p>
+          <p>Tổng tiền</p>
+          <p>Ngày mua</p>
+        </div>
+        <div class="history section"></div>
+      </div>
+    </div>
   </body>
 </html>

@@ -998,3 +998,64 @@ background-color: tomato;
 .back_home, .search-container img{
     cursor: pointer;
 }
+
+.overlay-orderHistory{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.overlay-orderHistory .orderHistory-container{
+    display: block;
+    background:white;
+    padding: 2px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: left;
+    width: 80vw;
+    position: absolute;
+}
+
+.overlay-orderHistory .orderHistory-container .section{
+    display: grid;
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
+    height: 70px;
+    border: solid 1px grey;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+.overlay-orderHistory .orderHistory-container .section:first-child{
+    border: solid 1px grey;
+    font-weight: 700;
+    font-size: large;
+    background-color: #ff9966;
+}
+
+.overlay-orderHistory .orderHistory-container .history{
+    display: grid;
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
+    height: 50vh;
+    border: solid 1px grey;
+    border-top: 0;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    overflow-y: auto;
+    border-top: 1px solid;
+    font-weight: 500;
+}
+
+.overlay-orderHistory .close-btn{
+    width: 3vw;
+    top: 90px;
+    right: 90px;
+}
