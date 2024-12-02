@@ -1,6 +1,9 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
 import { displayChoosenPage, pageDisplay} from "./pageDisplay.js";
+import { loginedUser } from "./signCode.js";
+
+
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
     if (elementCart) {
@@ -146,7 +149,9 @@ export function showCart() {
                         total_tmp += item.food.price*item.soluong;
                     });
                     document.getElementById("thanh_toan_tmp_cal_money").innerText = total_tmp;
-
+                    document.getElementById("accress_order").value = loginedUser.address;
+                    //console.log(loginedUser.address);
+                    
                     
                     van_chuyen();
                     

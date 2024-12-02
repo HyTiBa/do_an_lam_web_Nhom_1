@@ -185,6 +185,9 @@ ul.product_list li img{
     background-color: coral;
 }
 
+.btn_ThanhToan:hover{
+    background-color:coral;
+}
 .add_cart{
     width: 100%; display: flex; justify-content: center;
 }
@@ -857,8 +860,15 @@ row-gap: 50px;
     margin: auto;
     border-radius: 15px;
     box-shadow: 0 0 10px #00000015;
-    transition: 0.3s;
+    /* transition: 0.3s; */
     height: 100%;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.food-item:hover{
+    transform: translateY(-10px); /* Nhích lên */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4); /* Tăng shadow */
 }
 .food-item-img{
 width: 100%;

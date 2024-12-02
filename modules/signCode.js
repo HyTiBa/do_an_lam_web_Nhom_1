@@ -7,7 +7,6 @@ import { adminUserBoardDisplay } from "./adminUserBoard.js";
 import { adminUserManage } from "./adminUserManage.js";
 const adminNavbar = document.querySelector(".admin-navbar")
 const mains = document.querySelectorAll("main")
-
 export function isPasswordValid(Password){
   return (Password.length < 6 ? false : true); 
 } 
