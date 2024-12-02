@@ -86,13 +86,16 @@ export function adminProductBoardDisplay() {
                     break;
                 }
             }
+            let foodlist = localStorage.getItem("food_list") ? JSON.parse(localStorage.getItem("food_list")) : []
             alert('Cập nhật sản phẩm thành công');
             document.querySelector(".adminProductBoard .pop-ups .modify").style.display = 'none';
             document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
             document.querySelector('adminProductPage .top-section .adminProductSearch .search-box input');
+            localStorage.setItem("food_list", JSON.stringify(food_list))
+
             adminProductBoardDisplay();
             reattachEventListeneradminProductBoardDisplay();
-            console.log("helo word ");
+
         }
     }
 
@@ -140,13 +143,16 @@ export function adminProductBoardDisplay() {
                         break;
                     }
                 }
+                let foodlist = localStorage.getItem("food_list") ? JSON.parse(localStorage.getItem("food_list")) : []
+
                 alert('Xóa sản phẩm thành công');
                 document.querySelector(".adminProductBoard .pop-ups .remove").style.display = 'none';
                 document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
                 document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').value = '';
+                localStorage.setItem("food_list", JSON.stringify(food_list))
                 adminProductBoardDisplay();
                 reattachEventListeneradminProductBoardDisplay();
-                console.log("helo word ");
+
             }
         })
 
@@ -188,25 +194,8 @@ export function adminProductBoardDisplay() {
             category: productC,
 
         }
+        let foodlist = localStorage.getItem("food_list") ? JSON.parse(localStorage.getItem("food_list")) : []
 
-        function chooseFile(fileInput) {
-            if (fileInput.files && fileInput.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#image').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(fileInput.files[0]);
-            }
-            console.log("helo")
-        }
-        const image = document.querySelector("img"),
-            input = document.querySelector("input");
-
-        input.addEventListener("change", () => {
-            image.src = URL.createObjectURL(input.files[0]);
-            console.log("helo")
-        });
         food_list.push(product);
         alert('Thêm Sản Phẩm Thành Công');
         document.querySelector('.adminProductPage .top-section .add-product #added_productName').value = '';
@@ -214,9 +203,10 @@ export function adminProductBoardDisplay() {
         document.querySelector('.adminProductPage .top-section .add-product #added_productDescription').value = '';
         document.querySelector('.adminProductPage .top-section .pop-ups').style.display = 'none';
         document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').value = '';
+        localStorage.setItem("food_list", JSON.stringify(food_list))
         adminProductBoardDisplay();
         reattachEventListeneradminProductBoardDisplay();
-        console.log("helo word ");
+
     }
 
     reattachEventListeneradminProductBoardDisplay();
@@ -255,6 +245,7 @@ export function adminProductBoardDisplay() {
         }
         adminProductBoardDisplay(userArr);
         reattachEventListeneradminProductBoardDisplay();
+
 
     })
 
