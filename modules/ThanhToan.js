@@ -19,9 +19,9 @@ export function formThanhToan() {
                 
                 currentReceipts.push({
                     id: currentReceipts.length + 1,
-                    Email: loginedUser.email,
+                    email: loginedUser.email,
                     Address: document.querySelector(".input-text").value,
-                    ArrayyFoods: foods,
+                    ArrayFoods: foods,
                     TamTinh: parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10),
                     PhiVanChuyen: parseInt(document.getElementById("phi_van_chuyen").textContent.split(" ")[0], 10),
                     TongCong: parseInt(document.getElementById("tong_cong").textContent.split(" ")[0], 10),

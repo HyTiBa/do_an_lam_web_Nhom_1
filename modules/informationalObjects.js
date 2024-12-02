@@ -173,7 +173,8 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
   }
 ]
 
-export const receipts = getLocalStorage("receipts")?getLocalStorage("receipts"):
+export const receipts = 
+getLocalStorage("receipts")?getLocalStorage("receipts"):
 [{
   id: 1,
   email: "ThanhTran1997@gmail.com",
@@ -185,7 +186,7 @@ export const receipts = getLocalStorage("receipts")?getLocalStorage("receipts"):
   TamTinh: parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10),
   PhiVanChuyen: parseInt(document.getElementById("phi_van_chuyen").textContent.split(" ")[0], 10),
   TongCong: parseInt(document.getElementById("tong_cong").textContent.split(" ")[0], 10),
-  NgayMua: today
+  NgayMua: new Date()
 }]
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info));

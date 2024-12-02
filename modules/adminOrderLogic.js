@@ -21,12 +21,12 @@ function orderBoardDisplay(){
     if (receipts != null) {
       
       receipts.forEach(receipt => {
-          let buyer
-          users.forEach(user => {
-              if(receipt.email == user.email){
-                  buyer = user
-              }
-          })
+        let buyer
+        users.forEach(user => {
+          if(receipt.email == user.email){
+            buyer = user
+          }
+        })
           
           board.innerHTML += `
            <div class="section">
@@ -44,7 +44,7 @@ function orderBoardDisplay(){
               </div>
             </div>
             <div class="foods">
-            ${getReceiptFoodImg(receipt.ArrayFood)}  
+            ${getReceiptFoodImg(receipt.ArrayFoods)}  
             </div>
   
             ${orderStatusDisplay(receipt)}
