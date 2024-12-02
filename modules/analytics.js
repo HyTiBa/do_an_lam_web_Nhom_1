@@ -39,7 +39,10 @@ function analyticBoardDisplay() {
           receipt.NgayMua
         )}</p>
 
-          <div style="justify:content-center; display:flex">
+          <div style="justify:content-center; display:flex;
+    flex-direction: column;
+          
+          ">
           <p>${receipt.TongCong}đ</p>
 
           </div>
@@ -47,12 +50,24 @@ function analyticBoardDisplay() {
           `;
       } else {
         const rowElements = document.querySelectorAll(".analyticBoard .row");
-        let rowToInlncude
-        rowElements.forEach((row) => {
-          console.log(row.children[0].innerHTML);
+        let rowToInlncude;
 
-          const rowDate = row.children[0];
-        });
+        rowElements.forEach((row) => {
+          const rowDate = row.children[0].innerHTML;
+          if (
+            getYear(rowDate) == getYear(receipt.NgayMua) &&
+            getMonth(rowDate) == getMonth(receipt.NgayMua) &&
+            getDay(receipt.NgayMua) == getDay(rowDate)
+          ) {
+            rowToInlncude = row;
+          }
+        })
+        if (rowToInlncude != null) {
+          rowToInlncude.children[1].innerHTML +=  `
+                   <p>${receipt.TongCong}đ</p>
+
+          `
+        }
       }
     });
   }
