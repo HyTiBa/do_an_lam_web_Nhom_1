@@ -1,5 +1,5 @@
 import { setLocalStorage, users } from "./informationalObjects.js";
-import { receipts } from "./ThanhToan.js";
+import { receipts } from "./informationalObjects.js";
 const board = document.querySelector(".adminOrderBoard")
 export function adminOrderLogic(){
 orderBoardDisplay()

@@ -3,7 +3,7 @@ import { setLocalStorage } from "./informationalObjects.js";
 import { getLocalStorage } from "./informationalObjects.js";
 import { loginedUser } from "./signCode.js";
 import { pageDisplay } from "./pageDisplay.js";
-export let receipts
+// export let receipts
 export function formThanhToan() {
     var btn_confirm = document.querySelector(".order_confirm");
     btn_confirm.addEventListener("click", () => {

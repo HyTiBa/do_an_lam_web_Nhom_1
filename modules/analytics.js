@@ -12,7 +12,7 @@ let day;
 let year;
 let month;
 import { food_list, users } from "./informationalObjects.js";
-import { receipts } from "./ThanhToan.js";
+import { receipts } from "./informationalObjects.js";
 export function adminAnalyticsLogic() {
   const analyticButtonLink = document.querySelector(`a[page ="analytics"]`);
   analyticButtonLink.addEventListener("click", () => {
@@ -25,14 +25,14 @@ export function adminAnalyticsLogic() {
 function analyticBoardDisplay() {
   if (receipts != null) {
     receipts.forEach((receipt) => {
-      if (dateAlreadyExist(receipt.thoiGian) == false) {
-        board.innerHTML += `
-                 <div class="row">
-                      <p>${receipt.thoiGian.getDate()}/${receipt.thoiGian.getMonth()}/${receipt.thoiGian.getFullYear()}</p>
-                      <p>${receipt.TongCong()}đ</p>
-                    </div>
-                `;
-      }
+    //   if (dateAlreadyExist(receipt.thoiGian) == false) {
+    //     board.innerHTML += `
+    //              <div class="row">
+    //                   <p>${receipt.thoiGian.getDate()}/${receipt.thoiGian.getMonth()}/${receipt.thoiGian.getFullYear()}</p>
+    //                   <p>${receipt.TongCong()}đ</p>
+    //                 </div>
+    //             `;
+    //   }
     });
   }
 }

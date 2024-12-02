@@ -1,5 +1,5 @@
 import { getLocalStorage } from "./informationalObjects.js";
-import { receipts } from "./ThanhToan.js";
+import { receipts } from "./informationalObjects.js";
 import { loginedUser } from "./signCode.js";
 import { users } from "./informationalObjects.js";
 
