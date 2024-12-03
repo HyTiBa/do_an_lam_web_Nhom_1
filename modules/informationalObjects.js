@@ -133,7 +133,8 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     userName: 'Khanh',
     password: '123456',
     roles: 'Khach hang',
-    address: null
+    address: 'TP HCM',
+    isBlocked: false
   },
   {
     email: 'captianBao@gmail.com',
@@ -143,7 +144,8 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     userName: 'bảo',
     password: '123456',
     roles: 'Admin',
-    address: null
+    address: null,
+    isBlocked: false
   },
   {
     email: 'admin@gmail.com',
@@ -153,7 +155,8 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     userName: 'Bao',
     password: 'admin',
     roles: 'Admin',
-    address: null
+    address: null,
+    isBlocked: false
   },
   {
     avt: "../images/user pic.jpg",
@@ -161,7 +164,8 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     userName: 'Tran',
     password: '654321',
     roles: 'Khach hang',
-    address: null
+    address: null,
+    isBlocked: false
   },
   {
     avt: null,
@@ -169,11 +173,124 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
     userName: 'Hoai Nam',
     password: '123456',
     roles: 'Khach hang',
-    address: null
+    address: null,
+    isBlocked: false
   }
 ]
 
+let receipts = [
+// (getLocalStorage('receipts'))? getLocalStorage('receipts') : [
+  {
+    id: 1,
+    Email: 'nguyenkhanh0127@gmail.com',
+    Address: 'TP HCM',
+    ArrayyFoods: [
+      {
+        food: food_list[0],
+        soluong: 2
+      }
+    ],
+    TamTinh: 1000,
+    PhiVanChuyen: 20000,
+    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
+    },
+    NgayMua: new Date()
+  },
+  {
+    id: 2,
+    Email: 'ThanhTran1997@gmail.com',
+    Address: '63 Gò Vấp',
+    ArrayyFoods: [
+      {
+        food: food_list[0],
+        soluong: 1
+      },
+      {
+        food: food_list[3],
+        soluong: 1
+      }
+    ],
+    TamTinh: 10000,
+    PhiVanChuyen: 20000,
+    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
+    },
+    NgayMua: new Date()
+  },
+  {
+    id: 3,
+    Email: 'ThanhTran1997@gmail.com',
+    Address: '63 Gò Vấp',
+    ArrayyFoods: [
+      {
+        food: food_list[3],
+        soluong: 1
+      }
+    ],
+    TamTinh: 50000,
+    PhiVanChuyen: 10000,
+    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
+    },
+    NgayMua: new Date()
+  },
+  {
+    id: 4,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayyFoods: [
+      {
+        food: food_list[1],
+        soluong: 2
+      }
+    ],
+    TamTinh: 30000,
+    PhiVanChuyen: 10000,
+    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
+    },
+    NgayMua: new Date()
+  },
+  {
+    id: 5,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayyFoods: [
+      {
+        food: food_list[0],
+        soluong: 1
+      },
+      {
+        food: food_list[4],
+        soluong: 2
+      }
+    ],
+    TamTinh: 80000,
+    PhiVanChuyen: 10000,
+    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
+    },
+    NgayMua: new Date()
+  },
+  {
+    id: 6,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayyFoods: [
+      {
+        food: food_list[1],
+        soluong: 1
+      },
+      {
+        food: food_list[2],
+        soluong: 2
+      }
+    ],
+    TamTinh: 45000,
+    PhiVanChuyen: 10000,
+    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
+    },
+    NgayMua: new Date()
+  }
+]
 
+setLocalStorage('receipts', receipts);
 
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info));
