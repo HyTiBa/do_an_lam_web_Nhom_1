@@ -24,6 +24,11 @@ export function adminUserManage(){
                         users[i].userName = userN;
                         users[i].password = userP;
                         users[i].roles = userR;
+                        if(document.querySelector('.adminUserBoard .pop-ups .modify #isBlocked').checked){
+                            users[i].isBlocked = true;
+                        } else{
+                            users[i].isBlocked = false;
+                        }
                         break;
                     }
                 }
@@ -54,6 +59,11 @@ export function adminUserManage(){
                             document.querySelector('.adminUserBoard .pop-ups .modify #modify_name').value = users[i].userName;
                             document.querySelector('.adminUserBoard .pop-ups .modify #modify_pwd').value = users[i].password;
                             document.querySelector('.adminUserBoard .pop-ups .modify #modify_role').value = users[i].roles;
+                            if(users[i].isBlocked){
+                                document.querySelector('.adminUserBoard .pop-ups .modify #isBlocked').checked = true;
+                            } else{
+                                document.querySelector('.adminUserBoard .pop-ups .modify #not_isBlocked').checked = true;
+                            }
                             break;
                         }
                     }
@@ -99,9 +109,9 @@ export function adminUserManage(){
             if(!document.querySelector('.adminUserBoard .pop-ups .remove .cfm_btn').hasAttribute('data-listener')){
                 document.querySelector('.adminUserBoard .pop-ups .remove .cfm_btn').addEventListener('click', () =>{
                     if(userED != null){
-                        if(getLocalStorage('users')){
-                            setUsers(getLocalStorage('users'));
-                          }
+                        // if(getLocalStorage('users')){
+                        //     setUsers(getLocalStorage('users'));
+                        //   }
                         for(let i = 0; i < users.length; i++){
                             if(userED === users[i].email){
                                 users.splice(i, 1);
@@ -133,9 +143,9 @@ export function adminUserManage(){
         }
     }
     function checkEmail(userE){
-        if(getLocalStorage('users')){
-            setUsers(getLocalStorage('users'));
-          }
+        // if(getLocalStorage('users')){
+        //     setUsers(getLocalStorage('users'));
+        //   }
         for(let i = 0; i < users.length; i++){
           if(userE === users[i].email){
             return false;
@@ -145,9 +155,9 @@ export function adminUserManage(){
       }
 
     function adminAddUser(){
-        if(getLocalStorage('users')){
-            setUsers(getLocalStorage('users'));
-          }
+        // if(getLocalStorage('users')){
+        //     setUsers(getLocalStorage('users'));
+        //   }
         let userE = document.querySelector('.adminUserPage .top-section .add-user #added_email').value;
         let userN = document.querySelector('.adminUserPage .top-section .add-user #added_name').value;
         let userP = document.querySelector('.adminUserPage .top-section .add-user #added_pwd').value;
@@ -167,9 +177,9 @@ export function adminUserManage(){
             email: userE,
             userName: userN,
             password: userP,
-            address: null,
             roles: userR,
-            cart:[]
+            address: null,
+            isBlocked: false
         }
         users.push(user);
         setLocalStorage('users', users);
@@ -211,9 +221,9 @@ export function adminUserManage(){
     }
 
     document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').addEventListener('input', (event) =>{
-        if(getLocalStorage('users')){
-            setUsers(getLocalStorage('users'));
-          }
+        // if(getLocalStorage('users')){
+        //     setUsers(getLocalStorage('users'));
+        //   }
         let userArr = [];
         let searchInput = document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value;
         if(searchInput == ''){

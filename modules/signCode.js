@@ -77,8 +77,9 @@ export function signCode(){
         avt: null,
         userName: userN,
         password: userP1,
-        address: null,
         roles: 'Khach hang',
+        address: null,
+        isBlocked: false
       };
       alert("Đăng ký tài khoản thành công");
       users.push(user);
@@ -105,6 +106,13 @@ export function signCode(){
     
     for(let i = 0; i < users.length; i++){
       if(userE === users[i].email && userP === users[i].password){
+        let tmpUser = users.find(user => user.email == userE);
+        if(tmpUser.isBlocked){
+          alert('Tài khoản đang bị tạm khóa');
+          document.querySelector('.login-form #signin_email').value = '';
+          document.querySelector('.login-form #signin_pws').value = '';
+          return 0;
+        }
         alert('Đăng nhập thành công');
         loginedUser = users.find(user => user.email == userE);
         adminSidebarDisplayLogic()
@@ -188,6 +196,31 @@ export function signCode(){
     document.querySelector('.pop-up-update').style.display = 'none';
   }
   
+  function addAddress(){
+    for(let i = 0; i < users.length; i++){
+      if(users[i].email === loginedUser.email){
+        if(!users[i].address){
+          users[i].address = document.querySelector('.pop-up-address .addAddress #addAddress').value;
+          loginedUser = users[i];
+          alert('Cập nhật địa chỉ thành công!');
+          setLocalStorage('users', users);
+          document.querySelector('.pop-up-address').style.display = 'none';
+          break;
+        } else{
+          let resp = confirm('Bạn có chắc chắn muốn thay thế địa chỉ cũ?');
+          if(resp){
+            users[i].address = document.querySelector('.pop-up-address .addAddress #addAddress').value;
+            loginedUser = users[i];
+            alert('Cập nhật địa chỉ thành công!');
+            setLocalStorage('users', users);
+            document.querySelector('.pop-up-address').style.display = 'none';
+            break;
+          }
+        }
+      }
+    }
+  }
+
   document.getElementById('signup_form').addEventListener('submit', addUser);
   document.getElementById('signin_form').addEventListener('submit', loginAcc);
   document.getElementById('logout-btn').addEventListener('click',logOut);
@@ -265,6 +298,29 @@ export function signCode(){
   document.querySelector('.pop-up-update .update-password .form-container').addEventListener('submit', (event) => {
     event.preventDefault();
     updatePassword();
+  })
+
+  document.querySelector('.page .navbar .sub-menu-wrap .sub-menu #addAddress-btn').addEventListener('click', () =>{
+    document.querySelector('.pop-up-address').style.display = 'flex';
+    document.querySelector('.sub-menu-wrap').style.display = 'none';
+    if(!loginedUser.address){
+      document.querySelector('.pop-up-address .addAddress #addAddress').value = '';
+    } else{
+      document.querySelector('.pop-up-address .addAddress #addAddress').value = loginedUser.address;
+    }
+  })
+
+  document.querySelector('.pop-up-address .addAddress .yn_btn .deny_btn').addEventListener('click', () => {
+    document.querySelector('.pop-up-address').style.display = 'none';
+  })
+
+  document.querySelector('.pop-up-address .addAddress .form-container').addEventListener('submit', (event) => {
+    event.preventDefault();
+    if(document.querySelector('.pop-up-address .addAddress #addAddress').value === ''){
+      alert('Địa chỉ không được để trống');
+    } else{
+      addAddress();
+    }
   })
 }
 
