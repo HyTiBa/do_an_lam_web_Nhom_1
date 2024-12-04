@@ -184,23 +184,22 @@ let receipts = [
     id: 1,
     Email: 'nguyenkhanh0127@gmail.com',
     Address: 'TP HCM',
-    ArrayyFoods: [
+    ArrayFoods: [
       {
         food: food_list[0],
         soluong: 2
       }
     ],
-    TamTinh: 1000,
+    TamTinh: 0,
     PhiVanChuyen: 20000,
-    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
-    },
-    NgayMua: new Date()
+    TongCong: 0,
+    NgayMua: new Date("2024-11-20T15:38:28.757Z")
   },
   {
     id: 2,
     Email: 'ThanhTran1997@gmail.com',
     Address: '63 Gò Vấp',
-    ArrayyFoods: [
+    ArrayFoods: [
       {
         food: food_list[0],
         soluong: 1
@@ -210,49 +209,46 @@ let receipts = [
         soluong: 1
       }
     ],
-    TamTinh: 10000,
+    TamTinh: 0,
     PhiVanChuyen: 20000,
-    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
-    },
-    NgayMua: new Date()
+    TongCong: 0,
+    NgayMua: new Date("2024-11-26T15:38:28.757Z")
   },
   {
     id: 3,
     Email: 'ThanhTran1997@gmail.com',
     Address: '63 Gò Vấp',
-    ArrayyFoods: [
+    ArrayFoods: [
       {
         food: food_list[3],
         soluong: 1
       }
     ],
-    TamTinh: 50000,
-    PhiVanChuyen: 10000,
-    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
-    },
-    NgayMua: new Date()
+    TamTinh: 0,
+    PhiVanChuyen: 50000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-27T15:38:28.757Z")
   },
   {
     id: 4,
     Email: 'nam@gmail.com',
     Address: 'TP HCM',
-    ArrayyFoods: [
+    ArrayFoods: [
       {
         food: food_list[1],
         soluong: 2
       }
     ],
-    TamTinh: 30000,
-    PhiVanChuyen: 10000,
-    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
-    },
-    NgayMua: new Date()
+    TamTinh: 0,
+    PhiVanChuyen: 80000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-29T15:38:28.757Z")
   },
   {
     id: 5,
     Email: 'nam@gmail.com',
     Address: 'TP HCM',
-    ArrayyFoods: [
+    ArrayFoods: [
       {
         food: food_list[0],
         soluong: 1
@@ -262,17 +258,16 @@ let receipts = [
         soluong: 2
       }
     ],
-    TamTinh: 80000,
-    PhiVanChuyen: 10000,
-    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
-    },
-    NgayMua: new Date()
+    TamTinh: 0,
+    PhiVanChuyen: 50000,
+    TongCong: 0,
+    NgayMua: new Date("2024-12-01T15:38:28.757Z")
   },
   {
     id: 6,
     Email: 'nam@gmail.com',
     Address: 'TP HCM',
-    ArrayyFoods: [
+    ArrayFoods: [
       {
         food: food_list[1],
         soluong: 1
@@ -282,15 +277,21 @@ let receipts = [
         soluong: 2
       }
     ],
-    TamTinh: 45000,
-    PhiVanChuyen: 10000,
-    TongCong: function(){return this.TamTinh + this.PhiVanChuyen
-    },
-    NgayMua: new Date()
+    TamTinh: 0,
+    PhiVanChuyen: 20000,
+    TongCong: 0,
+    NgayMua: new Date("2024-12-02T15:38:28.757Z")
   }
 ]
+receipts.forEach(receipt => {
+  receipt.ArrayFoods.forEach((item)=>{
+    receipt.TamTinh += item.food.price*item.soluong;
+  });
+});
+receipts.forEach(receipt => {
+  receipt.TongCong = receipt.TamTinh + receipt.PhiVanChuyen;
+});
 
-setLocalStorage('receipts', receipts);
 
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info));
