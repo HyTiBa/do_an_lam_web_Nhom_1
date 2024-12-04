@@ -5,6 +5,7 @@ import { setLocalStorage } from "./informationalObjects.js";
 export let loginedUser = null
 import { adminUserBoardDisplay } from "./adminUserBoard.js";
 import { adminUserManage } from "./adminUserManage.js";
+import { tmp } from "./cart.js";
 const adminNavbar = document.querySelector(".admin-navbar")
 const mains = document.querySelectorAll("main")
 export function isPasswordValid(Password){
@@ -122,6 +123,7 @@ export function signCode(){
         if(users[i].avt){
           document.querySelector('.navbar .sub-menu-wrap .sub-menu .user-info .user-mini-avt').src = users[i].avt;
         }
+        tmp();
         return;
       }
     }
