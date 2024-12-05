@@ -2,9 +2,17 @@ import { food_list } from "./informationalObjects.js";
 import { availableImages } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
 const adminProductBoard = document.querySelector(".adminProductBoard")
-export function adminProductBoardDisplay() {
+export function adminProductBoardDisplay(productArr = null) {
     adminProductBoard.innerHTML = ""
-    food_list.forEach((item) => {
+    console.log(food_list[0].name);
+    let productAccs = null;
+
+    if (productArr != null) {
+        productAccs = productArr;
+    } else {
+        productAccs = food_list;
+    }
+    productAccs.forEach((item) => {
         adminProductBoard.innerHTML += `
         <div class="product section">
         <div class="info">
@@ -229,21 +237,25 @@ export function adminProductBoardDisplay() {
     })
 
     document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').addEventListener('input', (event) => {
-        let productArr = [];
         let searchInput = document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').value;
+
         if (searchInput == '') {
             adminProductBoardDisplay();
             reattachEventListeneradminProductBoardDisplay();
-            return 0;
+            return;
         }
-
+        let productArr = [];
         for (let i = 0; i < food_list.length; i++) {
-            if (food_list[i].name.toLocaleLowerCase().includes(searchInput.toLowerCase()) ||
-                food_list[i].price.toLocaleLowerCase().includes(searchInput.toLowerCase())) {
-                userArr.push(food_list[i]);
+            if (productArr.length >= 20) break;
+            if (
+                food_list[i].name.toLowerCase().includes(searchInput.toLowerCase()) ||
+                String(food_list[i].id).includes(searchInput)
+            ) {
+                productArr.push(food_list[i]);
             }
+
         }
-        adminProductBoardDisplay(userArr);
+        adminProductBoardDisplay(productArr);
         reattachEventListeneradminProductBoardDisplay();
 
 
