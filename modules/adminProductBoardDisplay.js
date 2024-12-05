@@ -110,6 +110,7 @@ export function adminProductBoardDisplay(productArr = null) {
     function reattachEventListeneradminProductBoardDisplay() {
         document.querySelectorAll(".adminProductBoard .actions .modify").forEach((button) => {
             button.addEventListener('click', (event) => {
+                console.clear();
                 document.querySelector(".adminProductBoard .pop-ups").style.display = 'flex';
                 document.querySelector(".adminProductBoard .pop-ups .modify").style.display = 'flex';
                 productED = event.target.closest(".product").querySelector(".info .name ").textContent;
@@ -125,17 +126,20 @@ export function adminProductBoardDisplay(productArr = null) {
         })
 
         document.querySelector('.adminProductBoard .pop-ups .modify .form-container').addEventListener('submit', (event) => {
+            console.clear();
             event.preventDefault();
             updateProduct();
         })
 
         document.querySelector(".adminProductBoard .btn-close").addEventListener('click', () => {
+            console.clear();
             document.querySelector(".adminProductBoard .pop-ups .modify").style.display = 'none';
             document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
         })
 
         document.querySelectorAll(".adminProductBoard .actions .remove").forEach((button) => {
             button.addEventListener('click', (event) => {
+                console.clear();
                 document.querySelector(".adminProductBoard .pop-ups").style.display = 'flex';
                 document.querySelector(".adminProductBoard .pop-ups .remove").style.display = 'block';
                 productED = event.target.closest(".product").querySelector(".info .name").textContent;
@@ -144,6 +148,7 @@ export function adminProductBoardDisplay(productArr = null) {
         })
 
         document.querySelector('.adminProductBoard .pop-ups .remove .cfms_btn').addEventListener('click', () => {
+            console.clear();
             if (productED != null) {
                 for (let i = 0; i < food_list.length; i++) {
                     if (productED === food_list[i].name) {
@@ -165,6 +170,7 @@ export function adminProductBoardDisplay(productArr = null) {
         })
 
         document.querySelector(".adminProductBoard .denys_btn").addEventListener('click', () => {
+            console.clear();
             document.querySelector(".adminProductBoard .pop-ups .remove").style.display = 'none';
             document.querySelector(".adminProductBoard .pop-ups").style.display = 'none';
         })
@@ -220,11 +226,13 @@ export function adminProductBoardDisplay(productArr = null) {
     reattachEventListeneradminProductBoardDisplay();
 
     document.querySelector('.adminProductPage .top-section .addProduct_btn').addEventListener('click', () => {
+        console.clear();
 
         document.querySelector('.adminProductPage .top-section .pop-ups').style.display = 'flex';
     })
 
     document.querySelector('.adminProductPage .top-section .pop-ups .add-product .btn-close').addEventListener('click', () => {
+        console.clear();
         document.querySelector('.adminProductPage .top-section .pop-ups .add-product #added_productName').value = '';
         document.querySelector('.adminProductPage .top-section .pop-ups .add-product #added_productPrice').value = '';
         document.querySelector('.adminProductPage .top-section .pop-ups .add-product #added_productDescription').value = '';
@@ -232,17 +240,26 @@ export function adminProductBoardDisplay(productArr = null) {
     })
 
     document.querySelector('.adminProductPage .top-section .add-product .form-container').addEventListener('submit', (event) => {
+        console.clear();
         event.preventDefault();
         adminAddProduct();
     })
 
     document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').addEventListener('input', (event) => {
         let searchInput = document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input').value;
-
+        console.clear();
         if (searchInput == '') {
             adminProductBoardDisplay();
             reattachEventListeneradminProductBoardDisplay();
             return;
+        }
+
+        function debounce(func, delay) {
+            let timer;
+            return function(...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, args), delay);
+            };
         }
         let productArr = [];
         for (let i = 0; i < food_list.length; i++) {
@@ -254,9 +271,21 @@ export function adminProductBoardDisplay(productArr = null) {
                 productArr.push(food_list[i]);
             }
 
+
+
+            function removeSearchInputEventListener() {
+                let searchInput = document.querySelector('.adminProductPage .top-section .adminProductSearch .search-box input');
+                if (searchInput && productArr) {
+                    searchInput.removeEventListener('input', productArr);
+                }
+            }
+            removeSearchInputEventListener(productArr);
+
         }
         adminProductBoardDisplay(productArr);
         reattachEventListeneradminProductBoardDisplay();
+
+
 
 
     })
