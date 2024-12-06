@@ -1,69 +1,156 @@
 export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):
-[
- {
-    id: 1,
-    name: "Cơm chiên dương châu",
-    image: "./images/com chien duong chau.jpg",
-    price: 35000,
-    description:
-      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-    category: "Cơm chiên",
-  },
-  {
-    id: 2,
-    name: "Bún bò",
-    image: "./images/bun bo.jpg",
-    price: 35000,
-    description:
-      "Là một ăn đậm đà của Việt Nam với thịt bò mềm, bún và các loại thảo mộc thơm trong nước dùng cay nồng.",
-    category: "Bún",
-  },
-  {
-    id: 3,
-    name: "Lẩu gà",
-    image: "./images/lau ga.webp",
-    price: 80000,
-    description:
-      "món lẩu gà của Việt Nam, gồm thịt gà mềm, rau và thảo mộc được ninh trong nước dùng đậm đà, ăn kèm với mì hoặc cơm.",
-    category: "Lẩu",
-  },
-  {
-    id: 4,
- name: "Sữa chua",
-    image: "https://imgs.search.brave.com/6_Q7yxunHnvmPE7ctY7vnJOVwUoW7YtFfgqBYXvUOBI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/eW91bWVkLnZuL3Rp/bi10dWMvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMDgvMTku/anBn",
-    price: 10000,
-    description:
-      "Món ăn nhẹ mịn mượt, vị chua ngọt, bổ dưỡng và tốt cho tiêu hóa, thích hợp ăn trực tiếp hoặc kết hợp với trái cây, mật ong.",
-    category: "Tráng miệng",
-  },
-  {
-    id: 5,
-    name: "Bánh mì thịt",
-    image: "https://imgs.search.brave.com/U6mPHARfwKRqEW830QeYlPiN_EPnFscLvrwYzRqTpNM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcGlj/ZWJyZWV6ZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvQmFuaC1NaS1U/aGl0LTItZTE2MDAw/MDQ0MDE5NzQuanBn",
-    price: 15000,
-    description:
-      "Nhân thịt, pate, rau tươi, và gia vị đậm đà, được yêu thích.",
-    category: "Bánh mì",
-  },
-  {
-    id: 6,
-    name: "Cá chiên",
-    image: "https://imgs.search.brave.com/7brdeoHhRkFozO7hA1eTmLsfvnEh6C09ttMfyrGK5Bs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb25u/Z29uLnR2L3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzA5L2Yz/NjU1MWYxNGQ2ZDE5/MzFkZWRhNTM2ZmZk/OTg4MWIxLWNhY2gt/Y2hpZW4tY2EtdGh1/LW5nb24tbmhvLmpw/Zw",
-    price: 40000,
-    description:
-      "Giòn rụm, thơm ngon với vỏ vàng, thịt mềm ngọt, thường chấm nước mắm và ăn kèm rau sống, tạo hương vị đậm đà.",
-    category: "Hải sản",
-  },
-  {
-    id: 7,
-    name: "Ốc cuốn lá lốt",
-    image: "https://imgs.search.brave.com/NVtWX7Z6s3NAm_Cr7KWjQQsCEVVLFRdKpm9V4vQ7JB0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly92Y2Ru/MS1naWFkaW5oLnZu/ZWNkbi5uZXQvMjAy/MS8xMS8xOS9UaG5o/cGhtMS0xNjM3MzI4/NTUxLTU5NDUtMTYz/NzMyODU2NC5qcGc_/dz01MDAmaD0zMDAm/cT0xMDAmZHByPTEm/Zml0PWNyb3Amcz10/bWZjX2NnWGJuYWh6/WFctNjZsT0ZB",
-    price: 53000,
-    description:
-      "Dân dã, thơm ngon với ốc băm cuộn lá lốt, nướng hoặc chiên, chấm cùng nước mắm chua ngọt, tạo hương vị hấp dẫn.",
-    category: "Hải sản",
-  }
-  
+[{
+        id: 1,
+        name: "Cơm chiên dương châu",
+        image: "./images/com chien duong chau.jpg",
+        price: 35000,
+        description: "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+        category: "Cơm chiên",
+    },
+    {
+        id: 2,
+        name: "Bún bò",
+        image: "./images/bun bo.jpg",
+        price: 35000,
+        description: "Là một ăn đậm đà của Việt Nam với thịt bò mềm, bún và các loại thảo mộc thơm trong nước dùng cay nồng.",
+        category: "Bún",
+    },
+    {
+        id: 3,
+        name: "Lẩu gà",
+        image: "./images/lau ga.webp",
+        price: 80000,
+        description: "món lẩu gà của Việt Nam, gồm thịt gà mềm, rau và thảo mộc được ninh trong nước dùng đậm đà, ăn kèm với mì hoặc cơm.",
+        category: "Lẩu",
+    },
+    {
+        id: 4,
+        name: "Sữa chua",
+        image: "https://imgs.search.brave.com/6_Q7yxunHnvmPE7ctY7vnJOVwUoW7YtFfgqBYXvUOBI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/eW91bWVkLnZuL3Rp/bi10dWMvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMDgvMTku/anBn",
+        price: 10000,
+        description: "Món ăn nhẹ mịn mượt, vị chua ngọt, bổ dưỡng và tốt cho tiêu hóa, thích hợp ăn trực tiếp hoặc kết hợp với trái cây, mật ong.",
+        category: "Tráng miệng",
+    },
+    {
+        id: 5,
+        name: "Bánh mì thịt",
+        image: "https://imgs.search.brave.com/U6mPHARfwKRqEW830QeYlPiN_EPnFscLvrwYzRqTpNM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcGlj/ZWJyZWV6ZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvQmFuaC1NaS1U/aGl0LTItZTE2MDAw/MDQ0MDE5NzQuanBn",
+        price: 15000,
+        description: "Nhân thịt, pate, rau tươi, và gia vị đậm đà, được yêu thích.",
+        category: "Bánh mì",
+    },
+    {
+        id: 6,
+        name: "Cá áp chảo",
+        image: "https://imgs.search.brave.com/7brdeoHhRkFozO7hA1eTmLsfvnEh6C09ttMfyrGK5Bs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb25u/Z29uLnR2L3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzA5L2Yz/NjU1MWYxNGQ2ZDE5/MzFkZWRhNTM2ZmZk/OTg4MWIxLWNhY2gt/Y2hpZW4tY2EtdGh1/LW5nb24tbmhvLmpw/Zw",
+        price: 40000,
+        description: "Giòn rụm, thơm ngon với vỏ vàng, thịt mềm ngọt, thường chấm nước mắm và ăn kèm rau sống, tạo hương vị đậm đà.",
+        category: "Hải sản",
+    },
+    {
+        id: 7,
+        name: "Ốc cuốn lá lốt",
+        image: "https://imgs.search.brave.com/NVtWX7Z6s3NAm_Cr7KWjQQsCEVVLFRdKpm9V4vQ7JB0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly92Y2Ru/MS1naWFkaW5oLnZu/ZWNkbi5uZXQvMjAy/MS8xMS8xOS9UaG5o/cGhtMS0xNjM3MzI4/NTUxLTU5NDUtMTYz/NzMyODU2NC5qcGc_/dz01MDAmaD0zMDAm/cT0xMDAmZHByPTEm/Zml0PWNyb3Amcz10/bWZjX2NnWGJuYWh6/WFctNjZsT0ZB",
+        price: 53000,
+        description: "Dân dã, thơm ngon với ốc băm cuộn lá lốt, nướng hoặc chiên, chấm cùng nước mắm chua ngọt, tạo hương vị hấp dẫn.",
+        category: "Hải sản",
+    },
+    {
+        id: 8,
+        name: "gà nướng ",
+        image: "./images/gà nướng.jpg",
+        price: 119000,
+        description: "Món gà nướng với lớp da giòn tan, vàng óng, thịt bên trong mềm ngọt, đậm đà hương vị các loại gia vị như sả, tỏi, ớt",
+        category: "Món nướng",
+    },
+    {
+        id: 9,
+        name: "tiramisu ",
+        image: "./images/tiramisu.jpg",
+        price: 25000,
+        description: "Tiramisu là một món tráng miệng Ý nổi tiếng với hương vị cà phê đậm đà, lớp bánh quy ẩm mềm và vị ngọt béo của kem mascarpone",
+        category: "Tráng miệng",
+    },
+    {
+        id: 10,
+        name: "Gỏi ngó sen tôm thịt",
+        image: "./images/goingosen.jpg",
+        price: 89000,
+        description: "Gỏi ngó sen tôm thịt là một món ăn khai vị thanh mát, giòn ngon. Với vị ngọt của ngó sen, vị dai của tôm",
+        category: "Món gỏi",
+    },
+    {
+        id: 11,
+        name: "Mì xào hải sản",
+        image: "./images/mixao.jpg",
+        price: 99000,
+        description: " Mì được xào cùng nhiều loại hải sản tươi ngon như tôm, mực, nghêu, cùng các loại rau củ, tạo nên một món ăn đầy màu sắc và hương vị",
+        category: "Món xào",
+    },
+    {
+        id: 12,
+        name: "Nghêu hấp xả",
+        image: "./images/ochuong.jpg",
+        price: 79000,
+        description: "Nghêu tươi được hấp cùng sả, ớt, tạo nên hương thơm hấp dẫn. Thịt nghêu ngọt, mọng nước",
+        category: "Món hấp",
+    },
+    {
+        id: 13,
+        name: "Ếch chiên giòn",
+        image: "./images/echchiengion.jpg",
+        price: 109000,
+        description: "Ếch được làm sạch, ướp gia vị, lăn qua bột chiên giòn rồi chiên ngập dầu đến khi vàng ruộm",
+        category: "Món chiên",
+    },
+    {
+        id: 14,
+        name: "Bò lúc lắc",
+        image: "./images/boluclac.jpg",
+        price: 99000,
+        description: "Món ăn được chế biến từ thịt bò thái mỏng, ướp gia vị đậm đà, xào nhanh tay trên lửa lớn cùng các loại rau củ",
+        category: "Món xào",
+    },
+    {
+        id: 15,
+        name: "Ốc bưu nướng tiêu",
+        image: "./images/ocbuu.jpg",
+        price: 69000,
+        description: "Ốc bưu tươi ngon được làm sạch, ướp gia vị đậm đà, nướng trên lửa than hồng đến khi vỏ ốc bung ra.",
+        category: "Món nướng",
+    },
+    {
+        id: 16,
+        name: "Sụn gà chiên mắm",
+        image: "./images/sunga.jpg",
+        price: 89000,
+        description: " Sụn gà giòn giòn, dai dai được chiên giòn với mắm, tỏi, ớt tạo nên món nhậu hấp dẫn.",
+        category: "Món gà",
+    },
+    {
+        id: 17,
+        name: "Rau muống xào tỏi",
+        image: "./images/raumuong.jpg",
+        price: 79000,
+        description: " Món ăn đơn giản nhưng lại rất đưa cơm. Rau muống xanh mướt được xào nhanh tay với tỏi phi thơm",
+        category: "Món xào",
+    },
+    {
+        id: 18,
+        name: "Đậu hũ chiên xả",
+        image: "./images/dauhu.jpg",
+        price: 69000,
+        description: "Đậu hũ non được chiên giòn, sau đó xào với xả ớt tạo nên món ăn thơm ngon, lạ miệng.",
+        category: "Món chiên",
+    },
+
+];
+export const availableImages = [
+    "./images/com_chien_duong_chau.jpg",
+    "./images/bun_bo.jpg",
+    "./images/lau_ga.webp",
+    "./images/sua_chua.jpg"
+
 ];
 
 export const menu_list = getLocalStorage("menu_list")?getLocalStorage("menu_list"):
