@@ -1,6 +1,9 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
 import { displayChoosenPage, pageDisplay} from "./pageDisplay.js";
+import { loginedUser } from "./signCode.js";
+
+
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
     if (elementCart) {
@@ -131,25 +134,27 @@ export function showCart() {
                     document.querySelector(".product_null").style.display = "block";
                 }
                 else{
+                    if(loginedUser!=null){
+                        
+                        document.getElementById("accress_order").value = loginedUser.address;
+                    }
                     document.querySelector(".product_null").style.display = "none";
-                    overlay.remove();
-                    var body_product = document.querySelector(".no-data");
-                    body_product.innerHTML = "";
-                    var total_tmp = 0;
-                    foods.forEach((item)=>{
-                        body_product.innerHTML += `
-                            <td class="bill_title" >${item.food.name}</td>
-                            <td class="bill_price" style="color: rgb(243, 124, 2);text-align: center;">${item.food.price}</td>
-                            <td class="bill_count" style="text-align: center;">${item.soluong}</td>
-                            <td class="bill_thanh_tien" style="color: rgb(243, 124, 2);text-align: right;">${item.soluong*item.food.price} VND</td>
-                        `;
-                        total_tmp += item.food.price*item.soluong;
-                    });
-                    document.getElementById("thanh_toan_tmp_cal_money").innerText = total_tmp;
+                        overlay.remove();
+                        var body_product = document.querySelector(".no-data");
+                        body_product.innerHTML = "";
+                        var total_tmp = 0;
+                        foods.forEach((item)=>{
+                            body_product.innerHTML += `
+                                <td class="bill_title" >${item.food.name}</td>
+                                <td class="bill_price" style="color: rgb(243, 124, 2);text-align: center;">${item.food.price}</td>
+                                <td class="bill_count" style="text-align: center;">${item.soluong}</td>
+                                <td class="bill_thanh_tien" style="color: rgb(243, 124, 2);text-align: right;">${item.soluong*item.food.price} VND</td>
+                            `;
+                            total_tmp += item.food.price*item.soluong;
+                        });
+                        document.getElementById("thanh_toan_tmp_cal_money").innerText = total_tmp+" VND";
 
-                    
-                    van_chuyen();
-                    
+                        van_chuyen();
                     
                 }
             });
@@ -158,6 +163,10 @@ export function showCart() {
     }
 }
 
+export function tmp(){
+   
+    document.getElementById("accress_order").value = loginedUser.address;
+}
 function isEmptyProduct(foods){
     if(foods.length===0){
         return true;

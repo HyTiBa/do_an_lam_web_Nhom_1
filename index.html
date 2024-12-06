@@ -107,6 +107,20 @@
       </div>
     </div>
 
+    <div class="pop-up-address">
+      <div class="addAddress">
+        <h1 style="margin: 5px;">THÊM ĐỊA CHỈ</h1>
+        <form class="form-container">
+          <!-- <label class="form-label" for="addedAddress">Địa chỉ:</label> -->
+          <input class="form-input" id="addAddress" type="text" name="addedAddress" autocomplete="address-level3">
+          <div class="yn_btn">
+            <button class="cfm_btn" type="submit">Xác Nhận</button>
+            <button class="deny_btn" type="button">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <main page="home" class="page">
       <div style="position: sticky; background-color: white; top: 0; z-index: 99;">
         <nav class="navbar" id="navbar">
@@ -138,6 +152,9 @@
               <div class="sub-menu-ops" id="updateUserInfo-btn">
                 <p>Chỉnh sửa</p>
               </div>
+              <div class="sub-menu-ops" id="addAddress-btn">
+                <p>Thêm địa chỉ</p>
+              </div>
               <div class="sub-menu-ops" id="orderHistory-btn">
                 <p>Lịch sử mua</p>
               </div>
@@ -155,7 +172,9 @@
         <div class="header-contents">
           <h2>Order your favourite food here</h2>
           <p>choose from a diverse menu</p>
-          <button>Xem thực đơn</button>
+          <button style="cursor: pointer;">
+            <a href="#explore-menu">Xem thực đơn</a>
+          </button>
         </div>
       </div>
       <div class="explore-menu" id="explore-menu">
@@ -300,7 +319,7 @@
                                                 <option value=3>Hỏa tốc</option>
                                             </select>
                                         </td>
-                                        <td colspan="1" id="phi_van_chuyen">10000 VND
+                                        <td colspan="1" id="phi_van_chuyen">20000 VND
                                         </td>
                                     </tr>
                                     <tr class="grand-total">
@@ -432,7 +451,45 @@
                     d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
                   />
                 </svg>
-              </a>
+                        </a>
+                    </div>
+                </div>
+                <button class="addProduct_btn">Thêm sản phẩm</button>
+                <div class="pop-ups">
+                    <div class="add-product">
+                        <form class="form-container">
+
+                            <label class="form-label" for="added_productName">Tên sản phẩm:</label>
+                            <input class="form-input" type="text" name="productName" id="added_productName" required />
+
+                            <label class="form-label" for="added_productPrice">Giá sản phẩm:</label>
+                            <input class="form-input" type="number" name="productPrice" id="added_productPrice" required />
+
+                            <label class="form-label" for="added_productDescription">Mô tả sản phẩm:</label>
+                            <textarea class="form-input" name="productDescription" id="added_productDescription" required></textarea>
+
+                            <label class="form-label" for="added_productImage">Ảnh sản phẩm:</label>
+                            <input class="form-input" type="file" name="productImage" id="added_productImage" accept="image/jpeg, image/png, image/jpd, image/gif," />
+
+                            <label class="form-label" for="added_productCategory">Danh mục:</label>
+                            <select name="productCategory" id="added_productCategory">
+                                <option value="Lẩu">Lẩu</option>
+                                <option value="Cơm chiên">Cơm chiên</option>
+                                <option value="Tráng Miệng">Tráng Miệng</option>
+                                <option value="Bún">Bún</option>
+                                <option value="Hải sản">Hải sản</option>
+                                <option value="Bánh mì">Bánh mì</option>
+                      </select>
+
+
+                            <div style="text-align: center;">
+                                <button class="btn-submit" id="add_btn" type="submit">Thêm</button>
+                                <button class="btn-close" id="close_btn" type="button">Hủy</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
           </div>
           <button>Thêm sản phẩm</button>
@@ -517,17 +574,79 @@
     </nav>
 
     <script type="module" src="./index.js"></script>
+
+
+
     <div class="overlay-orderHistory">
       <img src="images/close-button-png-27.png" class="close-btn">
       <div class="orderHistory-container">
-        <div class="section">
-          <p>Sản phẩm</p>
-          <p>Số lượng</p>
-          <p>Tổng tiền</p>
-          <p>Ngày mua</p>
+        <div class="container_table_history">
+          <table class="table_history">
+            <thead>
+              <tr>
+                <th>Mã số hóa đơn</th>
+                <th>Ngày mua</th>
+                <th>Hình Thức vận chuyển</th>
+                <th>Tông tiền</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
         </div>
-        <div class="history section"></div>
+        
       </div>
+
+      <div class="box-checkout-wrapper" style="display: none;">
+        <i class="fa-regular fa-rectangle-xmark tmp" style="color: black; font-size: 30px;"></i>
+        <div class="box-checkout">
+            <h3 class="box-title">XEM LẠI ĐƠN HÀNG</h3>
+            <div class="box-content" style="padding: 0;">
+                <table class="data-table">
+                    <colgroup>
+                        <col>
+                        <col width="1">
+                        <col width="1">
+                        <col width="1">
+                        <col width="1">
+                    </colgroup>
+                    <thead style="background: #f0ebe5; border: none; height: 60px;">
+                        <tr>
+                            <th rowspan="1" style="width: 40%;">Tên sản phẩm</th>
+                            <th colspan="1" style="width: 25%;">Đơn giá</th>
+                            <th rowspan="1" style="width: 10%;">Số lượng</th>
+                            <th colspan="1" style="width: 25%;">Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tfoot style="background: #f0ebe5;">
+                        <tr>
+                            <td class="a-right" colspan="3">Tạm tính</td>
+                            <td class="a-right" id="thanh_toan_tmp_cal_money_history" colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td class="a-right" colspan="1">Phí vận chuyển</td>
+                            <td class="a-right" colspan="1">Hình thức vận chuyển</td>
+                            <td colspan="1" class="vanchuyen-history">
+                               
+                            </td>
+                            <td colspan="1" id="phi_van_chuyen_history">10000 VND</td>
+                        </tr>
+                        <tr class="grand-total">
+                            <td class="a-left" colspan="3" style="font-size: 18px; color: black;">Tổng cộng</td>
+                            <td class="a-right" id="tong_cong_history"></td>
+                        </tr>
+                    </tfoot>
+                    <tfoot class="no-data-history" id="no-data" style="background-color: #f6f4f1;">
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
     </div>
+    
+
+    </div>
+    
   </body>
 </html>

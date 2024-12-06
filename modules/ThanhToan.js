@@ -3,13 +3,16 @@ import { setLocalStorage } from "./informationalObjects.js";
 import { getLocalStorage } from "./informationalObjects.js";
 import { loginedUser } from "./signCode.js";
 import { pageDisplay } from "./pageDisplay.js";
-// export let receipts
+import { tmp } from "./cart.js";
+
 export function formThanhToan() {
     var btn_confirm = document.querySelector(".order_confirm");
     btn_confirm.addEventListener("click", () => {
         if (loginedUser == null) {
             alert("Bạn cần đăng nhập để thanh toán");
             document.querySelector(".popup-box").style.display = "flex";
+            
+            
         } else {
             if (check_final()) {
                 return; 
@@ -27,13 +30,12 @@ export function formThanhToan() {
                     TongCong: parseInt(document.getElementById("tong_cong").textContent.split(" ")[0], 10),
                     NgayMua: today
                 });
-
                 setLocalStorage('receipts', currentReceipts);
-
+                
+                
+                alert("Thanh toán thành công");
                 foods.splice(0, foods.length);
                 document.querySelector(".dot").style.display = 'none';
-                alert("Thanh toán thành công");
-                
                 pageDisplay();
                 
             }
