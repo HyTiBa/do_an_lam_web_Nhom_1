@@ -450,7 +450,45 @@
                     d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
                   />
                 </svg>
-              </a>
+                        </a>
+                    </div>
+                </div>
+                <button class="addProduct_btn">Thêm sản phẩm</button>
+                <div class="pop-ups">
+                    <div class="add-product">
+                        <form class="form-container">
+
+                            <label class="form-label" for="added_productName">Tên sản phẩm:</label>
+                            <input class="form-input" type="text" name="productName" id="added_productName" required />
+
+                            <label class="form-label" for="added_productPrice">Giá sản phẩm:</label>
+                            <input class="form-input" type="number" name="productPrice" id="added_productPrice" required />
+
+                            <label class="form-label" for="added_productDescription">Mô tả sản phẩm:</label>
+                            <textarea class="form-input" name="productDescription" id="added_productDescription" required></textarea>
+
+                            <label class="form-label" for="added_productImage">Ảnh sản phẩm:</label>
+                            <input class="form-input" type="file" name="productImage" id="added_productImage" accept="image/jpeg, image/png, image/jpd, image/gif," />
+
+                            <label class="form-label" for="added_productCategory">Danh mục:</label>
+                            <select name="productCategory" id="added_productCategory">
+                                <option value="Lẩu">Lẩu</option>
+                                <option value="Cơm chiên">Cơm chiên</option>
+                                <option value="Tráng Miệng">Tráng Miệng</option>
+                                <option value="Bún">Bún</option>
+                                <option value="Hải sản">Hải sản</option>
+                                <option value="Bánh mì">Bánh mì</option>
+                      </select>
+
+
+                            <div style="text-align: center;">
+                                <button class="btn-submit" id="add_btn" type="submit">Thêm</button>
+                                <button class="btn-close" id="close_btn" type="button">Hủy</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
           </div>
           <button>Thêm sản phẩm</button>
