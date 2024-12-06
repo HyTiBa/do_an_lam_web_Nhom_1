@@ -80,8 +80,70 @@ export const food_list = [{
         description: "Gỏi ngó sen tôm thịt là một món ăn khai vị thanh mát, giòn ngon. Với vị ngọt của ngó sen, vị dai của tôm",
         category: "Món gỏi",
     },
-
-
+    {
+        id: 11,
+        name: "Mì xào hải sản",
+        image: "./images/mixao.jpg",
+        price: 99000,
+        description: " Mì được xào cùng nhiều loại hải sản tươi ngon như tôm, mực, nghêu, cùng các loại rau củ, tạo nên một món ăn đầy màu sắc và hương vị",
+        category: "Món xào",
+    },
+    {
+        id: 12,
+        name: "Nghêu hấp xả",
+        image: "./images/ochuong.jpg",
+        price: 79000,
+        description: "Nghêu tươi được hấp cùng sả, ớt, tạo nên hương thơm hấp dẫn. Thịt nghêu ngọt, mọng nước",
+        category: "Món hấp",
+    },
+    {
+        id: 13,
+        name: "Ếch chiên giòn",
+        image: "./images/echchiengion.jpg",
+        price: 109000,
+        description: "Ếch được làm sạch, ướp gia vị, lăn qua bột chiên giòn rồi chiên ngập dầu đến khi vàng ruộm",
+        category: "Món chiên",
+    },
+    {
+        id: 14,
+        name: "Bò lúc lắc",
+        image: "./images/boluclac.jpg",
+        price: 99000,
+        description: "Món ăn được chế biến từ thịt bò thái mỏng, ướp gia vị đậm đà, xào nhanh tay trên lửa lớn cùng các loại rau củ",
+        category: "Món xào",
+    },
+    {
+        id: 15,
+        name: "Ốc bưu nướng tiêu",
+        image: "./images/ocbuu.jpg",
+        price: 69000,
+        description: "Ốc bưu tươi ngon được làm sạch, ướp gia vị đậm đà, nướng trên lửa than hồng đến khi vỏ ốc bung ra.",
+        category: "Món nướng",
+    },
+    {
+        id: 16,
+        name: "Sụn gà chiên mắm",
+        image: "./images/sunga.jpg",
+        price: 89000,
+        description: " Sụn gà giòn giòn, dai dai được chiên giòn với mắm, tỏi, ớt tạo nên món nhậu hấp dẫn.",
+        category: "Món gà",
+    },
+    {
+        id: 17,
+        name: "Rau muống xào tỏi",
+        image: "./images/raumuong.jpg",
+        price: 79000,
+        description: " Món ăn đơn giản nhưng lại rất đưa cơm. Rau muống xanh mướt được xào nhanh tay với tỏi phi thơm",
+        category: "Món xào",
+    },
+    {
+        id: 18,
+        name: "Đậu hũ chiên xả",
+        image: "./images/dauhu.jpg",
+        price: 69000,
+        description: "Đậu hũ non được chiên giòn, sau đó xào với xả ớt tạo nên món ăn thơm ngon, lạ miệng.",
+        category: "Món chiên",
+    },
 
 ];
 export const availableImages = [
