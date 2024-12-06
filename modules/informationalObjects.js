@@ -264,120 +264,21 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
   }
 ]
 
-let receipts = [
-// (getLocalStorage('receipts'))? getLocalStorage('receipts') : [
-  {
-    id: 1,
-    Email: 'nguyenkhanh0127@gmail.com',
-    Address: 'TP HCM',
-    ArrayFoods: [
-      {
-        food: food_list[0],
-        soluong: 2
-      }
-    ],
-    TamTinh: 0,
-    PhiVanChuyen: 20000,
-    TongCong: 0,
-    NgayMua: new Date("2024-11-20T15:38:28.757Z")
-  },
-  {
-    id: 2,
-    Email: 'ThanhTran1997@gmail.com',
-    Address: '63 Gò Vấp',
-    ArrayFoods: [
-      {
-        food: food_list[0],
-        soluong: 1
-      },
-      {
-        food: food_list[3],
-        soluong: 1
-      }
-    ],
-    TamTinh: 0,
-    PhiVanChuyen: 20000,
-    TongCong: 0,
-    NgayMua: new Date("2024-11-26T15:38:28.757Z")
-  },
-  {
-    id: 3,
-    Email: 'ThanhTran1997@gmail.com',
-    Address: '63 Gò Vấp',
-    ArrayFoods: [
-      {
-        food: food_list[3],
-        soluong: 1
-      }
-    ],
-    TamTinh: 0,
-    PhiVanChuyen: 50000,
-    TongCong: 0,
-    NgayMua: new Date("2024-11-27T15:38:28.757Z")
-  },
-  {
-    id: 4,
-    Email: 'nam@gmail.com',
-    Address: 'TP HCM',
-    ArrayFoods: [
-      {
-        food: food_list[1],
-        soluong: 2
-      }
-    ],
-    TamTinh: 0,
-    PhiVanChuyen: 80000,
-    TongCong: 0,
-    NgayMua: new Date("2024-11-29T15:38:28.757Z")
-  },
-  {
-    id: 5,
-    Email: 'nam@gmail.com',
-    Address: 'TP HCM',
-    ArrayFoods: [
-      {
-        food: food_list[0],
-        soluong: 1
-      },
-      {
-        food: food_list[4],
-        soluong: 2
-      }
-    ],
-    TamTinh: 0,
-    PhiVanChuyen: 50000,
-    TongCong: 0,
-    NgayMua: new Date("2024-12-01T15:38:28.757Z")
-  },
-  {
-    id: 6,
-    Email: 'nam@gmail.com',
-    Address: 'TP HCM',
-    ArrayFoods: [
-      {
-        food: food_list[1],
-        soluong: 1
-      },
-      {
-        food: food_list[2],
-        soluong: 2
-      }
-    ],
-    TamTinh: 0,
-    PhiVanChuyen: 20000,
-    TongCong: 0,
-    NgayMua: new Date("2024-12-02T15:38:28.757Z")
-  }
-]
-receipts.forEach(receipt => {
-  receipt.ArrayFoods.forEach((item)=>{
-    receipt.TamTinh += item.food.price*item.soluong;
-  });
-});
-receipts.forEach(receipt => {
-  receipt.TongCong = receipt.TamTinh + receipt.PhiVanChuyen;
-});
-
+export const receipts = 
+getLocalStorage("receipts")?getLocalStorage("receipts"):
+[{
+  id: 1,
+  email: "ThanhTran1997@gmail.com",
+  Address: "251 Le Quang Dinh",
+  ArrayyFoods:  [{
+    food:food_list[2],
+    soluong:2
+  }],
+  TamTinh: parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10),
+  PhiVanChuyen: parseInt(document.getElementById("phi_van_chuyen").textContent.split(" ")[0], 10),
+  TongCong: parseInt(document.getElementById("tong_cong").textContent.split(" ")[0], 10),
+  NgayMua: new Date()
+}]
 
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info));
