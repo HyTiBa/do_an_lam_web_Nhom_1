@@ -1,7 +1,8 @@
 import { food_list } from "./informationalObjects.js";
 import { foods } from "./chitietsp.js";
-import { pageDisplay } from "./pageDisplay.js";
-import { formThanhToan } from "./ThanhToan.js";
+import { displayChoosenPage, pageDisplay} from "./pageDisplay.js";
+import { loginedUser } from "./signCode.js";
+
 
 export function showCart() {
     const elementCart = document.querySelector(".cart-icon");
@@ -64,7 +65,7 @@ export function showCart() {
                             <span class="total_TamTinh">0 VND</span>
                         </div>
                         <span class="product_null">* Bạn chưa có sản phẩm để thanh toán</span>
-                        <button class="btn_ThanhToan pageButtonLink" page="ThanhToan">Thanh toán</button>
+                        <button class="btn_ThanhToan " page="ThanhToan">Thanh toán</button>
                         
                     </div>
                 </div>
@@ -124,37 +125,53 @@ export function showCart() {
 
             // Nút "Thanh toán"
             var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+            if(!isEmptyProduct(foods)){
+                element_btnThanhToan.classList.add("pageButtonLink");
+            }
+
             element_btnThanhToan.addEventListener("click", () => {
                 if(foods.length===0){
                     document.querySelector(".product_null").style.display = "block";
                 }
                 else{
+                    if(loginedUser!=null){
+                        
+                        document.getElementById("accress_order").value = loginedUser.address;
+                    }
                     document.querySelector(".product_null").style.display = "none";
-                    overlay.remove();
-                    formThanhToan();
-                    var body_product = document.querySelector(".no-data");
-                    body_product.innerHTML = "";
-                    var total_tmp = 0;
-                    foods.forEach((item)=>{
-                        body_product.innerHTML += `
-                            <td class="bill_title" >${item.food.name}</td>
-                            <td class="bill_price" style="color: rgb(243, 124, 2);text-align: center;">${item.food.price}</td>
-                            <td class="bill_count" style="text-align: center;">${item.soluong}</td>
-                            <td class="bill_thanh_tien" style="color: rgb(243, 124, 2);text-align: right;">${item.soluong*item.food.price} VND</td>
-                        `;
-                        total_tmp += item.food.price*item.soluong;
-                    });
-                    document.getElementById("thanh_toan_tmp_cal_money").innerText = total_tmp;
+                        overlay.remove();
+                        var body_product = document.querySelector(".no-data");
+                        body_product.innerHTML = "";
+                        var total_tmp = 0;
+                        foods.forEach((item)=>{
+                            body_product.innerHTML += `
+                                <td class="bill_title" >${item.food.name}</td>
+                                <td class="bill_price" style="color: rgb(243, 124, 2);text-align: center;">${item.food.price}</td>
+                                <td class="bill_count" style="text-align: center;">${item.soluong}</td>
+                                <td class="bill_thanh_tien" style="color: rgb(243, 124, 2);text-align: right;">${item.soluong*item.food.price} VND</td>
+                            `;
+                            total_tmp += item.food.price*item.soluong;
+                        });
+                        document.getElementById("thanh_toan_tmp_cal_money").innerText = total_tmp+" VND";
 
-                    
-                    van_chuyen();
-                    
+                        van_chuyen();
                     
                 }
             });
             pageDisplay();
         });
     }
+}
+
+export function tmp(){
+   
+    document.getElementById("accress_order").value = loginedUser.address;
+}
+function isEmptyProduct(foods){
+    if(foods.length===0){
+        return true;
+    }
+    return false;
 }
 
 function van_chuyen() {
@@ -167,7 +184,7 @@ function van_chuyen() {
     comboBox.addEventListener("change",()=>{
         const selectedValue = parseInt(comboBox.value);
         if (selectedValue === 1) { 
-            phivanchuyen.innerText = "20000 VND"; // Hiển thị số tiền kèm đơn vị
+            phivanchuyen.innerText = "20000 VND"; 
         } else if (selectedValue === 2) {
             phivanchuyen.innerText = "50000 VND";
         } else if (selectedValue === 3) {
@@ -273,10 +290,25 @@ function bindCartEvents() {
                 }
             }
 
-            if(foods.length===0){
+            if(isEmptyProduct(foods)){
                 document.querySelector(".dot").style.display = "none";
+                var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+                element_btnThanhToan.classList.remove("pageButtonLink");
+                
+                const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
+
+                // element_btnThanhToan.addEventListener("click", displayChoosenPage(()=>{
+                //     pageButtonLinks.forEach(link => {
+                //         if(link.attributes.page == "home"){
+                //             return link
+                //         }
+                //     })
+                // }))
+                pageDisplay();
             }
             updateCart();
+            
+            
         });
     });
 }
@@ -308,7 +340,11 @@ function suKienThemSanPham(){
                     }
                 });
             }
-
+            if(!isEmptyProduct(foods)){
+                var element_btnThanhToan= document.querySelector(".btn_ThanhToan");
+                element_btnThanhToan.classList.add("pageButtonLink");
+                pageDisplay();
+            }
             updateCart();
             document.querySelector(".dot").style.display = "block";
             

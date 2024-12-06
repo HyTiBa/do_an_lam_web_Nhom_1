@@ -1,6 +1,5 @@
-// import { foods } from "./chitietsp.js" ;
-
-export const food_list = [{
+export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):
+[{
         id: 1,
         name: "Cơm chiên dương châu",
         image: "./images/com chien duong chau.jpg",
@@ -151,32 +150,35 @@ export const availableImages = [
     "./images/bun_bo.jpg",
     "./images/lau_ga.webp",
     "./images/sua_chua.jpg"
+
 ];
 
-export const menu_list = [{
-        menu_name: "Cơm chiên",
-        menu_image: "./images/com chien.jpg",
-    },
-    {
-        menu_name: "Lẩu",
-        menu_image: "./images/lau.jpg",
-    },
-    {
-        menu_name: "Bún",
-        menu_image: "./images/bun.jpg",
-    },
-    {
-        menu_name: "Bánh mì",
-        menu_image: "./images/banh mi.jpg",
-    },
-    {
-        menu_name: "Hải sản",
-        menu_image: "./images/hai san.jpg",
-    },
-    {
-        menu_name: "Tráng miệng",
-        menu_image: "./images/trang mieng.jpg",
-    },
+export const menu_list = getLocalStorage("menu_list")?getLocalStorage("menu_list"):
+[
+  {
+    menu_name: "Cơm chiên",
+    menu_image: "./images/com chien.jpg",
+  },
+  {
+    menu_name: "Lẩu",
+    menu_image: "./images/lau.jpg",
+  },
+  {
+    menu_name: "Bún",
+    menu_image: "./images/bun.jpg",
+  },
+  {
+    menu_name: "Bánh mì",
+    menu_image: "./images/banh mi.jpg",
+  },
+  {
+    menu_name: "Hải sản",
+    menu_image: "./images/hai san.jpg",
+  },
+  {
+    menu_name: "Tráng miệng",
+    menu_image: "./images/trang mieng.jpg",
+  },
 ];
 
 export const cart_items = {};
@@ -208,100 +210,180 @@ export const adminNavbarLinks = [{
     },
 ];
 
-export const users = [{
-        avt: null,
-        email: 'nguyenkhanh0127@gmail.com',
-        userName: 'Khanh',
-        password: '123456',
-        address: null,
-        roles: 'Khach hang',
-        cart: [{
-            name: 'Bún bò',
-            price: 35000,
-            quantity: 2
-        }]
-    },
-    {
-        email: 'captianBao@gmail.com',
-        avt: `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`,
-        userName: 'Bao',
-        password: '123456',
-        address: null,
-        roles: 'Admin',
-        cart: []
-    },
-    {
-        email: 'admin@gmail.com',
-        avt: `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`,
-        userName: 'Bao',
-        password: 'admin',
-        address: null,
-        roles: 'Admin',
-        cart: []
-    },
-    {
-        avt: null,
-        email: 'ThanhTran1997@gmail.com',
-        userName: 'Tran',
-        password: '654321',
-        address: null,
-        roles: 'Khach hang',
-        cart: [{
-                name: 'Bún bò',
-                price: 35000,
-                quantity: 1
-            },
-            {
-                name: 'Cơm chiên dương châu',
-                price: 35000,
-                quantity: 1
-            }
-        ]
-    }
+export const users = getLocalStorage("users")?getLocalStorage("users"):
+
+[
+  {
+    avt: null,
+    email: 'nguyenkhanh0127@gmail.com',
+    userName: 'Khanh',
+    password: '123456',
+    roles: 'Khach hang',
+    address: 'TP HCM',
+    isBlocked: false
+  },
+  {
+    email: 'captianBao@gmail.com',
+    avt: 
+    `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`
+    ,
+    userName: 'bảo',
+    password: '123456',
+    roles: 'Admin',
+    address: null,
+    isBlocked: false
+  },
+  {
+    email: 'admin@gmail.com',
+    avt: 
+    `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`
+    ,
+    userName: 'Bao',
+    password: 'admin',
+    roles: 'Admin',
+    address: null,
+    isBlocked: false
+  },
+  {
+    avt: "../images/user pic.jpg",
+    email: 'ThanhTran1997@gmail.com',
+    userName: 'Tran',
+    password: '654321',
+    roles: 'Khach hang',
+    address: null,
+    isBlocked: false
+  },
+  {
+    avt: null,
+    email: "nam@gmail.com",
+    userName: 'Hoai Nam',
+    password: '123456',
+    roles: 'Khach hang',
+    address: null,
+    isBlocked: false
+  }
 ]
 
-
-const foods = [{
+let receipts = [
+// (getLocalStorage('receipts'))? getLocalStorage('receipts') : [
+  {
+    id: 1,
+    Email: 'nguyenkhanh0127@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
         food: food_list[0],
         soluong: 2
-    },
-    {
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 20000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-20T15:38:28.757Z")
+  },
+  {
+    id: 2,
+    Email: 'ThanhTran1997@gmail.com',
+    Address: '63 Gò Vấp',
+    ArrayFoods: [
+      {
+        food: food_list[0],
+        soluong: 1
+      },
+      {
+        food: food_list[3],
+        soluong: 1
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 20000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-26T15:38:28.757Z")
+  },
+  {
+    id: 3,
+    Email: 'ThanhTran1997@gmail.com',
+    Address: '63 Gò Vấp',
+    ArrayFoods: [
+      {
+        food: food_list[3],
+        soluong: 1
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 50000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-27T15:38:28.757Z")
+  },
+  {
+    id: 4,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
         food: food_list[1],
         soluong: 2
-    },
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 80000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-29T15:38:28.757Z")
+  },
+  {
+    id: 5,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
+        food: food_list[0],
+        soluong: 1
+      },
+      {
+        food: food_list[4],
+        soluong: 2
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 50000,
+    TongCong: 0,
+    NgayMua: new Date("2024-12-01T15:38:28.757Z")
+  },
+  {
+    id: 6,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
+        food: food_list[1],
+        soluong: 1
+      },
+      {
+        food: food_list[2],
+        soluong: 2
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 20000,
+    TongCong: 0,
+    NgayMua: new Date("2024-12-02T15:38:28.757Z")
+  }
 ]
-
-const ship = [{
-        ten: "Thường",
-        gia: 20000
-    },
-    {
-        ten: "Nhanh",
-        gia: 50000
-    },
-    {
-        ten: "Hỏa tốc",
-        gia: 80000
-    }
+receipts.forEach(receipt => {
+  receipt.ArrayFoods.forEach((item)=>{
+    receipt.TamTinh += item.food.price*item.soluong;
+  });
+});
+receipts.forEach(receipt => {
+  receipt.TongCong = receipt.TamTinh + receipt.PhiVanChuyen;
+});
 
 
-]
-export const receipts = [{
-        id: 1,
-        email: "test@gmail.com",
-        diachi: "TP HCM",
-        ArrayFood: foods,
-        TamTinh: 1000,
-        HinhThucVanChuyen: "Thuong",
-        PhiVanChuyen: 1000,
-        // TongCong: TamTinh + PhiVanChuyen,
-        NgayMua: "20/11/2024"
-    }
-
-]
-export function setLocalStorage(key, info) {
-    localStorage.setItem(key, JSON.stringify(info))
+export function setLocalStorage(key,info){
+  localStorage.setItem(key,JSON.stringify(info));
 }
-export function getLocalStorage(key) {
-    return JSON.parse(localStorage.getItem(key))
+
+
+export function getLocalStorage(key){
+  return JSON.parse(localStorage.getItem(key));
 }

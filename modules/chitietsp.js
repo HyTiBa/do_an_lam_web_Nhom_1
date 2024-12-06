@@ -36,7 +36,7 @@ export function showChiTiet() {
                     <i class="fa-regular fa-rectangle-xmark" style="color: black;"></i>
                 </div>
                 <div class="product_img">
-                    <img src="${element_food.image}" alt="ảnh sản phẩm" id="img" width="100%" height="auto">
+                    <img src="${element_food.image}" alt="ảnh sản phẩm" id="img" width="330px" height="250px">
                 </div>
                 <div class="Product_Description">
                     <h1>${element_food.name}</h1>
