@@ -270,7 +270,7 @@ getLocalStorage("receipts")?getLocalStorage("receipts"):
   id: 1,
   email: "ThanhTran1997@gmail.com",
   Address: "251 Le Quang Dinh",
-  ArrayyFoods:  [{
+  ArrayFoods:  [{
     food:food_list[2],
     soluong:2
   }],

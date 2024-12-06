@@ -3,7 +3,14 @@ import { availableImages } from "./informationalObjects.js";
 import { setLocalStorage } from "./informationalObjects.js";
 const adminProductBoard = document.querySelector(".adminProductBoard")
 export function adminProductBoardDisplay(productArr = null) {
-    adminProductBoard.innerHTML = ""
+    adminProductBoard.innerHTML = `
+    <div class="section">
+    <h2>Tên</h2>
+    <h2>Loại</h2>
+    <h2>Giá</h2>
+    <h2>Thêm/Xóa</h2>
+    </div>
+    `
     console.log(food_list[0].name);
     let productAccs = null;
 
