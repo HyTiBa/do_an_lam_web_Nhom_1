@@ -42,7 +42,7 @@ export const food_list = [{
     },
     {
         id: 6,
-        name: "Cá chiên",
+        name: "Cá áp chảo",
         image: "https://imgs.search.brave.com/7brdeoHhRkFozO7hA1eTmLsfvnEh6C09ttMfyrGK5Bs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb25u/Z29uLnR2L3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzA5L2Yz/NjU1MWYxNGQ2ZDE5/MzFkZWRhNTM2ZmZk/OTg4MWIxLWNhY2gt/Y2hpZW4tY2EtdGh1/LW5nb24tbmhvLmpw/Zw",
         price: 40000,
         description: "Giòn rụm, thơm ngon với vỏ vàng, thịt mềm ngọt, thường chấm nước mắm và ăn kèm rau sống, tạo hương vị đậm đà.",
@@ -55,7 +55,33 @@ export const food_list = [{
         price: 53000,
         description: "Dân dã, thơm ngon với ốc băm cuộn lá lốt, nướng hoặc chiên, chấm cùng nước mắm chua ngọt, tạo hương vị hấp dẫn.",
         category: "Hải sản",
-    }
+    },
+    {
+        id: 8,
+        name: "gà nướng ",
+        image: "./images/gà nướng.jpg",
+        price: 119000,
+        description: "Món gà nướng với lớp da giòn tan, vàng óng, thịt bên trong mềm ngọt, đậm đà hương vị các loại gia vị như sả, tỏi, ớt",
+        category: "Món nướng",
+    },
+    {
+        id: 9,
+        name: "tiramisu ",
+        image: "./images/tiramisu.jpg",
+        price: 25000,
+        description: "Tiramisu là một món tráng miệng Ý nổi tiếng với hương vị cà phê đậm đà, lớp bánh quy ẩm mềm và vị ngọt béo của kem mascarpone",
+        category: "Tráng miệng",
+    },
+    {
+        id: 10,
+        name: "Gỏi ngó sen tôm thịt",
+        image: "./images/goingosen.jpg",
+        price: 89000,
+        description: "Gỏi ngó sen tôm thịt là một món ăn khai vị thanh mát, giòn ngon. Với vị ngọt của ngó sen, vị dai của tôm",
+        category: "Món gỏi",
+    },
+
+
 
 ];
 export const availableImages = [
