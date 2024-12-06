@@ -185,6 +185,9 @@ ul.product_list li img{
     background-color: coral;
 }
 
+.btn_ThanhToan:hover{
+    background-color:coral;
+}
 .add_cart{
     width: 100%; display: flex; justify-content: center;
 }
@@ -268,7 +271,7 @@ thead {
     background-color: #f2f2f2;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 0;
 }
 
 th {
@@ -454,6 +457,7 @@ button.delete:hover {
     border-top: 0;
 }
 
+
 .input-box {
     margin-bottom: 9px;
 }
@@ -528,7 +532,7 @@ button.delete:hover {
 
 #thanh_toan_tmp_cal_money,
 #phi_van_chuyen,
-#tong_cong {
+#tong_cong, #thanh_toan_tmp_cal_money_history, .vanchuyen-history, #phi_van_chuyen_history ,#tong_cong_history{
     text-align: right;
 }
 /*====== CSS  Phiếu Thanh Toán =================*/
@@ -857,8 +861,15 @@ row-gap: 50px;
     margin: auto;
     border-radius: 15px;
     box-shadow: 0 0 10px #00000015;
-    transition: 0.3s;
+    /* transition: 0.3s; */
     height: 100%;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.food-item:hover{
+    transform: translateY(-10px); /* Nhích lên */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4); /* Tăng shadow */
 }
 .food-item-img{
 width: 100%;
@@ -931,3 +942,160 @@ gap: 8px;
 .food-item i{
     color: white;
 }
+
+/* -------Price Range ---------- */
+.price-range{width: 400px;
+    background-color: transparent;
+    height: 80px;
+    margin-top: -50px;    
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.price-input{
+    width: 100%;
+    display: flex;
+    margin: 30px 0 35px;
+    
+    
+}
+.price-input .field{
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.price-input .field input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 12px;
+    border-radius: 5px;
+    border: 1px solid #999;
+        }
+.price-range input[type="number"]::-webkit-inner-spin-button,
+.price-range input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+.price-range .price-input .separator{
+
+    width: 130px;
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+}
+.price-range .slider{
+    height: 5px;
+    border-radius: 5px;
+    background-color: #ddd;
+    position: relative;
+
+}
+
+.price-range .slider.progress{
+height: 5px;
+left: 25%;
+right: 25%;
+position: absolute;
+border-radius: 5px;
+background-color: tomato;
+}
+
+.back_home, .search-container img{
+    cursor: pointer;
+}
+
+.overlay-orderHistory{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.overlay-orderHistory .orderHistory-container{
+    display: block;
+    background:white;
+    padding: 2px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: left;
+    width: 80vw;
+    position: absolute;
+}
+
+.overlay-orderHistory .orderHistory-container .section{
+    display: grid;
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
+    height: 70px;
+    border: solid 1px grey;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+.overlay-orderHistory .orderHistory-container .section:first-child{
+    border: solid 1px grey;
+    font-weight: 700;
+    font-size: large;
+    background-color: #ff9966;
+}
+
+.overlay-orderHistory .orderHistory-container .history{
+    display: grid;
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
+    height: 50vh;
+    border: solid 1px grey;
+    border-top: 0;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    overflow-y: auto;
+    border-top: 1px solid;
+    font-weight: 500;
+}
+
+.overlay-orderHistory .close-btn{
+    width: 3vw;
+    top: 120px;
+    right: 90px;
+}
+
+.container_table_history{
+    max-height: 500px; overflow-y: auto; border: 1px solid #ccc;
+}
+
+.table_history{
+    width: 100%; border-collapse: collapse; text-align: center; border: 1px;
+}
+
+.table_history thead{
+    background-color: tomato;
+}
+
+
+.box-checkout-wrapper {
+  position: relative;
+  padding-top: 20px; /* Khoảng cách phía trên */
+  width: 70%;  
+}
+
+/* Icon đóng (x) */
+.tmp {
+  position: absolute; /* Đặt thẻ i ở vị trí tuyệt đối */
+  top: 20px; /* Khoảng cách từ trên cùng */
+  right: 0px; /* Khoảng cách từ cạnh phải */
+  cursor: pointer; /* Thêm hiệu ứng con trỏ khi hover */
+}
+
+

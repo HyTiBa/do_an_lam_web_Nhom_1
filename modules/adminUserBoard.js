@@ -1,8 +1,21 @@
-import { users } from "./informationalObjects.js";
+import { users, 
+  // getLocalStorage, setUsers
+ } from "./informationalObjects.js";
+
+
 export function adminUserBoardDisplay(userArr = null){
+  // if(getLocalStorage('users')){
+  //   setUsers(getLocalStorage('users'));
+  // }
     const board = document.querySelector(".adminUserBoard");
-    board.innerHTML='';
-    console.log(users[0].roles);
+    board.innerHTML=`
+        <div class="section">
+          <p>Name</p>
+          <p>Roles</p>
+          <p>Actions</p>
+        </div>
+    `;
+   ;
     let userAccs = null;
     
     if(userArr != null){
@@ -13,10 +26,10 @@ export function adminUserBoardDisplay(userArr = null){
 
     userAccs.forEach((item) => {
         board.innerHTML += `
-        <div class="user section">
+        <div class="user section" ${item.isBlocked? 'style="background-color: rgba(255, 0, 0, 0.8);"': 'style="background-color: rgba(0, 0, 0, 0.03);"'}>
           <div class="info">
             <img
-              src="${item.avt}"
+              src="${(item.avt? item.avt : 'images/user pic.jpg')}"
               alt=""
             />
             <div>
@@ -52,6 +65,17 @@ export function adminUserBoardDisplay(userArr = null){
                 <input class="form-input" type="text" name="userName" id="modify_name">
                 <label class="form-label" for="modify_pwd">Mật Khẩu:</label>
                 <input class="form-input" type="password" name="userPassword" id="modify_pwd">
+                <div style="margin-bottom: 10px">
+                  <label class="form-label">Khóa tài khoản:</label>
+                  <label class="form-label" for="isBlocked">
+                      <input type="radio" id="isBlocked" name="userIsBlocked" value="yes">
+                      Có
+                  </label>
+                  <label class="form-label" for="not_isBlocked">
+                      <input type="radio" id="not_isBlocked" name="userIsBlocked" value="no">
+                      Không
+                  </label>
+                </div>
                 <label class="form-label" for="modify_role">Chức vụ:</label>
                 <select name="userRole" id="modify_role">
                   <option value="Admin">Admin</option>

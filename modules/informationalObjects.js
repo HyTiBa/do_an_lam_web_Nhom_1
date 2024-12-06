@@ -1,94 +1,97 @@
-// import { foods } from "./chitietsp.js" ;
-
-export const food_list = [{
-        id: 1,
-        name: "Cơm chiên dương châu",
-        image: "./images/com chien duong chau.jpg",
-        price: 35000,
-        description: "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
-        category: "Cơm chiên",
-    },
-    {
-        id: 2,
-        name: "Bún bò",
-        image: "./images/bun bo.jpg",
-        price: 35000,
-        description: "Là một ăn đậm đà của Việt Nam với thịt bò mềm, bún và các loại thảo mộc thơm trong nước dùng cay nồng.",
-        category: "Bún",
-    },
-    {
-        id: 3,
-        name: "Lẩu gà",
-        image: "./images/lau ga.webp",
-        price: 80000,
-        description: "món lẩu gà của Việt Nam, gồm thịt gà mềm, rau và thảo mộc được ninh trong nước dùng đậm đà, ăn kèm với mì hoặc cơm.",
-        category: "Lẩu",
-    },
-    {
-        id: 4,
-        name: "Sữa chua",
-        image: "https://imgs.search.brave.com/6_Q7yxunHnvmPE7ctY7vnJOVwUoW7YtFfgqBYXvUOBI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/eW91bWVkLnZuL3Rp/bi10dWMvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMDgvMTku/anBn",
-        price: 10000,
-        description: "Món ăn nhẹ mịn mượt, vị chua ngọt, bổ dưỡng và tốt cho tiêu hóa, thích hợp ăn trực tiếp hoặc kết hợp với trái cây, mật ong.",
-        category: "Tráng miệng",
-    },
-    {
-        id: 5,
-        name: "Bánh mì thịt",
-        image: "https://imgs.search.brave.com/U6mPHARfwKRqEW830QeYlPiN_EPnFscLvrwYzRqTpNM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcGlj/ZWJyZWV6ZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvQmFuaC1NaS1U/aGl0LTItZTE2MDAw/MDQ0MDE5NzQuanBn",
-        price: 15000,
-        description: "Nhân thịt, pate, rau tươi, và gia vị đậm đà, được yêu thích.",
-        category: "Bánh mì",
-    },
-    {
-        id: 6,
-        name: "Cá chiên",
-        image: "https://imgs.search.brave.com/7brdeoHhRkFozO7hA1eTmLsfvnEh6C09ttMfyrGK5Bs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb25u/Z29uLnR2L3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzA5L2Yz/NjU1MWYxNGQ2ZDE5/MzFkZWRhNTM2ZmZk/OTg4MWIxLWNhY2gt/Y2hpZW4tY2EtdGh1/LW5nb24tbmhvLmpw/Zw",
-        price: 40000,
-        description: "Giòn rụm, thơm ngon với vỏ vàng, thịt mềm ngọt, thường chấm nước mắm và ăn kèm rau sống, tạo hương vị đậm đà.",
-        category: "Hải sản",
-    },
-    {
-        id: 7,
-        name: "Ốc cuốn lá lốt",
-        image: "https://imgs.search.brave.com/NVtWX7Z6s3NAm_Cr7KWjQQsCEVVLFRdKpm9V4vQ7JB0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly92Y2Ru/MS1naWFkaW5oLnZu/ZWNkbi5uZXQvMjAy/MS8xMS8xOS9UaG5o/cGhtMS0xNjM3MzI4/NTUxLTU5NDUtMTYz/NzMyODU2NC5qcGc_/dz01MDAmaD0zMDAm/cT0xMDAmZHByPTEm/Zml0PWNyb3Amcz10/bWZjX2NnWGJuYWh6/WFctNjZsT0ZB",
-        price: 53000,
-        description: "Dân dã, thơm ngon với ốc băm cuộn lá lốt, nướng hoặc chiên, chấm cùng nước mắm chua ngọt, tạo hương vị hấp dẫn.",
-        category: "Hải sản",
-    }
-
+export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):
+[
+ {
+    id: 1,
+    name: "Cơm chiên dương châu",
+    image: "./images/com chien duong chau.jpg",
+    price: 35000,
+    description:
+      "Là món cơm chiên Việt Nam hấp dẫn với tôm, xúc xích, trứng và rau, được nêm nếm hoàn hảo để tạo nên một bữa ăn đậm đà hương vị.",
+    category: "Cơm chiên",
+  },
+  {
+    id: 2,
+    name: "Bún bò",
+    image: "./images/bun bo.jpg",
+    price: 35000,
+    description:
+      "Là một ăn đậm đà của Việt Nam với thịt bò mềm, bún và các loại thảo mộc thơm trong nước dùng cay nồng.",
+    category: "Bún",
+  },
+  {
+    id: 3,
+    name: "Lẩu gà",
+    image: "./images/lau ga.webp",
+    price: 80000,
+    description:
+      "món lẩu gà của Việt Nam, gồm thịt gà mềm, rau và thảo mộc được ninh trong nước dùng đậm đà, ăn kèm với mì hoặc cơm.",
+    category: "Lẩu",
+  },
+  {
+    id: 4,
+ name: "Sữa chua",
+    image: "https://imgs.search.brave.com/6_Q7yxunHnvmPE7ctY7vnJOVwUoW7YtFfgqBYXvUOBI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/eW91bWVkLnZuL3Rp/bi10dWMvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMDgvMTku/anBn",
+    price: 10000,
+    description:
+      "Món ăn nhẹ mịn mượt, vị chua ngọt, bổ dưỡng và tốt cho tiêu hóa, thích hợp ăn trực tiếp hoặc kết hợp với trái cây, mật ong.",
+    category: "Tráng miệng",
+  },
+  {
+    id: 5,
+    name: "Bánh mì thịt",
+    image: "https://imgs.search.brave.com/U6mPHARfwKRqEW830QeYlPiN_EPnFscLvrwYzRqTpNM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcGlj/ZWJyZWV6ZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDkvQmFuaC1NaS1U/aGl0LTItZTE2MDAw/MDQ0MDE5NzQuanBn",
+    price: 15000,
+    description:
+      "Nhân thịt, pate, rau tươi, và gia vị đậm đà, được yêu thích.",
+    category: "Bánh mì",
+  },
+  {
+    id: 6,
+    name: "Cá chiên",
+    image: "https://imgs.search.brave.com/7brdeoHhRkFozO7hA1eTmLsfvnEh6C09ttMfyrGK5Bs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb25u/Z29uLnR2L3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzA5L2Yz/NjU1MWYxNGQ2ZDE5/MzFkZWRhNTM2ZmZk/OTg4MWIxLWNhY2gt/Y2hpZW4tY2EtdGh1/LW5nb24tbmhvLmpw/Zw",
+    price: 40000,
+    description:
+      "Giòn rụm, thơm ngon với vỏ vàng, thịt mềm ngọt, thường chấm nước mắm và ăn kèm rau sống, tạo hương vị đậm đà.",
+    category: "Hải sản",
+  },
+  {
+    id: 7,
+    name: "Ốc cuốn lá lốt",
+    image: "https://imgs.search.brave.com/NVtWX7Z6s3NAm_Cr7KWjQQsCEVVLFRdKpm9V4vQ7JB0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly92Y2Ru/MS1naWFkaW5oLnZu/ZWNkbi5uZXQvMjAy/MS8xMS8xOS9UaG5o/cGhtMS0xNjM3MzI4/NTUxLTU5NDUtMTYz/NzMyODU2NC5qcGc_/dz01MDAmaD0zMDAm/cT0xMDAmZHByPTEm/Zml0PWNyb3Amcz10/bWZjX2NnWGJuYWh6/WFctNjZsT0ZB",
+    price: 53000,
+    description:
+      "Dân dã, thơm ngon với ốc băm cuộn lá lốt, nướng hoặc chiên, chấm cùng nước mắm chua ngọt, tạo hương vị hấp dẫn.",
+    category: "Hải sản",
+  }
+  
 ];
-export const availableImages = [
-    "./images/com_chien_duong_chau.jpg",
-    "./images/bun_bo.jpg",
-    "./images/lau_ga.webp",
-    "./images/sua_chua.jpg"
-];
 
-export const menu_list = [{
-        menu_name: "Cơm chiên",
-        menu_image: "./images/com chien.jpg",
-    },
-    {
-        menu_name: "Lẩu",
-        menu_image: "./images/lau.jpg",
-    },
-    {
-        menu_name: "Bún",
-        menu_image: "./images/bun.jpg",
-    },
-    {
-        menu_name: "Bánh mì",
-        menu_image: "./images/banh mi.jpg",
-    },
-    {
-        menu_name: "Hải sản",
-        menu_image: "./images/hai san.jpg",
-    },
-    {
-        menu_name: "Tráng miệng",
-        menu_image: "./images/trang mieng.jpg",
-    },
+export const menu_list = getLocalStorage("menu_list")?getLocalStorage("menu_list"):
+[
+  {
+    menu_name: "Cơm chiên",
+    menu_image: "./images/com chien.jpg",
+  },
+  {
+    menu_name: "Lẩu",
+    menu_image: "./images/lau.jpg",
+  },
+  {
+    menu_name: "Bún",
+    menu_image: "./images/bun.jpg",
+  },
+  {
+    menu_name: "Bánh mì",
+    menu_image: "./images/banh mi.jpg",
+  },
+  {
+    menu_name: "Hải sản",
+    menu_image: "./images/hai san.jpg",
+  },
+  {
+    menu_name: "Tráng miệng",
+    menu_image: "./images/trang mieng.jpg",
+  },
 ];
 
 export const cart_items = {};
@@ -120,100 +123,180 @@ export const adminNavbarLinks = [{
     },
 ];
 
-export const users = [{
-        avt: null,
-        email: 'nguyenkhanh0127@gmail.com',
-        userName: 'Khanh',
-        password: '123456',
-        address: null,
-        roles: 'Khach hang',
-        cart: [{
-            name: 'Bún bò',
-            price: 35000,
-            quantity: 2
-        }]
-    },
-    {
-        email: 'captianBao@gmail.com',
-        avt: `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`,
-        userName: 'Bao',
-        password: '123456',
-        address: null,
-        roles: 'Admin',
-        cart: []
-    },
-    {
-        email: 'admin@gmail.com',
-        avt: `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`,
-        userName: 'Bao',
-        password: 'admin',
-        address: null,
-        roles: 'Admin',
-        cart: []
-    },
-    {
-        avt: null,
-        email: 'ThanhTran1997@gmail.com',
-        userName: 'Tran',
-        password: '654321',
-        address: null,
-        roles: 'Khach hang',
-        cart: [{
-                name: 'Bún bò',
-                price: 35000,
-                quantity: 1
-            },
-            {
-                name: 'Cơm chiên dương châu',
-                price: 35000,
-                quantity: 1
-            }
-        ]
-    }
+export const users = getLocalStorage("users")?getLocalStorage("users"):
+
+[
+  {
+    avt: null,
+    email: 'nguyenkhanh0127@gmail.com',
+    userName: 'Khanh',
+    password: '123456',
+    roles: 'Khach hang',
+    address: 'TP HCM',
+    isBlocked: false
+  },
+  {
+    email: 'captianBao@gmail.com',
+    avt: 
+    `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`
+    ,
+    userName: 'bảo',
+    password: '123456',
+    roles: 'Admin',
+    address: null,
+    isBlocked: false
+  },
+  {
+    email: 'admin@gmail.com',
+    avt: 
+    `https://imgs.search.brave.com/7KAKmiD31pUHujt4mXlTIeLdYzPZc3BHXZIxlbhUzCk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9kaWEtZGUtbG9z/LW11ZXJ0b3MtZGF5/LW9mLXRoZS1kZWFk/LWNlbGVicmF0aW9u/cy1mcmVlLWltYWdl/LmpwZWc_dz02MDAm/cXVhbGl0eT04MA`
+    ,
+    userName: 'Bao',
+    password: 'admin',
+    roles: 'Admin',
+    address: null,
+    isBlocked: false
+  },
+  {
+    avt: "../images/user pic.jpg",
+    email: 'ThanhTran1997@gmail.com',
+    userName: 'Tran',
+    password: '654321',
+    roles: 'Khach hang',
+    address: null,
+    isBlocked: false
+  },
+  {
+    avt: null,
+    email: "nam@gmail.com",
+    userName: 'Hoai Nam',
+    password: '123456',
+    roles: 'Khach hang',
+    address: null,
+    isBlocked: false
+  }
 ]
 
-
-const foods = [{
+let receipts = [
+// (getLocalStorage('receipts'))? getLocalStorage('receipts') : [
+  {
+    id: 1,
+    Email: 'nguyenkhanh0127@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
         food: food_list[0],
         soluong: 2
-    },
-    {
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 20000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-20T15:38:28.757Z")
+  },
+  {
+    id: 2,
+    Email: 'ThanhTran1997@gmail.com',
+    Address: '63 Gò Vấp',
+    ArrayFoods: [
+      {
+        food: food_list[0],
+        soluong: 1
+      },
+      {
+        food: food_list[3],
+        soluong: 1
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 20000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-26T15:38:28.757Z")
+  },
+  {
+    id: 3,
+    Email: 'ThanhTran1997@gmail.com',
+    Address: '63 Gò Vấp',
+    ArrayFoods: [
+      {
+        food: food_list[3],
+        soluong: 1
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 50000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-27T15:38:28.757Z")
+  },
+  {
+    id: 4,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
         food: food_list[1],
         soluong: 2
-    },
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 80000,
+    TongCong: 0,
+    NgayMua: new Date("2024-11-29T15:38:28.757Z")
+  },
+  {
+    id: 5,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
+        food: food_list[0],
+        soluong: 1
+      },
+      {
+        food: food_list[4],
+        soluong: 2
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 50000,
+    TongCong: 0,
+    NgayMua: new Date("2024-12-01T15:38:28.757Z")
+  },
+  {
+    id: 6,
+    Email: 'nam@gmail.com',
+    Address: 'TP HCM',
+    ArrayFoods: [
+      {
+        food: food_list[1],
+        soluong: 1
+      },
+      {
+        food: food_list[2],
+        soluong: 2
+      }
+    ],
+    TamTinh: 0,
+    PhiVanChuyen: 20000,
+    TongCong: 0,
+    NgayMua: new Date("2024-12-02T15:38:28.757Z")
+  }
 ]
-
-const ship = [{
-        ten: "Thường",
-        gia: 20000
-    },
-    {
-        ten: "Nhanh",
-        gia: 50000
-    },
-    {
-        ten: "Hỏa tốc",
-        gia: 80000
-    }
+receipts.forEach(receipt => {
+  receipt.ArrayFoods.forEach((item)=>{
+    receipt.TamTinh += item.food.price*item.soluong;
+  });
+});
+receipts.forEach(receipt => {
+  receipt.TongCong = receipt.TamTinh + receipt.PhiVanChuyen;
+});
 
 
-]
-export const receipts = [{
-        id: 1,
-        email: "test@gmail.com",
-        diachi: "TP HCM",
-        ArrayFood: foods,
-        TamTinh: 1000,
-        HinhThucVanChuyen: "Thuong",
-        PhiVanChuyen: 1000,
-        // TongCong: TamTinh + PhiVanChuyen,
-        NgayMua: "20/11/2024"
-    }
-
-]
-export function setLocalStorage(key, info) {
-    localStorage.setItem(key, JSON.stringify(info))
+export function setLocalStorage(key,info){
+  localStorage.setItem(key,JSON.stringify(info));
 }
-export function getLocalStorage(key) {
-    return JSON.parse(localStorage.getItem(key))
+
+
+export function getLocalStorage(key){
+  return JSON.parse(localStorage.getItem(key));
 }

@@ -93,9 +93,9 @@
     border-radius: 100%;
 }
 
-.adminUserBoard .user{
+/* .adminUserBoard .user{
     background-color: rgba(0, 0, 0, 0.03);
-}
+} */
 .adminUserBoard .user .info{
     display: flex;
     gap: 15px;
