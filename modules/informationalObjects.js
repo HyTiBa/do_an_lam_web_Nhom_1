@@ -263,23 +263,7 @@ export const users = getLocalStorage("users")?getLocalStorage("users"):
   }
 ]
 
-<<<<<<< HEAD
-export const receipts = 
-getLocalStorage("receipts")?getLocalStorage("receipts"):
-[{
-  id: 1,
-  email: "ThanhTran1997@gmail.com",
-  Address: "251 Le Quang Dinh",
-  ArrayFoods:  [{
-    food:food_list[2],
-    soluong:2
-  }],
-  TamTinh: parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10),
-  PhiVanChuyen: parseInt(document.getElementById("phi_van_chuyen").textContent.split(" ")[0], 10),
-  TongCong: parseInt(document.getElementById("tong_cong").textContent.split(" ")[0], 10),
-  NgayMua: new Date()
-}]
-=======
+
 let receipts = [
 // (getLocalStorage('receipts'))? getLocalStorage('receipts') : [
   {
@@ -394,7 +378,6 @@ receipts.forEach(receipt => {
   receipt.TongCong = receipt.TamTinh + receipt.PhiVanChuyen;
 });
 
->>>>>>> parent of 2da1d5b (Merge pull request #37 from HyTiBa/bao)
 
 export function setLocalStorage(key,info){
   localStorage.setItem(key,JSON.stringify(info));
