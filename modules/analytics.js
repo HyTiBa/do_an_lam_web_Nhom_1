@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const board = document.querySelector(".analyticBoard");
 const topOverviewElement = document.querySelectorAll(
   ".adminAnalytics .overview > div"
@@ -63,11 +64,51 @@ return
           ) {
             rowToInlncude = row;
           }
-        }) ;
-      }
+=======
+const board = document.querySelector(".analyticBoard")
+const topOverviewElement = document.querySelectorAll(".adminAnalytics .overview > div")
+const incomeElement = topOverviewElement[0].children[0].children[1]
+const orderElement = topOverviewElement[1].children[0].children[1]
+const userElement = topOverviewElement[2].children[0].children[1]
+const productElement = topOverviewElement[3].children[0].children[1]
+let datesPrinted = []
+import { food_list, users } from "./informationalObjects.js"
+import { receipts } from "./ThanhToan.js"
+export function adminAnalyticsLogic(){
+    const analyticButtonLink = document.querySelector(`a[page ="analytics"]`)
+    analyticButtonLink.addEventListener("click", () => {
+    reCalculateAnalyticsPage()
+   });
+   analyticBoardDisplay()
+   
+   
 
-    });
-}}
+
+}
+
+function analyticBoardDisplay(){
+    if(receipts != null){
+
+        receipts.forEach(receipt => {
+            
+            if(dateAlreadyExist(receipt.thoiGian) == false){
+                board.innerHTML += `
+                 <div class="row">
+                      <p>${receipt.thoiGian.getDate()}/${receipt.thoiGian.getMonth()}/${receipt.thoiGian.getFullYear()}</p>
+                      <p>${receipt.TongCong()}đ</p>
+                    </div>
+                `
+            }
+>>>>>>> parent of 2da1d5b (Merge pull request #37 from HyTiBa/bao)
+        })
+
+    }
+
+
+
+
+
+}
 
 function reCalculateAnalyticsPage(){
 incomeElement.innerHTML = `${sumtotal()}đ`
