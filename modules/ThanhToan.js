@@ -4,7 +4,7 @@ import { getLocalStorage } from "./informationalObjects.js";
 import { loginedUser } from "./signCode.js";
 import { pageDisplay } from "./pageDisplay.js";
 import { tmp } from "./cart.js";
-
+export let receipts
 export function formThanhToan() {
     var btn_confirm = document.querySelector(".order_confirm");
     btn_confirm.addEventListener("click", () => {
@@ -22,7 +22,7 @@ export function formThanhToan() {
                 
                 currentReceipts.push({
                     id: currentReceipts.length + 1,
-                    email: loginedUser.email,
+                    Email: loginedUser.email,
                     Address: document.querySelector(".input-text").value,
                     ArrayFoods: foods,
                     TamTinh: parseInt(document.getElementById("thanh_toan_tmp_cal_money").textContent.split(" ")[0], 10),

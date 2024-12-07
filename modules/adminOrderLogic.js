@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import {getLocalStorage, setLocalStorage, users } from "./informationalObjects.js";
 let receipts =getLocalStorage("receipts")
+=======
+import { setLocalStorage, users } from "./informationalObjects.js";
+import { receipts } from "./ThanhToan.js";
+>>>>>>> parent of 2da1d5b (Merge pull request #37 from HyTiBa/bao)
 const board = document.querySelector(".adminOrderBoard")
 export function adminOrderLogic(){
 orderBoardDisplay()
@@ -24,12 +29,12 @@ function orderBoardDisplay(){
     if (receipts != null) {
       
       receipts.forEach(receipt => {
-        let buyer
-        users.forEach(user => {
-          if(receipt.email == user.email){
-            buyer = user
-          }
-        })
+          let buyer
+          users.forEach(user => {
+              if(receipt.email == user.email){
+                  buyer = user
+              }
+          })
           
           board.innerHTML += `
            <div class="section">
@@ -47,7 +52,7 @@ function orderBoardDisplay(){
               </div>
             </div>
             <div class="foods">
-            ${getReceiptFoodImg(receipt.ArrayFoods)}  
+            ${getReceiptFoodImg(receipt.ArrayFood)}  
             </div>
   
             ${orderStatusDisplay(receipt)}

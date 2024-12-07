@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const board = document.querySelector(".analyticBoard");
 const topOverviewElement = document.querySelectorAll(
   ".adminAnalytics .overview > div"
@@ -63,105 +64,88 @@ return
           ) {
             rowToInlncude = row;
           }
+=======
+const board = document.querySelector(".analyticBoard")
+const topOverviewElement = document.querySelectorAll(".adminAnalytics .overview > div")
+const incomeElement = topOverviewElement[0].children[0].children[1]
+const orderElement = topOverviewElement[1].children[0].children[1]
+const userElement = topOverviewElement[2].children[0].children[1]
+const productElement = topOverviewElement[3].children[0].children[1]
+let datesPrinted = []
+import { food_list, users } from "./informationalObjects.js"
+import { receipts } from "./ThanhToan.js"
+export function adminAnalyticsLogic(){
+    const analyticButtonLink = document.querySelector(`a[page ="analytics"]`)
+    analyticButtonLink.addEventListener("click", () => {
+    reCalculateAnalyticsPage()
+   });
+   analyticBoardDisplay()
+   
+   
+
+
+}
+
+function analyticBoardDisplay(){
+    if(receipts != null){
+
+        receipts.forEach(receipt => {
+            
+            if(dateAlreadyExist(receipt.thoiGian) == false){
+                board.innerHTML += `
+                 <div class="row">
+                      <p>${receipt.thoiGian.getDate()}/${receipt.thoiGian.getMonth()}/${receipt.thoiGian.getFullYear()}</p>
+                      <p>${receipt.TongCong()}đ</p>
+                    </div>
+                `
+            }
+>>>>>>> parent of 2da1d5b (Merge pull request #37 from HyTiBa/bao)
         })
-        if (rowToInlncude != null) {
-          rowToInlncude.children[1].innerHTML +=  `
-                   <p>${receipt.TongCong}đ</p>
 
-          `
-        }
-      }
-    });
-  }
-}
-
-function reCalculateAnalyticsPage() {
-  incomeElement.innerHTML = `${sumtotal()}đ`;
-  if (receipts == null) {
-    orderElement.innerHTML = 0;
-  } else {
-    orderElement.innerHTML = `${receipts.length}`;
-  }
-  userElement.innerHTML = `${users.length}`;
-  productElement.innerHTML = `${food_list.length}`;
-  function sumtotal() {
-    let total = 0;
-    if (receipts != null) {
-      receipts.forEach((receipt) => {
-        total += receipt.TongCong;
-      });
     }
-    return total;
-  }
+
+
+
+
+
 }
 
-function dateAlreadyExist(date) {
-  if (datesPrinted == null) {
-    datesPrinted = [];
-    setDatePrinted(date);
-    return false;
-  } else {
-    return checkDate();
-  }
+function reCalculateAnalyticsPage(){
+incomeElement.innerHTML = `${sumtotal()}đ`
+if (receipts == null) {
+    orderElement.innerHTML = 0
+}
+else{
 
-  function checkDate() {
-    let bool;
-    datesPrinted.forEach((datePrint) => {
-      if (
-        datePrint.year == getYear(date) &&
-        datePrint.month == getMonth(date) &&
-        datePrint.day == getDay(date)
-      ) {
-        bool = true;
-      } else {
-        setDatePrinted(date);
-        bool = false;
-      }
-    });
-    return bool;
-  }
+    orderElement.innerHTML = `${receipts.length}`
+}
+userElement.innerHTML = `${users.length}`
+productElement.innerHTML = `${food_list.length}`
+function sumtotal(){
+    let total = 0
+    if (receipts != null) {
+        
+        receipts.forEach(receipt => {
+            total += receipt.TongCong()
+        })
+    }
+    return total
+}
 }
 
-function setDatePrinted(date) {
-  let newDate = {
-    day: getDay(date),
-    month: getMonth(date),
-    year: getYear(date),
-  };
+function dateAlreadyExist(date){
+    datesPrinted.forEach(datePrint => {
+        if(datePrint.year == date.getFullYear() && datePrint.month == date.getMonth() && datePrint.day == date.getDate()){
+            return true
+        }
+    })
+    setDatePrinted(date)
+return false}
 
-  datesPrinted.push(newDate);
-}
-
-function dateFilterLogic() {
-  inputDate.addEventListener("change", () => {
-    getCalendar(inputDate.value);
-  });
-}
-
-function getCalendar(date) {
-  day = getDay(date);
-  month = getMonth(date);
-  year = getYear(date);
-}
-
-function getDay(date) {
-  let dayToGet = "";
-  for (let index = 8; index < 10; index++) {
-    dayToGet += date[index];
-  }
-  return dayToGet;
-}
-function getMonth(date) {
-  let monthToGet = "";
-  for (let index = 5; index < 7; index++) {
-    monthToGet += date[index];
-  }
-  return monthToGet;
-}
-function getYear(date) {
-  let yearToGet = "";
-  for (let index = 0; index < 4; index++) {
-    yearToGet += date[index];
-  }
-  return yearToGet;
+function setDatePrinted(date){
+    let newDate = {}
+    newDate.day == date.getDate
+    newDate.month == date.getMonth
+    newDate.year == date.getFullYear
+    datesPrinted.push(newDate)
 }
