@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 import {getLocalStorage, setLocalStorage, users } from "./informationalObjects.js";
 let receipts =getLocalStorage("receipts")
-=======
-import { setLocalStorage, users } from "./informationalObjects.js";
-import { receipts } from "./ThanhToan.js";
->>>>>>> parent of 2da1d5b (Merge pull request #37 from HyTiBa/bao)
+
 const board = document.querySelector(".adminOrderBoard")
 export function adminOrderLogic(){
 orderBoardDisplay()
