@@ -1,5 +1,5 @@
-import { setLocalStorage, users } from "./informationalObjects.js";
-import { receipts } from "./ThanhToan.js";
+import {getLocalStorage, setLocalStorage, users } from "./informationalObjects.js";
+let receipts =getLocalStorage("receipts")
 const board = document.querySelector(".adminOrderBoard")
 export function adminOrderLogic(){
 orderBoardDisplay()
@@ -8,6 +8,9 @@ orderBoardDisplay()
 }
 
 function orderBoardDisplay(){
+  if (receipts == null) {
+  return
+  }
     board.innerHTML = `
      <div class="section">
           <h2>Mã</h2>
@@ -21,12 +24,12 @@ function orderBoardDisplay(){
     if (receipts != null) {
       
       receipts.forEach(receipt => {
-          let buyer
-          users.forEach(user => {
-              if(receipt.email == user.email){
-                  buyer = user
-              }
-          })
+        let buyer
+        users.forEach(user => {
+          if(receipt.email == user.email){
+            buyer = user
+          }
+        })
           
           board.innerHTML += `
            <div class="section">
@@ -44,7 +47,7 @@ function orderBoardDisplay(){
               </div>
             </div>
             <div class="foods">
-            ${getReceiptFoodImg(receipt.ArrayFood)}  
+            ${getReceiptFoodImg(receipt.ArrayFoods)}  
             </div>
   
             ${orderStatusDisplay(receipt)}
@@ -112,7 +115,10 @@ function orderStatusLogic(){
 }
 
 function getReceiptFoodImg(foods){
+  console.log(foods);
+  
     let images =""
+ if(foods != null){   
     foods.forEach(foodDetails => {
 
     images +=`
@@ -120,6 +126,7 @@ function getReceiptFoodImg(foods){
      `
      
     })
+  }
     return images
 
 }
