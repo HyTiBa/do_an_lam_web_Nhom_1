@@ -40,8 +40,31 @@ export function adminUserManage(){
                 adminUserBoardDisplay();
                 reattachEventListenerAdminUserBoard();
             } else{
-                alert('Mật khẩu phải có ít nhất 6 ký tự');
-                document.querySelector('.adminUserBoard .pop-ups .modify #modify_pwd').value ='';
+                if(userR === 'Admin'){
+                    for(let i = 0; i < users.length; i++){
+                        if(userED === users[i].email){
+                            users[i].userName = userN;
+                            users[i].password = userP;
+                            users[i].roles = userR;
+                            if(document.querySelector('.adminUserBoard .pop-ups .modify #isBlocked').checked){
+                                users[i].isBlocked = true;
+                            } else{
+                                users[i].isBlocked = false;
+                            }
+                            break;
+                        }
+                    }
+                    alert('Cập nhật người dùng thành công');
+                    setLocalStorage('users', users);
+                    document.querySelector(".adminUserBoard .pop-ups .modify").style.display = 'none';
+                    document.querySelector(".adminUserBoard .pop-ups").style.display = 'none';
+                    document.querySelector('.adminUserPage .top-section .adminUserSearch .search-box input').value = '';
+                    adminUserBoardDisplay();
+                    reattachEventListenerAdminUserBoard();
+                } else{
+                    alert('Mật khẩu phải có ít nhất 6 ký tự');
+                    document.querySelector('.adminUserBoard .pop-ups .modify #modify_pwd').value ='';
+                }
             }
         }
     }
@@ -167,7 +190,7 @@ export function adminUserManage(){
             return 0;
         }
 
-        if(!isPasswordValid(userP)){
+        if(!isPasswordValid(userP) && userR !== 'Admin'){
             alert('Mật khẩu phải có ít nhất 6 kí tự');
             return 0;
         }
@@ -234,12 +257,12 @@ export function adminUserManage(){
 
         for(let i = 0; i < users.length; i++){
             if(users[i].userName.toLocaleLowerCase().includes(searchInput.toLowerCase())
-            || users[i].email.toLocaleLowerCase().includes(searchInput.toLowerCase())){
+            || users[i].email.split('@')[0].toLocaleLowerCase().includes(searchInput.toLowerCase())){
                 userArr.push(users[i]);
             }
         }
         adminUserBoardDisplay(userArr);
         reattachEventListenerAdminUserBoard();
-
+        
     })
 }
