@@ -13,22 +13,15 @@ export function adminProductBoardDisplay() {
     <h2>Thêm/Xóa</h2>
     </div>
     `
-    let productAccs = null;
-    
-    // if (productArr != null) {
-    //     productAccs = productArr;
-    // } else {
-    //     productAccs = food_list;
-    // }
-    
+
     food_list.forEach((item) => {
     
-    
+let img = JSON.stringify(item.image)    
         
         adminProductBoard.innerHTML += `
         <div class="product section">
         <div class="info">
-        <img src="${item.image}">
+        <img src=${img}>
           <div>
             <p class="name">${item.name}</p>
           </div>
