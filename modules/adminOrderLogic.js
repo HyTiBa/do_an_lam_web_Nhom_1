@@ -1,5 +1,5 @@
-import { setLocalStorage, users } from "./informationalObjects.js";
-import { receipts } from "./informationalObjects.js";
+import {getLocalStorage, setLocalStorage, users } from "./informationalObjects.js";
+let receipts =getLocalStorage("receipts")
 const board = document.querySelector(".adminOrderBoard")
 export function adminOrderLogic(){
 orderBoardDisplay()
@@ -8,6 +8,9 @@ orderBoardDisplay()
 }
 
 function orderBoardDisplay(){
+  if (receipts == null) {
+  return
+  }
     board.innerHTML = `
      <div class="section">
           <h2>Mã</h2>

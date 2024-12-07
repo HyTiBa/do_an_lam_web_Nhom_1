@@ -1,5 +1,4 @@
-export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):
-[{
+export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list"):[{
         id: 1,
         name: "Cơm chiên dương châu",
         image: "./images/com chien duong chau.jpg",

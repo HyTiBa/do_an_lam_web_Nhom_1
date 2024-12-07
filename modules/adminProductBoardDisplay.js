@@ -1,8 +1,10 @@
 import { food_list } from "./informationalObjects.js";
 import { availableImages } from "./informationalObjects.js";
-import { setLocalStorage } from "./informationalObjects.js";
+import { setLocalStorage,getLocalStorage } from "./informationalObjects.js";
 const adminProductBoard = document.querySelector(".adminProductBoard")
-export function adminProductBoardDisplay(productArr = null) {
+let productArr=null
+export function adminProductBoardDisplay() {
+
     adminProductBoard.innerHTML = `
     <div class="section">
     <h2>Tên</h2>
@@ -11,21 +13,22 @@ export function adminProductBoardDisplay(productArr = null) {
     <h2>Thêm/Xóa</h2>
     </div>
     `
-    console.log(food_list[0].name);
     let productAccs = null;
-
-    if (productArr != null) {
-        productAccs = productArr;
-    } else {
-        productAccs = food_list;
-    }
-    productAccs.forEach((item) => {
+    
+    // if (productArr != null) {
+    //     productAccs = productArr;
+    // } else {
+    //     productAccs = food_list;
+    // }
+    
+    food_list.forEach((item) => {
+    
+    
+        
         adminProductBoard.innerHTML += `
         <div class="product section">
         <div class="info">
-          <img
-            src="${typeof(item.image) == "string" ? item.image : URL.createObjectURL(item.image)}"
-          />
+        <img src="${item.image}">
           <div>
             <p class="name">${item.name}</p>
           </div>
@@ -199,7 +202,7 @@ export function adminProductBoardDisplay(productArr = null) {
         let productC = document.querySelector('.adminProductPage .top-section .add-product #added_productCategory').value;
         let productI = document.querySelector('.adminProductPage .top-section .add-product #added_productImage').files[0];
         let inputFile = document.getElementById("added_productImage");
-
+        let img = URL.createObjectURL(productI)
 
         if (!checkname(productN)) {
             alert('Sản phẩm đã tồn tại!');
@@ -208,7 +211,7 @@ export function adminProductBoardDisplay(productArr = null) {
 
         const product = {
             id: food_list.length + 1,
-            image: productI,
+            image: img,
             name: productN,
             price: productP,
             description: productD,
@@ -286,10 +289,10 @@ export function adminProductBoardDisplay(productArr = null) {
                     searchInput.removeEventListener('input', productArr);
                 }
             }
-            removeSearchInputEventListener(productArr);
+            removeSearchInputEventListener();
 
         }
-        adminProductBoardDisplay(productArr);
+        adminProductBoardDisplay();
         reattachEventListeneradminProductBoardDisplay();
 
 

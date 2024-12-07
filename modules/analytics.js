@@ -11,8 +11,8 @@ let datesPrinted = null;
 let day;
 let year;
 let month;
-import { food_list, users } from "./informationalObjects.js";
-import { receipts } from "./informationalObjects.js";
+import { food_list, getLocalStorage, users } from "./informationalObjects.js";
+let receipts = getLocalStorage("receipts")
 export function adminAnalyticsLogic() {
   const analyticButtonLink = document.querySelector(`a[page ="analytics"]`);
   analyticButtonLink.addEventListener("click", () => {
@@ -29,7 +29,9 @@ function analyticBoardDisplay() {
           <p>Doanh thu</p>
         </div>
     `;
-
+if (receipts==null) {
+return  
+}
   if (receipts != null) {
     receipts.forEach((receipt) => {
       if (!dateAlreadyExist(receipt.NgayMua)) {
