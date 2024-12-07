@@ -21,12 +21,6 @@ export function adminAnalyticsLogic() {
   analyticBoardDisplay();
   dateFilterLogic();
 }
-function dateFilterLogic() {
-  inputDate.addEventListener("change", () => {
-    getCalendar(inputDate.value);
-  });
-
-}
 
 function analyticBoardDisplay() {
   board.innerHTML = `
