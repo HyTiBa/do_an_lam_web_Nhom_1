@@ -1,5 +1,5 @@
 import { food_list } from "./informationalObjects.js";
-import { availableImages } from "./informationalObjects.js";
+// import { availableImages } from "./informationalObjects.js";
 import { setLocalStorage,getLocalStorage } from "./informationalObjects.js";
 const adminProductBoard = document.querySelector(".adminProductBoard")
 let productArr=null
