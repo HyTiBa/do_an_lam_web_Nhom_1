@@ -4,7 +4,6 @@ let linkPressed
 
 export function pageDisplay(){
     const pageButtonLinks = document.querySelectorAll(".pageButtonLink");
-    console.log("h");
     
     
     let pageToDisplay

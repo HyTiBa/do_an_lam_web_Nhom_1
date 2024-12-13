@@ -144,6 +144,7 @@ export const food_list = getLocalStorage("food_list")?getLocalStorage("food_list
     },
 
 ];
+
 export const availableImages = [
     "./images/com_chien_duong_chau.jpg",
     "./images/bun_bo.jpg",
