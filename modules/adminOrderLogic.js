@@ -115,7 +115,6 @@ function orderStatusLogic(){
 }
 
 function getReceiptFoodImg(foods){
-  console.log(foods);
   
     let images =""
  if(foods != null){   

@@ -3,6 +3,7 @@ import { receipts } from "./informationalObjects.js";
 import { loginedUser } from "./signCode.js";
 //import { receipts } from "./informationalObjects.js";
 import { users } from "./informationalObjects.js";
+import { tmp } from "./cart.js";
 
 export function orderHistory(){
     function orderHistoryDisplay(){
@@ -17,11 +18,12 @@ export function orderHistory(){
         let tmpReceipts = [];
 
         receipts.forEach((r) => {
-            if(r.Email === loginedUser.email){
+            if(r.email === loginedUser.email){
                 tmpReceipts.push(r);
             }
         })
-
+        console.log(receipts);
+        
         var board = document.querySelector(".table_history tbody");
         
             if(board){
@@ -35,27 +37,12 @@ export function orderHistory(){
                     const hours = today.getHours();                 
                     const minutes = today.getMinutes(); 
                     const seconds = today.getSeconds();
-                    var vanchuyen="";
-                    switch (item.PhiVanChuyen) {
-                        case 20000:
-                            vanchuyen = "Thường"
-                            break;
-                        case 50000:
-                            vanchuyen = "Nhanh"
-                            break;
-                        case 80000:
-                            vanchuyen = "Hỏa tốc"
-                            break;
-                        default:
-                            break;  
-                    }
-                
                     
                     board.innerHTML += `
                         <tr class="history_item">
                             <td>${item.id}</td>
                             <td>${day}/${month}/${year} ${hours}:${minutes}:${seconds}</td>
-                            <td>${vanchuyen}</td>
+                            <td>${item.Address}</td>
                             <td>${item.TongCong} VND</td>
                         </tr>
                     `
@@ -64,6 +51,8 @@ export function orderHistory(){
 
         document.querySelectorAll('.history_item').forEach((item)=>{
             item.addEventListener("click",()=>{
+                
+                
                 var body_product = document.querySelector(".no-data-history");
                         
                 body_product.innerHTML = "";
