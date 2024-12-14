@@ -139,6 +139,7 @@ export function signCode(){
     document.querySelector('.profile-icon').style.display = 'none';
     document.querySelector('.login-btn').style.display = 'block';
     setLocalStorage('users', users);
+    location.reload()
     adminSidebarDisplayLogic()
   }
 

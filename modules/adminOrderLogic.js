@@ -8,19 +8,19 @@ orderBoardDisplay()
 }
 
 function orderBoardDisplay(){
+  board.innerHTML = `
+   <div class="section">
+        <h2>Mã</h2>
+        <h2>Người mua</h2>
+        <h2>Đơn hàng</h2>
+        <h2>Trạng thái</h2>
+        <h2>thêm</h2>
+      </div>
+      
+  `
   if (receipts == null) {
   return
   }
-    board.innerHTML = `
-     <div class="section">
-          <h2>Mã</h2>
-          <h2>Người mua</h2>
-          <h2>Đơn hàng</h2>
-          <h2>Trạng thái</h2>
-          <h2>thêm</h2>
-        </div>
-        
-    `
     if (receipts != null) {
       
       receipts.forEach(receipt => {
